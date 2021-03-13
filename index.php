@@ -48,7 +48,9 @@ if (!empty($_SESSION['admin'])) {
 	<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1" />
 	<title>Dashboard - CV. Mahardika Komputer</title>
 	<meta content="Umar Hadi Siswanto" name="author" />
-	
+
+	<link href="vendors/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="vendors/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet" type="text/css" />
     <link href="vendors/jquery-toggles/css/toggles.css" rel="stylesheet" type="text/css">
     <link href="vendors/jquery-toggles/css/themes/toggles-light.css" rel="stylesheet" type="text/css">
 	
@@ -138,28 +140,13 @@ if (!empty($_SESSION['admin'])) {
 				<div class="row">
                     <div class="col-xl-12">
 					<div class="hk-row">
-							<div class="col-md-3">
+							<div class="col-md-4">
 								<div class="card card-sm">
 									<a class="card-body" href="#">
 										<div class="d-flex align-items-center justify-content-between">
 											<div>
-												<span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Jumlah Nama Barang</span>
-												<span class="d-block display-6 font-weight-400 text-dark"><?php echo number_format($hasil_barang); ?></span>
-											</div>
-											<div>
-												<i class="zmdi zmdi-collection-text zmdi-hc-3x text-primary"></i>
-											</div>
-										</div>
-									</a>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="card card-sm">
-									<a class="card-body" href="#">
-										<div class="d-flex align-items-center justify-content-between">
-											<div>
-												<span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Sisa Semua Stok Barang</span>
-												<span class="d-block display-6 font-weight-400 text-dark"><?php echo number_format($stok['jml']); ?></span>
+												<span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Modal</span>
+												Rp.<span class="d-block display-6 font-weight-400 text-dark counter-anim">54,450.000</span>
 											</div>
 											<div>
 												<i class="zmdi zmdi-widgets zmdi-hc-3x text-primary"></i>
@@ -168,13 +155,13 @@ if (!empty($_SESSION['admin'])) {
 									</a>
 								</div>
 							</div>
-							<div class="col-md-3">
+							<div class="col-md-4">
 								<div class="card card-sm">
 									<a class="card-body" href="#">
 										<div class="d-flex align-items-center justify-content-between">
 											<div>
-												<span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Telah Terjual</span>
-												<span class="d-block display-6 font-weight-400 text-dark"><?php echo number_format($jual['stok']); ?></span>
+												<span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Keuntungan</span>
+												Rp.<span class="d-block display-6 font-weight-400 text-dark counter-anim">14,375.000</span>
 											</div>
 											<div>
 												<i class="zmdi zmdi-chart zmdi-hc-3x text-primary"></i>
@@ -183,13 +170,13 @@ if (!empty($_SESSION['admin'])) {
 									</a>
 								</div>
 							</div>
-							<div class="col-md-3">
+							<div class="col-md-4">
 								<div class="card card-sm">
 									<a class="card-body" href="#">
 										<div class="d-flex align-items-center justify-content-between">
 											<div>
-												<span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Jumlah Kategori Barang</span>
-												<span class="d-block display-6 font-weight-400 text-dark"><?php echo number_format($hasil_kategori); ?></span>
+												<span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Total Belanja Toko</span>
+												Rp.<span class="d-block display-6 font-weight-400 text-dark counter-anim">54,450.000</span>
 											</div>
 											<div>
 												<i class="zmdi zmdi-label zmdi-hc-3x text-primary"></i>
@@ -204,35 +191,35 @@ if (!empty($_SESSION['admin'])) {
 				<div class="card hk-dash-type-1 overflow-hide">
 							<div class="card-header pa-0">
 								<div class="nav nav-tabs nav-light nav-justified" id="dash-tab" role="tablist">
-									<a class="d-flex align-items-center justify-content-center nav-item nav-link active" id="dash-tab-1" data-toggle="tab" href="#nav-dash-1" role="tab" aria-selected="true">
+									<a class="d-flex align-items-center justify-content-center nav-item nav-link active" id="dash-tab-1" data-toggle="tab" href="#NamaBarang" role="tab" aria-selected="true">
 										<div class="d-flex">
 											<div>
-												<span class="d-block mb-5"><span class="display-4 counter-anim">16,843</span></span>
-												<span class="d-block"><i class="zmdi zmdi-eye mr-10"></i>views</span>
+												<span class="d-block mb-5"><span class="display-4 counter-anim"><?php echo number_format($hasil_barang); ?></span></span>
+												<span class="d-block"><i class="zmdi zmdi-collection-text mr-10"></i>Jumlah Nama Barang</span>
 											</div>
 										</div>
 									</a>
-									<a class="d-flex align-items-center justify-content-center nav-item nav-link" id="dash-tab-2" data-toggle="tab" href="#nav-dash-2" role="tab" aria-selected="false">
+									<a class="d-flex align-items-center justify-content-center nav-item nav-link" id="dash-tab-2" data-toggle="tab" href="#Stok" role="tab" aria-selected="false">
 										<div class="d-flex">
 											<div>
-												<span class="d-block mb-5"><span class="display-4 counter-anim">2457</span></span>
-												<span class="d-block"><i class="zmdi zmdi-trending-up mr-10"></i>sales</span>
+												<span class="d-block mb-5"><span class="display-4 counter-anim"><?php echo number_format($stok['jml']); ?></span></span>
+												<span class="d-block"><i class="zmdi zmdi-trending-up mr-10"></i>Sisa Stok Semua Barang</span>
 											</div>
 										</div>
 									</a>
-									<a class="d-flex align-items-center justify-content-center nav-item nav-link" id="dash-tab-3" data-toggle="tab" href="#nav-dash-3" role="tab" aria-controls="nav-dash-3" aria-selected="false">
+									<a class="d-flex align-items-center justify-content-center nav-item nav-link" id="dash-tab-3" data-toggle="tab" href="#Terjual" role="tab" aria-selected="false">
 										<div class="d-flex">
 											<div>
-												<span class="d-block mb-5"><span class="display-4 counter-anim">12,726</span></span>
-												<span class="d-block"><i class="zmdi zmdi-money mr-10"></i>total</span>
+												<span class="d-block mb-5"><span class="display-4 counter-anim"><?php echo number_format($jual['stok']); ?></span></span>
+												<span class="d-block"><i class="zmdi zmdi-money mr-10"></i>Telah Terjual</span>
 											</div>
 										</div>
 									</a>
-									<a class="d-flex align-items-center justify-content-center nav-item nav-link" id="dash-tab-3" data-toggle="tab" href="#nav-dash-3" role="tab" aria-controls="nav-dash-3" aria-selected="false">
+									<a class="d-flex align-items-center justify-content-center nav-item nav-link" id="dash-tab-3" data-toggle="tab" href="#Kategori" role="tab" aria-selected="false">
 										<div class="d-flex">
 											<div>
-												<span class="d-block mb-5"><span class="display-4 counter-anim">12,726</span></span>
-												<span class="d-block"><i class="zmdi zmdi-money mr-10"></i>total</span>
+												<span class="d-block mb-5"><span class="display-4 counter-anim"><?php echo number_format($hasil_kategori); ?></span></span>
+												<span class="d-block"><i class="zmdi zmdi-money mr-10"></i>Kategori Barang</span>
 											</div>
 										</div>
 									</a>
@@ -240,16 +227,43 @@ if (!empty($_SESSION['admin'])) {
 							</div>
 							<div class="card-body">
 								<div class="tab-content" id="nav-tabContent">
-									<div class="tab-pane fade show active" id="nav-dash-1" role="tabpanel" aria-labelledby="dash-tab-1">
-										<div id="e_chart_11" class="echart" style="height:310px;"></div>
+									<div class="tab-pane fade show active" id="NamaBarang" role="tabpanel" aria-labelledby="NamaBarang">
+									<div class="table-wrap">
+                                        <table id="datable_1" class="table table-hover w-100 display pb-30" style="max-width: 100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>No.</th>
+                                                    <th>Nama Barang</th>
+                                                    <th>Merk</th>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+											<?php 
+												$hasil = $lihat -> barang();
+												$no=1;
+												foreach($hasil as $isi) {
+											?>
+                                                <tr>
+													<td><?php echo $no;?>.</td>
+                                                    <td><?php echo $isi['nama_barang'];?></td>
+													<td><?php echo $isi['merk'];?></td>
+													<td><a href="#"><button class="btn btn-warning">Edit</button></a>
+													<a href="#" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-danger">Hapus</button></a></td>
+													<?php $no++; } ?>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
 									</div>
-									<div class="tab-pane fade" id="nav-dash-2" role="tabpanel" aria-labelledby="dash-tab-2">
+									<div class="tab-pane fade" id="Stok" role="tabpanel" aria-labelledby="Stok">
 										<div id="e_chart_12" class="echart" style="height:310px;"></div>
 									</div>
-									<div class="tab-pane fade" id="nav-dash-3" role="tabpanel" aria-labelledby="dash-tab-3">
+									<div class="tab-pane fade" id="Terjual" role="tabpanel" aria-labelledby="Terjual">
 										<div id="e_chart_13" class="echart" style="height:310px;"></div>
 									</div>
-									<div class="tab-pane fade" id="nav-dash-3" role="tabpanel" aria-labelledby="dash-tab-3">
+									<div class="tab-pane fade" id="Kategori" role="tabpanel" aria-labelledby="Kategori">
 										<div id="e_chart_13" class="echart" style="height:310px;"></div>
 									</div>
 								</div>
@@ -299,6 +313,21 @@ if (!empty($_SESSION['admin'])) {
 
 	<!-- Peity JavaScript -->
 	<script src="vendors/peity/jquery.peity.min.js"></script>
+	
+	<!-- Data Table JavaScript -->
+	<script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="vendors/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="vendors/jszip/dist/jszip.min.js"></script>
+    <script src="vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="vendors/pdfmake/build/vfs_fonts.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="dist/js/dataTables-data.js"></script>
 
 	<!-- Init JavaScript -->
 	<script src="dist/js/init.js"></script>

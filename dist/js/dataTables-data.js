@@ -5,10 +5,11 @@
 $(document).ready(function() {
 	$('#datable_1').DataTable({
 		responsive: true,
-		autoWidth: false,
+		autoWidth: true,
+		lengthChange: false,
 		language: { search: "",
-		searchPlaceholder: "Search",
-		sLengthMenu: "_MENU_items"
+		searchPlaceholder: "Cari..",
+		
 
 		}
 	});
