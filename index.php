@@ -40,7 +40,7 @@ if (!empty($_SESSION['admin'])) {
 	echo '<script>window.location="login.php";</script>';
 }
 ?>
-
+<title>Dashboard - CV. Mahardika Komputer</title>
 <div class="hk-pg-wrapper">
 	<div class="container mt-xl-50 mt-sm-30 mt-15">
 		<div class="hk-pg-header mb-1">

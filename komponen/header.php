@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1" />
-    <title>Dashboard - CV. Mahardika Komputer</title>
     <meta content="Umar Hadi Siswanto" name="author" />
 
     <link href="vendors/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
@@ -30,7 +29,7 @@
                         <a href="#" class="nav-link"><i class="zmdi zmdi-home"></i> Dashboard</a>
                     </li>
                     <li class="nav-item show-on-hover">
-                        <a href="#" class="nav-link"><i class="zmdi zmdi-money-box"></i> Transaksi Kasir</a>
+                        <a href="transaksi.php" class="nav-link"><i class="zmdi zmdi-money-box"></i> Transaksi Kasir</a>
                     </li>
                     <li class="nav-item dropdown show-on-hover">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-collection-text"></i> Barang</a>
@@ -62,7 +61,7 @@
                         <a class="dropdown-item" href="profile.html"><i class="dropdown-icon zmdi zmdi-account"></i><span>Edit Akun</span></a>
                         <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-settings"></i><span>Pengaturan Toko</span></a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-power"></i><span>Logout</span></a>
+                        <a class="dropdown-item" href="logout.php"><i class="dropdown-icon zmdi zmdi-power"></i><span>Logout</span></a>
                     </div>
                 </li>
             </ul>
