@@ -3,14 +3,31 @@
 "use strict"; 
 
 $(document).ready(function() {
-	$('#datable_1').DataTable({
-		responsive: true,
+	$('#tableDash1').DataTable({
+		responsive: false,
 		autoWidth: true,
 		lengthChange: false,
 		language: { search: "",
 		searchPlaceholder: "Cari..",
 		
-
+		}
+	});
+	$('#tableDash2').DataTable({
+		responsive: false,
+		autoWidth: true,
+		lengthChange: false,
+		language: { search: "",
+		searchPlaceholder: "Cari..",
+		
+		}
+	});
+	$('#tableDash3').DataTable({
+		responsive: false,
+		autoWidth: true,
+		lengthChange: false,
+		language: { search: "",
+		searchPlaceholder: "Cari..",
+		
 		}
 	});
     $('#datable_2').DataTable({ 

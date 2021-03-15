@@ -52,6 +52,22 @@
 				$hasil = $row -> fetchAll();
 				return $hasil;
 			}
+
+			function barang_terjual($id_brg){
+				$sql = "select sum(jumlah) from nota where id_barang= ?";
+				$row = $this-> db -> prepare($sql);
+				$row -> execute($id_brg);
+				$hasil = $row -> fetchColumn();
+				return $hasil;
+			}
+
+			function barang_sisa(){
+				$sql = "select sum(stok) as sisa from barang";
+				$row = $this-> db -> prepare($sql);
+				$row -> execute();
+				$hasil_htg = $row -> fetchColumn();
+				return $hasil_htg;
+			}
 			
 			function barang_stok(){
 				$sql = "select barang.*, kategori.id_kategori, kategori.nama_kategori

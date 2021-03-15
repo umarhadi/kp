@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1" />
+    <title>Dashboard - CV. Mahardika Komputer</title>
+    <meta content="Umar Hadi Siswanto" name="author" />
+
+    <link href="vendors/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="vendors/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="vendors/jquery-toggles/css/toggles.css" rel="stylesheet" type="text/css">
+    <link href="vendors/jquery-toggles/css/themes/toggles-light.css" rel="stylesheet" type="text/css">
+
+    <link href="dist/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <div class="hk-wrapper hk-alt-nav">
+        <!-- mulai bar navigasi-->
+        <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar hk-navbar-alt">
+            <a class="navbar-toggle-btn nav-link-hover navbar-toggler" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarCollapseAlt" aria-controls="navbarCollapseAlt" aria-expanded="false" aria-label="Toggle navigation"><span class="feather-icon"><i data-feather="menu"></i></span></a>
+            <a class="navbar-brand" href="dashboard1.html">
+                <h5 class="brand-img d-inline-block align-top"><?php echo $toko['nama_toko'] ?></h5>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarCollapseAlt">
+                <ul class="navbar-nav">
+                    <li class="nav-item show-on-hover active">
+                        <a href="#" class="nav-link"><i class="zmdi zmdi-home"></i> Dashboard</a>
+                    </li>
+                    <li class="nav-item show-on-hover">
+                        <a href="#" class="nav-link"><i class="zmdi zmdi-money-box"></i> Transaksi Kasir</a>
+                    </li>
+                    <li class="nav-item dropdown show-on-hover">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-collection-text"></i> Barang</a>
+                        <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                            <a class="dropdown-item" href="dashboard1.html"><i class="zmdi zmdi-label-alt"></i> Kategori</a>
+                            <a class="dropdown-item" href="dashboard2.html"><i class="zmdi zmdi-archive"></i> Stok Barang</a>
+                        </div>
+                    </li>
+                    <li class="nav-item show-on-hover">
+                        <a href="#" class="nav-link"><i class="zmdi zmdi-assignment"></i> Laporan</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="navbar-nav hk-navbar-content">
+                <li class="nav-item dropdown dropdown-authentication">
+                    <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="media">
+                            <div class="media-img-wrap">
+                                <div class="avatar">
+                                    <img src="assets/img/user/<?php echo $hasil_profil['gambar']; ?>" alt="user" class="avatar-img rounded-circle">
+                                </div>
+                            </div>
+                            <div class="media-body">
+                                <span><?php echo $hasil_profil['nm_member'] ?><i class="zmdi zmdi-chevron-down"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
+                        <a class="dropdown-item" href="profile.html"><i class="dropdown-icon zmdi zmdi-account"></i><span>Edit Akun</span></a>
+                        <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-settings"></i><span>Pengaturan Toko</span></a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-power"></i><span>Logout</span></a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
