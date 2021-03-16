@@ -53,6 +53,6 @@ if(!empty($_SESSION['admin'])){
 		$sql1 = 'INSERT INTO penjualan (id_barang,id_member,jumlah,total,tanggal_input) VALUES (?,?,?,?,?)';
 		$row1 = $config -> prepare($sql1);
 		$row1 -> execute($data1);
- 		echo '<script>window.location="../../index2.php?page=jual&success=tambah-data"</script>';
+ 		echo '<script>window.location="../../transaksi.php"</script>';
 	}
 }
