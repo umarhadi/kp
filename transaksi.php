@@ -229,7 +229,7 @@ if (!empty($_SESSION['admin'])) {
                     <div class="col-md-4">
                         <div class="hk-pg-header mb-1">
                             <h3 class="hk-pg-title font-weight-300 mb"><i class="zmdi zmdi-info-outline"></i>&nbsp;Info</h3>
-                            <a href="#" class="d-flex text-secondary mr-15"><span class="feather-icon"><i data-feather="printer"></i></span></a>
+                            <a href="print.php?nm_member=<?php echo $_SESSION['admin']['nm_member']; ?>&bayar=<?php echo $bayar; ?>&kembali=<?php echo $hitung; ?>" target="_blank" class="d-flex text-secondary mr-15"><span class="feather-icon"><i data-feather="printer"></i></span></a>
                         </div>
                         <div class="card card-sm">
                             <div class="card-body">

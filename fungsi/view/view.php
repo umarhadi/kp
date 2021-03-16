@@ -20,6 +20,8 @@ class view
 		return $hasil;
 	}
 
+
+
 	function member_edit($id)
 	{
 		$sql = "select member.*, login.*

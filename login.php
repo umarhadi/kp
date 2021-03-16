@@ -43,7 +43,7 @@
 													if($jum > 0){
 														$hasil = $row -> fetch();
 														$_SESSION['admin'] = $hasil;
-														echo '<script>window.location="index2.php"</script>';
+														echo '<script>window.location="index.php"</script>';
 														}else{
 															echo '<div class="alert alert-danger alert-wth-icon alert-dismissible fade show" role="alert">
 															<span class="alert-icon-wrap"><i class="zmdi zmdi-lock-outline"></i></span> Username atau password salah.
