@@ -3,41 +3,41 @@
 session_start();
 
 if (!empty($_SESSION['admin'])) {
-    require 'config.php';
-    include $view;
-    $lihat = new view($config);
-    $toko = $lihat->toko();
-    $id = $_SESSION['admin']['id_member'];
+	require 'config.php';
+	include $view;
+	$lihat = new view($config);
+	$toko = $lihat->toko();
+	$id = $_SESSION['admin']['id_member'];
 
-    // variable view stok, nama, kategori, sudah terjual
-    $hasil_profil = $lihat->member_edit($id);
-    $hasil_barang = $lihat->barang_row();
-    $hasil_kategori = $lihat->kategori_row();
-    $stok = $lihat->barang_stok_row();
-    $jual = $lihat->jual_row();
+	// variable view stok, nama, kategori, sudah terjual
+	$hasil_profil = $lihat->member_edit($id);
+	$hasil_barang = $lihat->barang_row();
+	$hasil_kategori = $lihat->kategori_row();
+	$stok = $lihat->barang_stok_row();
+	$jual = $lihat->jual_row();
 
-    // variable view penjualan, laba, modal
-    //$bln = date('m');
-    //$thn = date('Y');
-    $periode_bln = '"02-2021"'; //date('m').'-'.date('Y');
-    $hasil_jual = $lihat->penjualan_bulan_row($periode_bln);
+	// variable view penjualan, laba, modal
+	//$bln = date('m');
+	//$thn = date('Y');
+	$periode_bln = '"02-2021"'; //date('m').'-'.date('Y');
+	$hasil_jual = $lihat->penjualan_bulan_row($periode_bln);
 
-    /*$bayar += $hasil_jual['total'];
+	/*$bayar += $hasil_jual['total'];
             $modal += $hasil_jual['harga_beli']* $hasil_jual['jumlah'];
             $jumlah += $hasil_jual['jumlah'];
             */
 
-    //  admin
-    include 'komponen/header.php';
+	//  admin
+	include 'komponen/header.php';
 
-    if (!empty($_GET['page'])) {
-        include 'admin/module/' . $_GET['page'] . '/index.php';
-    } else {
-        //include 'admin/template/home.php';
-    }
-    // end admin
+	if (!empty($_GET['page'])) {
+		include 'admin/module/' . $_GET['page'] . '/index.php';
+	} else {
+		//include 'admin/template/home.php';
+	}
+	// end admin
 } else {
-    echo '<script>window.location="login.php";</script>';
+	echo '<script>window.location="login.php";</script>';
 }
 ?>
 <title>Transaksi - CV. Mahardika Komputer</title>
@@ -45,7 +45,7 @@ if (!empty($_SESSION['admin'])) {
     <div class="container mt-xl-50 mt-sm-30 mt-15">
         <div class="hk-pg-header mb-1">
             <div>
-                <h2 class="hk-pg-title font-weight-600 mb-10"><i class="zmdi zmdi-search"></i>&nbsp;Cari Barang</h2>
+                <h2 class="hk-pg-title font-weight-300 mb-10"><i class="zmdi zmdi-search"></i>&nbsp;Cari Barang</h2>
                 <?php
                 $sql = " select * from barang where stok <= 3";
                 $row = $config->prepare($sql);
@@ -54,9 +54,9 @@ if (!empty($_SESSION['admin'])) {
                 if ($r > 0) {
                 ?>
                 <?php
-                    echo "<div class='alert alert-secondary alert-wth-icon alert-dismissible fade show' role='alert'>
+                    echo "<div class='alert alert-success alert-wth-icon alert-dismissible fade show mb-0' role='alert'>
 							<span class='alert-icon-wrap'><i class='zmdi zmdi-notifications-active'></i></span>Ada <span style='color:red'>$r</span> barang yang stoknya kurang dari 3 item. Silahkan update di
-							<a href='index.php?page=barang&stok=yes'><span class='text-primary'>Tabel Barang</span></a>
+							<a href='index.php?page=barang&stok=yes'><span class='text-warning'>Tabel Barang</span></a>
 							<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
 								<span aria-hidden='true'>&times;</span>
 							</button>
@@ -73,7 +73,7 @@ if (!empty($_SESSION['admin'])) {
                         <div class="card card-lg">
                             <div class="card-body">
                                 <div class="align-items-center justify-content-between">
-                                <span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Masukkan ID Barang / Nama Barang</span>
+                                    <span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Masukkan ID Barang / Nama Barang</span>
                                     <div>
                                         <div class="input-group">
                                             <input type="text" class="form-control" id="cari" name="cari" placeholder="Cari..." aria-label="Cari..." aria-describedby="Cari...">
@@ -92,150 +92,52 @@ if (!empty($_SESSION['admin'])) {
                 </div>
             </div>
         </div>
-        <div class="card hk-dash-type-1 overflow-hide">
-            <div class="card-header pa-0">
-                <div class="nav nav-tabs nav-light nav-justified" id="dash-tab" role="tablist">
-                    <a class="d-flex align-items-center justify-content-center nav-item nav-link active" id="dash-tab-1" data-toggle="tab" href="#NamaBarang" role="tab" aria-selected="true">
-                        <div class="d-flex">
-                            <div>
-                                <span class="d-block mb-5"><span class="display-4 counter-anim"><?php echo number_format($hasil_barang); ?></span></span>
-                                <span class="d-block"><i class="zmdi zmdi-collection-text mr-10"></i>Nama Barang</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a class="d-flex align-items-center justify-content-center nav-item nav-link" id="dash-tab-2" data-toggle="tab" href="#Stok" role="tab" aria-selected="false">
-                        <div class="d-flex">
-                            <div>
-                                <span class="d-block mb-5"><span class="display-4 counter-anim"><?php echo number_format($stok['jml']); ?></span></span>
-                                <span class="d-block"><i class="zmdi zmdi-trending-up mr-10"></i>Stok Barang Tersisa</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a class="d-flex align-items-center justify-content-center nav-item nav-link" id="dash-tab-3" data-toggle="tab" href="#Terjual" role="tab" aria-selected="false">
-                        <div class="d-flex">
-                            <div>
-                                <span class="d-block mb-5"><span class="display-4 counter-anim"><?php echo number_format($jual['stok']); ?></span></span>
-                                <span class="d-block"><i class="zmdi zmdi-money mr-10"></i>Barang Telah Terjual</span>
-                            </div>
-                        </div>
-                    </a>
-                    <a class="d-flex align-items-center justify-content-center nav-item nav-link" id="dash-tab-3" data-toggle="tab" href="#Kategori" role="tab" aria-selected="false">
-                        <div class="d-flex">
-                            <div>
-                                <span class="d-block mb-5"><span class="display-4 counter-anim"><?php echo number_format($hasil_kategori); ?></span></span>
-                                <span class="d-block"><i class="zmdi zmdi-money mr-10"></i>Kategori Barang</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+        <div class="hk-pg-header mb-1">
+            <h2 class="hk-pg-title font-weight-300 mb-10"><i class="zmdi zmdi-shopping-cart"></i>&nbsp;Transaksi</h2>
+        </div>
+        <div class="card hk-row">
             <div class="card-body">
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="NamaBarang" role="tabpanel" aria-labelledby="NamaBarang">
-                        <div class="table-wrap">
-                            <table id="tableDash1" class="table table-hover w-100 display pb-30">
-                                <thead>
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>Nama Barang</th>
-                                        <th>Merk</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $hasil = $lihat->barang();
-                                    $no = 1;
-                                    foreach ($hasil as $isi) {
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $no; ?>.</td>
-                                            <td><?php echo $isi['nama_barang']; ?></td>
-                                            <td><?php echo $isi['merk']; ?></td>
-                                            <td><a href="#"><button class="btn btn-warning">Edit</button></a>
-                                                <a href="#" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-danger">Hapus</button></a>
-                                            </td>
-                                        <?php $no++;
-                                    } ?>
-                                        </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="Stok" role="tabpanel" aria-labelledby="Stok">
-                        <div class="table-wrap">
-                            <table id="tableDash2" class="table table-hover w-100 display pb-30">
-                                <thead>
-                                    <tr>
-                                        <th>No.</th>
-                                        <th>Nama Barang</th>
-                                        <th>Stok</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $hasil = $lihat->barang();
-                                    $hasilhtg = $lihat->barang_sisa();
-                                    $no = 1;
-                                    foreach ($hasil as $isi) {
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $no; ?>.</td>
-                                            <td><?php echo $isi['nama_barang']; ?></td>
-                                            <td><?php echo $isi['stok']; ?></td>
-                                            <td><a href="#"><button class="btn btn-warning">Edit</button></a>
-                                                <a href="#" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-danger">Hapus</button></a>
-                                            </td>
-                                        <?php $no++;
-                                    } ?>
-                                        </tr>
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th>&nbsp;</th>
-                                        <th>Total</th>
-                                        <th><?php echo $hasilhtg; ?></th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade " id="Terjual" role="tabpanel" aria-labelledby="Terjual">
-                        <div class="table-wrap">
-                            <div class="table-wrap">
-                                <button class="btn btn-dark align-items-center btn-wth-icon icon-wthot-bg btn-rounded icon-right btn-lg"><span class="btn-text">Ke halaman laporan</span> <span class="icon-label"><span class="feather-icon"><i data-feather="arrow-right"></i></span> </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="Kategori" role="tabpanel" aria-labelledby="Kategori">
-                        <table id="tableDash3" class="table table-hover w-100 display pb-30">
-                            <thead>
+                <div class="table-wrap">
+                    <table id="tableDash1" class="table w-100 pb-30">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Nama Barang</th>
+                                <th>Harga Satuan</th>
+                                <th>Jumlah</th>
+                                <th>Total</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            <?php $total_bayar = 0;
+                            $no = 1;
+                            $hasil_penjualan = $lihat->penjualan(); ?>
+                            <?php foreach ($hasil_penjualan as $isi) {; ?>
                                 <tr>
-                                    <th>No.</th>
-                                    <th>Kategori</th>
-                                    <th>Aksi</th>
+                                    <td><?php echo $no; ?>.</td>
+                                    <td><?php echo $isi['nama_barang']; ?></td>
+                                    <td>Rp. <?php echo number_format($isi['harga_jual']); ?></td>
+                                    <td style="width: 15%" class="justify">
+                                        <form method="POST" action="fungsi/edit/edit.php?jual=jual">
+                                            <input type="number" name="jumlah" class="normal form-control" value="<?php echo $isi['jumlah']; ?>" min="0" max="100" step="1">
+                                            <input type="hidden" name="id" value="<?php echo $isi['id_penjualan']; ?>" class="form-control">
+                                            <input type="hidden" name="id_barang" value="<?php echo $isi['id_barang']; ?>" class="form-control">
+                                    </td>
+                                    <td>Rp. <?php echo number_format($isi['total']); ?></td>
+                                    <td style="width: 15%"><button type="submit" class="btn btn-success"><i class="material-icons">check</i></button>
+                                        <a href="fungsi/hapus/hapus.php?jual=jual&id=<?php echo $isi['id_penjualan']; ?>&brg=<?php echo $isi['id_barang']; ?>&jml=<?php echo $isi['jumlah']; ?>" class="btn btn-danger"><i class="material-icons">cancel</i>
+                                        </a>
+                                    </td>
+                                    </form>
+
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $hasil = $lihat->kategori();
-                                $no = 1;
-                                foreach ($hasil as $isi) {
-                                ?>
-                                    <tr>
-                                        <td><?php echo $no; ?>.</td>
-                                        <td><?php echo $isi['nama_kategori']; ?></td>
-                                        <td><a href="#"><button class="btn btn-warning">Edit</button></a>
-                                            <a href="#" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-danger">Hapus</button></a>
-                                        </td>
-                                    <?php $no++;
-                                } ?>
-                                    </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                            <?php $no++;
+                                $total_bayar += $isi['total'];
+                            } ?>
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -298,33 +200,34 @@ if (!empty($_SESSION['admin'])) {
 <script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
 <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
 <script src="dist/js/dataTables-data.js"></script>
-
+<script src="vendors/bootstrap-input-spinner/src/bootstrap-input-spinner.js"></script>
+<script src="dist/js/inputspinner-data.js"></script>
 <script>
-        // AJAX call for autocomplete 
-        $(document).ready(function() {
-            $("#cari").change(function() {
-                $.ajax({
-                    type: "POST",
-                    url: "fungsi/edit/edit.php?cari_barang=yes",
-                    data: 'keyword=' + $(this).val(),
-                    beforeSend: function() {
-                        $("#hasil_cari").hide();
-                        $("#tunggu").html('<p style="color:green"><blink>tunggu sebentar</blink></p>');
-                    },
-                    success: function(html) {
-                        $("#tunggu").html('');
-                        $("#hasil_cari").show();
-                        $("#hasil_cari").html(html);
-                    },
-                });
+    // AJAX call for autocomplete 
+    $(document).ready(function() {
+        $("#cari").change(function() {
+            $.ajax({
+                type: "POST",
+                url: "fungsi/edit/edit.php?cari_barang=yes",
+                data: 'keyword=' + $(this).val(),
+                beforeSend: function() {
+                    $("#hasil_cari").hide();
+                    $("#tunggu").html('<p style="color:green"><blink>tunggu sebentar</blink></p>');
+                },
+                success: function(html) {
+                    $("#tunggu").html('');
+                    $("#hasil_cari").show();
+                    $("#hasil_cari").html(html);
+                },
             });
         });
-        $("#hapus_cari").click(function() {
-            $("#hasil_cari").hide();
-            $("#cari").show();
-        });
-        //To select country name
-    </script>
+    });
+    $("#hapus_cari").click(function() {
+        $("#hasil_cari").hide();
+        $("#cari").show();
+    });
+    //To select country name
+</script>
 
 <!-- Init JavaScript -->
 <script src="dist/js/init.js"></script>

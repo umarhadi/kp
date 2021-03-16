@@ -158,7 +158,7 @@ if (!empty($_SESSION['admin'])) {
 				<div class="tab-content" id="nav-tabContent">
 					<div class="tab-pane fade show active" id="NamaBarang" role="tabpanel" aria-labelledby="NamaBarang">
 						<div class="table-wrap">
-							<table id="tableDash1" class="table table-hover w-100 display pb-30">
+							<table id="tableDash1" class="table w-100 display pb-30">
 								<thead>
 									<tr>
 										<th>No.</th>
@@ -190,7 +190,7 @@ if (!empty($_SESSION['admin'])) {
 					</div>
 					<div class="tab-pane fade" id="Stok" role="tabpanel" aria-labelledby="Stok">
 						<div class="table-wrap">
-							<table id="tableDash2" class="table table-hover w-100 display pb-30">
+							<table id="tableDash2" class="table w-100 pb-30">
 								<thead>
 									<tr>
 										<th>No.</th>

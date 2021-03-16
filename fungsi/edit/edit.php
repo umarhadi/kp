@@ -174,10 +174,10 @@ if(!empty($_SESSION['admin'])){
 			$sql1 = 'UPDATE penjualan SET jumlah=?,total=? WHERE id_penjualan=?';
 			$row1 = $config -> prepare($sql1);
 			$row1 -> execute($data1);
-			echo '<script>window.location="../../index2.php?page=jual#keranjang"</script>';
+			echo '<script>window.location="../../transaksi.php"</script>';
 		}else{
 			echo '<script>alert("Keranjang Melebihi Stok Barang Anda !");
-					window.location="../../index2.php?page=jual#keranjang"</script>';
+					window.location="../../transaksi.php"</script>';
 		}
 		
 	}
