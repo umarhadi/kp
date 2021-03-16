@@ -3,41 +3,41 @@
 session_start();
 
 if (!empty($_SESSION['admin'])) {
-	require 'config.php';
-	include $view;
-	$lihat = new view($config);
-	$toko = $lihat->toko();
-	$id = $_SESSION['admin']['id_member'];
+    require 'config.php';
+    include $view;
+    $lihat = new view($config);
+    $toko = $lihat->toko();
+    $id = $_SESSION['admin']['id_member'];
 
-	// variable view stok, nama, kategori, sudah terjual
-	$hasil_profil = $lihat->member_edit($id);
-	$hasil_barang = $lihat->barang_row();
-	$hasil_kategori = $lihat->kategori_row();
-	$stok = $lihat->barang_stok_row();
-	$jual = $lihat->jual_row();
+    // variable view stok, nama, kategori, sudah terjual
+    $hasil_profil = $lihat->member_edit($id);
+    $hasil_barang = $lihat->barang_row();
+    $hasil_kategori = $lihat->kategori_row();
+    $stok = $lihat->barang_stok_row();
+    $jual = $lihat->jual_row();
 
-	// variable view penjualan, laba, modal
-	//$bln = date('m');
-	//$thn = date('Y');
-	$periode_bln = '"02-2021"'; //date('m').'-'.date('Y');
-	$hasil_jual = $lihat->penjualan_bulan_row($periode_bln);
+    // variable view penjualan, laba, modal
+    //$bln = date('m');
+    //$thn = date('Y');
+    $periode_bln = '"02-2021"'; //date('m').'-'.date('Y');
+    $hasil_jual = $lihat->penjualan_bulan_row($periode_bln);
 
-	/*$bayar += $hasil_jual['total'];
+    /*$bayar += $hasil_jual['total'];
             $modal += $hasil_jual['harga_beli']* $hasil_jual['jumlah'];
             $jumlah += $hasil_jual['jumlah'];
             */
 
-	//  admin
-	include 'komponen/header.php';
+    //  admin
+    include 'komponen/header.php';
 
-	if (!empty($_GET['page'])) {
-		include 'admin/module/' . $_GET['page'] . '/index.php';
-	} else {
-		//include 'admin/template/home.php';
-	}
-	// end admin
+    if (!empty($_GET['page'])) {
+        include 'admin/module/' . $_GET['page'] . '/index.php';
+    } else {
+        //include 'admin/template/home.php';
+    }
+    // end admin
 } else {
-	echo '<script>window.location="login.php";</script>';
+    echo '<script>window.location="login.php";</script>';
 }
 ?>
 <title>Transaksi - CV. Mahardika Komputer</title>
@@ -73,7 +73,7 @@ if (!empty($_SESSION['admin'])) {
                         <div class="card card-lg">
                             <div class="card-body">
                                 <div class="align-items-center justify-content-between">
-                                    <span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Masukkan ID Barang / Nama Barang</span>
+                                    <span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Masukkan ID Barang / Nama Barang / Merk</span>
                                     <div>
                                         <div class="input-group">
                                             <input type="text" class="form-control" id="cari" name="cari" placeholder="Cari..." aria-label="Cari..." aria-describedby="Cari...">
@@ -109,7 +109,7 @@ if (!empty($_SESSION['admin'])) {
                                 <th>Aksi</th>
                             </tr>
                         </thead>
-                        <tbody class="list">
+                        <tbody>
                             <?php $total_bayar = 0;
                             $no = 1;
                             $hasil_penjualan = $lihat->penjualan(); ?>
@@ -141,8 +141,175 @@ if (!empty($_SESSION['admin'])) {
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="hk-row">
+                    <div class="col-md-3">
+                        <div class="hk-pg-header mb-1">
+                            <h2 class="hk-pg-title font-weight-300 mb"><i class="zmdi zmdi-money"></i>&nbsp;Pembayaran</h2>
+                        </div>
+                        <?php
+                        // proses bayar dan ke nota
+                        if (!empty($_GET['nota'] == 'yes')) {
+                            $total = $_POST['total'];
+                            $bayar = $_POST['bayar'];
+                            if (!empty($bayar)) {
+                                $hitung = $bayar - $total;
+                                if ($bayar >= $total) {
+                                    $id_barang = $_POST['id_barang'];
+                                    $id_member = $_POST['id_member'];
+                                    $jumlah = $_POST['jumlah'];
+                                    $total = $_POST['total1'];
+                                    $tgl_input = $_POST['tgl_input'];
+                                    $periode = $_POST['periode'];
+                                    $jumlah_dipilih = count($id_barang);
+
+                                    for ($x = 0; $x < $jumlah_dipilih; $x++) {
+                                        $d = array($id_barang[$x], $id_member[$x], $jumlah[$x], $total[$x], $tgl_input[$x], $periode[$x]);
+                                        $sql = "INSERT INTO nota (id_barang,id_member,jumlah,total,tanggal_input,periode) VALUES(?,?,?,?,?,?)";
+                                        $row = $config->prepare($sql);
+                                        $row->execute($d);
+                                        // ubah stok barang
+                                        $sql_barang = "SELECT * FROM barang WHERE id_barang = ?";
+                                        $row_barang = $config->prepare($sql_barang);
+                                        $row_barang->execute(array($id_barang[$x]));
+                                        $hsl = $row_barang->fetch();
+
+                                        $stok = $hsl['stok'];
+                                        $idb  = $hsl['id_barang'];
+                                        $total_stok = $stok - $jumlah[$x];
+                                        // echo $total_stok;
+                                        $sql_stok = "UPDATE barang SET stok = ? WHERE id_barang = ?";
+                                        $row_stok = $config->prepare($sql_stok);
+                                        $row_stok->execute(array($total_stok, $idb));
+                                    }
+                                    echo '<script>alert("Belanjaan Berhasil Di Bayar !");</script>';
+                                } else {
+                                    echo '<script>alert("Uang Kurang ! Rp.' . $hitung . '");</script>';
+                                }
+                            }
+                        }
+                        ?>
+                        <div class="card card-sm">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start justify-content-between">
+                                    <form action="transaksi.php?nota=yes#kasirnya" method="POST">
+                                        <span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Total Semua</span>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">Rp.</span>
+                                            </div>
+                                            <input type="text" name="total" class="form-control square-input" value="<?php echo $total_bayar; ?>">
+                                        </div>
+                                        <br>
+                                        <span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Bayar</span>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">Rp.</span>
+                                            </div>
+                                            <input type="text" name="bayar" class="form-control square-input" value="<?php echo $bayar; ?>">
+                                        </div>
+                                        <br>
+                                        <button class="btn btn-dark btn-wth-icon align-items-center justify icon-wthot-bg btn-rounded icon-right btn-lg"><span class="btn-text">Bayar</span> <span class="icon-label"><span class="feather-icon"><i data-feather="arrow-right"></i></span> </span>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="hk-pg-header mb-1">
+                            <h2 class="hk-pg-title font-weight-300 mb"><i class="zmdi zmdi-print"></i>&nbsp;Info</h2>
+                        </div>
+                        <div class="accordion" id="accorStruk">
+                            <div class="card">
+                                <div class="card-header d-flex justify-content-between">
+                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collStruk" aria-expanded="true">Struk</a>
+                                </div>
+                                <div id="collStruk" class="collapse" data-parent="#accorStruk" role="tabpanel">
+                                    <div class="card card-sm">
+                                        <div class="card-body">
+                                            <section class="hk-sec-wrapper hk-invoice-wrap pa-35">
+                                                <div class="invoice-from-wrap">
+                                                    <div class="row">
+                                                        <div class="col-md-7 mb-20">
+                                                            <h4 class="mb-35 font-weight-600"><?php echo $toko['nama_toko']; ?></h4>
+                                                            <address>
+                                                                <span class="d-block"><?php echo $toko['alamat_toko']; ?></span>
+                                                                <span class="d-block"><?php echo $toko['tlp']; ?></span>
+                                                            </address>
+                                                        </div>
+                                                        <div class="col-md-5 mb-20">
+                                                            <h4 class="mb-35 font-weight-600">Struk Pembayaran</h4>
+                                                            <span class="d-block">Tanggal:<span class="pl-10 text-dark">Nov 17,2017 11:23 AM</span></span>
+                                                            <span class="d-block">Nama Kasir:<span class="pl-10 text-dark"><?php echo $hasil_profil['nm_member']; ?></span></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr class="mt-0">
+                                                <h5>Item yang dibeli</h5>
+                                                <hr>
+                                                <div class="invoice-details">
+                                                    <div class="table-wrap">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-striped table-border mb-0">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>No.</th>
+                                                                        <th class="w-70">Nama Barang</th>
+                                                                        <th class="w-50">Merk</th>
+                                                                        <th class="text-right">Jumlah</th>
+                                                                        <th class="text-right">Harga Satuan</th>
+                                                                        <th class="text-right">Total</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <?php $total_bayar = 0;
+                                                                    $no_struk = 1;
+                                                                    $struk_penjualan = $lihat->penjualan(); ?>
+                                                                    <?php foreach ($struk_penjualan as $isi_struk) {; ?>
+                                                                        <tr>
+                                                                            <td><?php echo $no_struk; ?></td>
+                                                                            <td class="w-70"><?php echo $isi_struk['nama_barang']; ?></td>
+                                                                            <td class="w-50"><?php echo $isi_struk['merk']; ?></td>
+                                                                            <td class="text-right"><?php echo $isi_struk['jumlah']; ?></td>
+                                                                            <td class="text-right"><?php echo number_format($isi_struk['harga_jual']); ?></td>
+                                                                            <td class="text-right"><?php echo number_format($isi_struk['total']); ?></td>
+                                                                        </tr>
+                                                                    <?php $no_struk++;
+                                                                    } ?>
+                                                                    <?php $totalStruk = $lihat->struk_total(); ?>
+                                                                    <tr class="bg-transparent">
+                                                                        <td colspan="5" class="text-right text-light">Total Semua</td>
+                                                                        <td class="text-right">Rp.<?php echo number_format($totalStruk); ?></td>
+                                                                    </tr>
+                                                                    <tr class="bg-transparent">
+                                                                        <td colspan="5" class="text-right text-light border-top-0">Bayar</td>
+                                                                        <td class="text-right border-top-0">s</td>
+                                                                    </tr>
+                                                                    <tr class="bg-transparent">
+                                                                        <td colspan="5" class="text-right text-light border-top-0">Kembalian</td>
+                                                                        <td class="text-right border-top-0"><?php echo number_format($hitung); ?></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <hr>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <ul class="invoice-terms-wrap font-14 list-ul">
+                                                    Terima kasih sudah berbelanja disini:)
+                                                </ul>
+                                            </section>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 
 
 </div>
