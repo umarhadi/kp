@@ -144,9 +144,9 @@ if (!empty($_SESSION['admin'])) {
         <div class="row">
             <div class="col-xl-12">
                 <div class="hk-row">
-                    <div class="col-md-3">
+                    <div class="col-md-4 ">
                         <div class="hk-pg-header mb-1">
-                            <h2 class="hk-pg-title font-weight-300 mb"><i class="zmdi zmdi-money"></i>&nbsp;Pembayaran</h2>
+                            <h3 class="hk-pg-title font-weight-300 mb"><i class="zmdi zmdi-money"></i>&nbsp;Pembayaran</h3>
                         </div>
                         <?php
                         // proses bayar dan ke nota
@@ -193,6 +193,7 @@ if (!empty($_SESSION['admin'])) {
                         <div class="card card-sm">
                             <div class="card-body">
                                 <div class="d-flex align-items-start justify-content-between">
+                                <?php $hasil = $lihat->jumlah(); ?>
                                     <form action="transaksi.php?nota=yes#kasirnya" method="POST">
                                         <span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Total Semua</span>
                                         <div class="input-group">
@@ -210,99 +211,30 @@ if (!empty($_SESSION['admin'])) {
                                             <input type="text" name="bayar" class="form-control square-input" value="<?php echo $bayar; ?>">
                                         </div>
                                         <br>
+                                        <?php foreach ($hasil_penjualan as $isi) {; ?>
+                                                    <input type="hidden" name="id_barang[]" value="<?php echo $isi['id_barang']; ?>">
+                                                    <input type="hidden" name="id_member[]" value="<?php echo $isi['id_member']; ?>">
+                                                    <input type="hidden" name="jumlah[]" value="<?php echo $isi['jumlah']; ?>">
+                                                    <input type="hidden" name="total1[]" value="<?php echo $isi['total']; ?>">
+                                                    <input type="hidden" name="tgl_input[]" value="<?php echo $isi['tanggal_input']; ?>">
+                                                    <input type="hidden" name="periode[]" value="<?php echo date('m-Y'); ?>">
+                                                <?php $no++;
+                                                } ?>
                                         <button class="btn btn-dark btn-wth-icon align-items-center justify icon-wthot-bg btn-rounded icon-right btn-lg"><span class="btn-text">Bayar</span> <span class="icon-label"><span class="feather-icon"><i data-feather="arrow-right"></i></span> </span>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-4">
                         <div class="hk-pg-header mb-1">
-                            <h2 class="hk-pg-title font-weight-300 mb"><i class="zmdi zmdi-print"></i>&nbsp;Info</h2>
+                            <h3 class="hk-pg-title font-weight-300 mb"><i class="zmdi zmdi-info-outline"></i>&nbsp;Info</h3>
+                            <a href="#" class="d-flex text-secondary mr-15"><span class="feather-icon"><i data-feather="printer"></i></span></a>
                         </div>
-                        <div class="accordion" id="accorStruk">
-                            <div class="card">
-                                <div class="card-header d-flex justify-content-between">
-                                    <a class="collapsed" role="button" data-toggle="collapse" href="#collStruk" aria-expanded="true">Struk</a>
-                                </div>
-                                <div id="collStruk" class="collapse" data-parent="#accorStruk" role="tabpanel">
-                                    <div class="card card-sm">
-                                        <div class="card-body">
-                                            <section class="hk-sec-wrapper hk-invoice-wrap pa-35">
-                                                <div class="invoice-from-wrap">
-                                                    <div class="row">
-                                                        <div class="col-md-7 mb-20">
-                                                            <h4 class="mb-35 font-weight-600"><?php echo $toko['nama_toko']; ?></h4>
-                                                            <address>
-                                                                <span class="d-block"><?php echo $toko['alamat_toko']; ?></span>
-                                                                <span class="d-block"><?php echo $toko['tlp']; ?></span>
-                                                            </address>
-                                                        </div>
-                                                        <div class="col-md-5 mb-20">
-                                                            <h4 class="mb-35 font-weight-600">Struk Pembayaran</h4>
-                                                            <span class="d-block">Tanggal:<span class="pl-10 text-dark">Nov 17,2017 11:23 AM</span></span>
-                                                            <span class="d-block">Nama Kasir:<span class="pl-10 text-dark"><?php echo $hasil_profil['nm_member']; ?></span></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <hr class="mt-0">
-                                                <h5>Item yang dibeli</h5>
-                                                <hr>
-                                                <div class="invoice-details">
-                                                    <div class="table-wrap">
-                                                        <div class="table-responsive">
-                                                            <table class="table table-striped table-border mb-0">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>No.</th>
-                                                                        <th class="w-70">Nama Barang</th>
-                                                                        <th class="w-50">Merk</th>
-                                                                        <th class="text-right">Jumlah</th>
-                                                                        <th class="text-right">Harga Satuan</th>
-                                                                        <th class="text-right">Total</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <?php $total_bayar = 0;
-                                                                    $no_struk = 1;
-                                                                    $struk_penjualan = $lihat->penjualan(); ?>
-                                                                    <?php foreach ($struk_penjualan as $isi_struk) {; ?>
-                                                                        <tr>
-                                                                            <td><?php echo $no_struk; ?></td>
-                                                                            <td class="w-70"><?php echo $isi_struk['nama_barang']; ?></td>
-                                                                            <td class="w-50"><?php echo $isi_struk['merk']; ?></td>
-                                                                            <td class="text-right"><?php echo $isi_struk['jumlah']; ?></td>
-                                                                            <td class="text-right"><?php echo number_format($isi_struk['harga_jual']); ?></td>
-                                                                            <td class="text-right"><?php echo number_format($isi_struk['total']); ?></td>
-                                                                        </tr>
-                                                                    <?php $no_struk++;
-                                                                    } ?>
-                                                                    <?php $totalStruk = $lihat->struk_total(); ?>
-                                                                    <tr class="bg-transparent">
-                                                                        <td colspan="5" class="text-right text-light">Total Semua</td>
-                                                                        <td class="text-right">Rp.<?php echo number_format($totalStruk); ?></td>
-                                                                    </tr>
-                                                                    <tr class="bg-transparent">
-                                                                        <td colspan="5" class="text-right text-light border-top-0">Bayar</td>
-                                                                        <td class="text-right border-top-0">s</td>
-                                                                    </tr>
-                                                                    <tr class="bg-transparent">
-                                                                        <td colspan="5" class="text-right text-light border-top-0">Kembalian</td>
-                                                                        <td class="text-right border-top-0"><?php echo number_format($hitung); ?></td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                            <hr>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <ul class="invoice-terms-wrap font-14 list-ul">
-                                                    Terima kasih sudah berbelanja disini:)
-                                                </ul>
-                                            </section>
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="card card-sm">
+                            <div class="card-body">
+                                <span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Kembali</span>
+                                Rp.<span class="d-block display-6 font-weight-400 text-dark counter-anim"><?php echo number_format($hitung); ?></span>
                             </div>
                         </div>
                     </div>
