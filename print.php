@@ -54,9 +54,9 @@ $hsl = $lihat->penjualan();
 						<thead>
 							<tr>
 								<th>No.</th>
-								<th class="w-70">Nama Barang</th>
-								<th class="w-50">Merk</th>
-								<th class="text-right">Jumlah</th>
+								<th class="w-50">Nama Barang</th>
+								<th class="w-30">Merk</th>
+								<th class="text-left">Jumlah</th>
 								<th class="text-right">Harga Satuan</th>
 								<th class="text-right">Total</th>
 							</tr>
@@ -67,8 +67,8 @@ $hsl = $lihat->penjualan();
 								<tr>
 									<td><?php echo $no; ?>.</td>
 									<td class="w-50"><?php echo $isi['nama_barang']; ?></td>
-									<td class="w-40"><?php echo $isi['merk']; ?></td>
-									<td class="text-right"><?php echo $isi['jumlah']; ?></td>
+									<td class="w-30"><?php echo $isi['merk']; ?></td>
+									<td class="text-right"><?php echo $isi['jumlah']; ?>&nbsp;<?php echo $isi['satuan_barang']; ?></td>
 									<td class="text-right">Rp.<?php echo number_format($isi['harga_jual']); ?></td>
 									<td class="text-right">Rp.<?php echo number_format($isi['total']); ?></td>
 								</tr>
