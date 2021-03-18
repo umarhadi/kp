@@ -78,8 +78,8 @@ if (!empty($_SESSION['admin'])) {
                                         <div class="input-group">
                                             <input type="text" class="form-control" id="cari" name="cari" placeholder="Cari..." aria-label="Cari..." aria-describedby="Cari...">
                                             <div class="input-group-append">
-                                                <button class="btn btn-light text-primary" type="button"><i class="zmdi zmdi-search"></i></button>
-                                                <button class="btn btn-light text-danger" value="reset" type="reset" id="hapus_cari"><i class="zmdi zmdi-close"></i></button>
+                                                <button class="btn btn-info" type="button"><i class="zmdi zmdi-search"></i></button>
+                                                <button class="btn btn-danger" value="reset" type="reset" id="hapus_cari"><i class="zmdi zmdi-close"></i></button>
                                             </div>
                                         </div>
                                         <div id="hasil_cari"></div>
