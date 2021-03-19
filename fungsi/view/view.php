@@ -124,13 +124,13 @@ class view
 		$urut = substr($hasil['id_barang'], 2, 3);
 		$tambah = (int) $urut + 1;
 		if (strlen($tambah) == 1) {
-			$format = 'BR00' . $tambah . '';
+			$format = '00' . $tambah . '';
 		} else if (strlen($tambah) == 2) {
-			$format = 'BR0' . $tambah . '';
+			$format = '0' . $tambah . '';
 		} else {
-			$ex = explode('BR', $hasil['id_barang']);
+			$ex = explode('', $hasil['id_barang']);
 			$no = (int) $ex[1] + 1;
-			$format = 'BR' . $no . '';
+			$format = '' . $no . '';
 		}
 		return $format;
 	}
@@ -300,4 +300,5 @@ class view
 		$hasil = $row->fetch();
 		return $hasil;
 	}
+	
 }

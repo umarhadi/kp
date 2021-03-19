@@ -16,7 +16,7 @@ if(!empty($_SESSION['admin'])){
 		$sql = 'DELETE FROM barang WHERE id_barang=?';
 		$row = $config -> prepare($sql);
 		$row -> execute($data);
-		echo '<script>window.location="../../index2.php?page=barang&&remove=hapus-data"</script>';
+		echo '<script>window.location="../../barang.php?hapus=berhasil"</script>';
 	}
 	if(!empty($_GET['jual'])){
 		

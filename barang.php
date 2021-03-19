@@ -22,6 +22,21 @@ if (!empty($_SESSION['admin'])) {
         <div class="hk-pg-header mb-1">
             <div>
                 <h2 class="hk-pg-title font-weight-300 mb-10"><i class="zmdi zmdi-archive text-success"></i>&nbsp;Tabel Barang</h2>
+                <?php if (isset($_GET['sukses-stok'])) { ?>
+                    <div class="alert alert-success">
+                        <p>Tambah Stok Berhasil!</p>
+                    </div>
+                <?php } ?>
+                <?php if (isset($_GET['sukses'])) { ?>
+                    <div class="alert alert-success">
+                        <p>Tambah Data Berhasil!</p>
+                    </div>
+                <?php } ?>
+                <?php if (isset($_GET['hapus'])) { ?>
+                    <div class="alert alert-danger">
+                        <p>Hapus Data Berhasil!</p>
+                    </div>
+                <?php } ?>
                 <?php
                 $sql = " select * from barang where stok <= 3";
                 $row = $config->prepare($sql);
@@ -39,27 +54,14 @@ if (!empty($_SESSION['admin'])) {
 							</div>";
                 }
                 ?>
-                <?php if (isset($_GET['success-stok'])) { ?>
-                    <div class="alert alert-success">
-                        <p>Tambah Stok Berhasil !</p>
-                    </div>
-                <?php } ?>
-                <?php if (isset($_GET['success'])) { ?>
-                    <div class="alert alert-success">
-                        <p>Tambah Data Berhasil !</p>
-                    </div>
-                <?php } ?>
-                <?php if (isset($_GET['remove'])) { ?>
-                    <div class="alert alert-danger">
-                        <p>Hapus Data Berhasil !</p>
-                    </div>
-                <?php } ?>
             </div>
 
         </div>
         <div class="card">
-            <button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#myModal">
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalTmbh">
                 <i class="fa fa-plus"></i> Tambah Data Barang</button>
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalDetail">
+                <i class="fa fa-plus"></i> lihat Data Barang</button>
             <div class="card-body">
                 <div class="table-wrap table-striped">
                     <table id="tableDash1" class="table w-100 pb-30">
@@ -91,11 +93,11 @@ if (!empty($_SESSION['admin'])) {
                             foreach ($hasil as $isi) {
                             ?>
                                 <tr>
-                                    <td><?php echo $no; ?></td>
+                                    <td><small><?php echo $no; ?>.</td></small>
                                     <td>
                                         <small><?php echo $isi['id_barang']; ?></small>
                                     </td>
-                                    <td><small><a class="text-info" href="index2.php?page=barang/details&barang=<?php echo $isi['id_barang']; ?>"><?php echo $isi['nama_barang']; ?></a></td></small>
+                                    <td><small><a class="text-info detail_barang" href="#" data-toggle="modal" data-target="#modalDetail" id="<?php echo $isi['id_barang']; ?>"><?php echo $isi['nama_barang']; ?></a></td></small>
                                     <td><?php echo $isi['merk']; ?></td>
                                     <td><?php echo $isi['nama_kategori']; ?></td>
                                     <td>
@@ -116,16 +118,16 @@ if (!empty($_SESSION['admin'])) {
                                                 </button>
                                                 <div class="dropdown-menu">
                                                     <form method="POST" action="fungsi/edit/edit.php?stok=edit">
-                                                    <div class="input-group">
-                                                        <input type="text" name="restok" class="form-control" placeholder="Jmlh restok..">
-                                                        <input type="hidden" name="id" value="<?php echo $isi['id_barang']; ?>" class="form-control">
-                                                        <div class="input-group-append">
-                                                        <button class="btn btn-info" type="button"><i class="zmdi zmdi-edit"></i></button>
+                                                        <div class="input-group">
+                                                            <input type="text" name="restok" class="form-control" placeholder="Jmlh restok..">
+                                                            <input type="hidden" name="id" value="<?php echo $isi['id_barang']; ?>" class="form-control">
+                                                            <div class="input-group-append">
+                                                                <button class="btn btn-info" type="button"><i class="zmdi zmdi-edit"></i></button>
+                                                            </div>
                                                         </div>
-                                                    </div>
                                                     </form>
                                                     <div class="dropdown-divider"></div>
-                                                    <a class="dropdown-item" href="index2.php?page=barang/edit&barang=<?php echo $isi['id_barang']; ?>"><i class="zmdi zmdi-delete text-danger"></i> Hapus</a>
+                                                    <a class="dropdown-item" href=fungsi/hapus/hapus.php?barang=hapus&id=<?php echo $isi['id_barang']; ?> onclick="javascript:return confirm('Hapus Data barang ?');"><i class="zmdi zmdi-delete text-danger"></i> Hapus</a>
                                                 </div>
                                             </div>
                                         <?php } else { ?>
@@ -135,7 +137,7 @@ if (!empty($_SESSION['admin'])) {
                                                 </button>
                                                 <div class="dropdown-menu">
                                                     <a class="dropdown-item" href="index2.php?page=barang/edit&barang=<?php echo $isi['id_barang']; ?>"><i class="zmdi zmdi-edit text-warning"></i> Perbarui</a>
-                                                    <a class="dropdown-item" href="index2.php?page=barang/edit&barang=<?php echo $isi['id_barang']; ?>"><i class="zmdi zmdi-delete text-danger"></i> Hapus</a>
+                                                    <a class="dropdown-item" href=fungsi/hapus/hapus.php?barang=hapus&id=<?php echo $isi['id_barang']; ?> onclick="javascript:return confirm('Hapus Data barang ?');"><i class="zmdi zmdi-delete text-danger"></i> Hapus</a>
                                                 </div>
                                             </div>
 
@@ -162,13 +164,26 @@ if (!empty($_SESSION['admin'])) {
                 </div>
             </div>
         </div>
-        <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
+        <div id="modalDetail" class="modal fade" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header btn btn-info">
+                        <h5 class="modal-title"><i class="zmdi zmdi-plus"></i> Detail</h5>
+                        <button type="button" class="close" data-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body" id="detail">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="modalTmbh" class="modal fade" role="dialog">
+            <div class="modal-dialog" role="document">
                 <!-- Modal content-->
-                <div class="modal-content" style=" border-radius:0px;">
-                    <div class="modal-header" style="background:#285c64;color:#fff;">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title"><i class="fa fa-plus"></i> Tambah Barang</h4>
+                <div class="modal-content">
+                    <div class="modal-header btn btn-primary">
+                        <h5 class="modal-title"><i class="zmdi zmdi-plus"></i> Tambah Barang</h5>
+                        <button type="button" class="close" data-dismiss="modal"></button>
                     </div>
                     <form action="fungsi/tambah/tambah.php?barang=tambah" method="POST">
                         <div class="modal-body">
@@ -215,7 +230,8 @@ if (!empty($_SESSION['admin'])) {
                                     <td>
                                         <select name="satuan" class="form-control" required>
                                             <option value="#">Pilih Satuan</option>
-                                            <option value="PCS">PCS</option>
+                                            <option value="Pcs">Pcs</option>
+                                            <option value="Unit">Unit</option>
                                         </select>
                                     </td>
                                 </tr>
@@ -230,8 +246,8 @@ if (!empty($_SESSION['admin'])) {
                             </table>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Insert Data</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                         </div>
                     </form>
                 </div>
@@ -253,49 +269,31 @@ if (!empty($_SESSION['admin'])) {
 <!-- Fancy Dropdown JS -->
 <script src="dist/js/dropdown-bootstrap-extended.js"></script>
 
-<!-- FeatherIcons JavaScript -->
-<script src="dist/js/feather.min.js"></script>
-
-<!-- Toggles JavaScript -->
-<script src="vendors/jquery-toggles/toggles.min.js"></script>
-<script src="dist/js/toggle-data.js"></script>
-
-<!-- Counter Animation JavaScript -->
-<script src="vendors/waypoints/lib/jquery.waypoints.min.js"></script>
-<script src="vendors/jquery.counterup/jquery.counterup.min.js"></script>
-
-<!-- Easy pie chart JS -->
-<script src="vendors/easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
-
-<!-- Sparkline JavaScript -->
-<script src="vendors/jquery.sparkline/dist/jquery.sparkline.min.js"></script>
-
-<!-- Morris Charts JavaScript -->
-<script src="vendors/raphael/raphael.min.js"></script>
-<script src="vendors/morris.js/morris.min.js"></script>
-
-<!-- EChartJS JavaScript -->
-<script src="vendors/echarts/dist/echarts-en.min.js"></script>
-
-<!-- Peity JavaScript -->
-<script src="vendors/peity/jquery.peity.min.js"></script>
 
 <!-- Data Table JavaScript -->
 <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="vendors/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
-<script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-<script src="vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-<script src="vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-<script src="vendors/jszip/dist/jszip.min.js"></script>
-<script src="vendors/pdfmake/build/pdfmake.min.js"></script>
-<script src="vendors/pdfmake/build/vfs_fonts.js"></script>
-<script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-<script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
 <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
 <script src="dist/js/dataTables-data.js"></script>
 
 <!-- Init JavaScript -->
 <script src="dist/js/init.js"></script>
 <script src="dist/js/dashboard3-data.js"></script>
+
+<script>  
+ $(document).ready(function(){  
+      $('.detail_barang').click(function(){  
+           var detail_barang = $(this).attr("id");  
+           $.ajax({  
+                url:"fungsi/view/modal.php",  
+                method:"post",  
+                data:{detail_barang:detail_barang},  
+                success:function(data){  
+                     $('#detail').html(data);  
+                     $('#modalDetail').modal("show");  
+                }  
+           });  
+      });  
+ });  
+ </script>
 </body>

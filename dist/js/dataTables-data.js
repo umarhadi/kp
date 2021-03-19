@@ -4,12 +4,20 @@
 
 $(document).ready(function() {
 	$('#tableDash1').DataTable({
-		responsive: false,
+		responsive: true,
 		autoWidth: true,
-		lengthChange: false,
-		language: { search: "",
-		searchPlaceholder: "Cari..",
-		
+		language: { 
+			search: "",
+			searchPlaceholder: "Cari..",
+			lengthMenu: "Tampilkan _MENU_ baris data",
+			info: "Menampilkan _END_ dari total _TOTAL_ data",
+			infoEmpty: "Data tidak ada",
+			paginate: {
+				first:   "Awal",
+				last:    "Akhir",
+				next:    "Selanjutnya",
+				previous:"Sebelumnya",
+			}
 		}
 	});
 	$('#tableDash2').DataTable({

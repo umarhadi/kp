@@ -36,7 +36,7 @@ if(!empty($_SESSION['admin'])){
 			    VALUES (?,?,?,?,?,?,?,?,?) ';
 		$row = $config -> prepare($sql);
 		$row -> execute($data);
-		echo '<script>window.location="../../index2.php?page=barang&success=tambah-data"</script>';
+		echo '<script>window.location="../../barang.php?sukses"</script>';
 	}
 	if(!empty($_GET['jual'])){
 		$id = $_GET['id'];

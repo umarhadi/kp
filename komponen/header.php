@@ -45,8 +45,8 @@
                 </ul>
             </div>
             <ul class="navbar-nav hk-navbar-content">
-                <li class="nav-item dropdown dropdown-authentication">
-                    <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item dropdown dropdown-authentication ">
+                    <a class="nav-link dropdown-toggle no-caret " href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="media">
                             <div class="media-img-wrap">
                                 <div class="avatar">
