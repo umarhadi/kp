@@ -60,8 +60,6 @@ if (!empty($_SESSION['admin'])) {
         <div class="card">
             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalTmbh">
                 <i class="fa fa-plus"></i> Tambah Data Barang</button>
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalDetail">
-                <i class="fa fa-plus"></i> lihat Data Barang</button>
             <div class="card-body">
                 <div class="table-wrap table-striped">
                     <table id="tableDash1" class="table w-100 pb-30">
@@ -92,6 +90,47 @@ if (!empty($_SESSION['admin'])) {
                             $no = 1;
                             foreach ($hasil as $isi) {
                             ?>
+                                <div id="modalEdit<?php echo $isi['id_barang']; ?>" class="modal fade" role="dialog">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header btn btn-info">
+                                                <h5 class="modal-title"><i class="zmdi zmdi-plus"></i> Edit</h5>
+                                                <button type="button" class="close" data-dismiss="modal"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form role="form" action="fungsi/edit/modal-barang.php" method="get">
+                                                    <?php
+                                                    $qEdit = $isi['id_barang'];
+                                                    $edit = $lihat->barang_edit($qEdit);
+                                                    ?>
+                                                    <input type="hidden" name="id" value="<?php echo $isi['id_barang']; ?>">
+                                                    <div class="form-group">
+                                                        <label>Nama</label>
+                                                        <input type="text" name="nama" class="form-control" value="<?php echo $isi['nama_barang']; ?>">
+                                                    </div>
+                                                    <input type="hidden" class="form-control" value="<?php echo $isi['nama_kategori']; ?>" name="kategori">
+                                                    <input type="hidden" class="form-control" value="<?php echo $isi['merk']; ?>" name="merk">
+                                                    <input type="hidden" class="form-control" value="<?php echo $isi['harga_beli']; ?>" name="beli">
+                                                    <div class="form-group">
+                                                        <label>Harga Jual</label>
+                                                        <input type="number" class="form-control" value="<?php echo $isi['harga_jual']; ?>" name="jual">
+                                                    </div>
+                                                    <input type="hidden" class="form-control" value="<?php echo $isi['satuan_barang']; ?>" name="satuan">
+                                                    <div class="form-group">
+                                                        <label>Stok</label>
+                                                        <input type="number" class="form-control" value="<?php echo $isi['stok']; ?>" name="stok">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="submit" class="btn btn-success">Update</button>
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
                                 <tr>
                                     <td><small><?php echo $no; ?>.</td></small>
                                     <td>
@@ -136,6 +175,7 @@ if (!empty($_SESSION['admin'])) {
                                                     Aksi
                                                 </button>
                                                 <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalEdit<?php echo $isi['id_barang']; ?>"></i> Quick Edit</a>
                                                     <a class="dropdown-item" href="index2.php?page=barang/edit&barang=<?php echo $isi['id_barang']; ?>"><i class="zmdi zmdi-edit text-warning"></i> Perbarui</a>
                                                     <a class="dropdown-item" href=fungsi/hapus/hapus.php?barang=hapus&id=<?php echo $isi['id_barang']; ?> onclick="javascript:return confirm('Hapus Data barang ?');"><i class="zmdi zmdi-delete text-danger"></i> Hapus</a>
                                                 </div>
@@ -172,7 +212,7 @@ if (!empty($_SESSION['admin'])) {
                         <button type="button" class="close" data-dismiss="modal"></button>
                     </div>
                     <div class="modal-body" id="detail">
-                        
+
                     </div>
                 </div>
             </div>
@@ -280,20 +320,38 @@ if (!empty($_SESSION['admin'])) {
 <script src="dist/js/init.js"></script>
 <script src="dist/js/dashboard3-data.js"></script>
 
-<script>  
- $(document).ready(function(){  
-      $('.detail_barang').click(function(){  
-           var detail_barang = $(this).attr("id");  
-           $.ajax({  
-                url:"fungsi/view/modal.php",  
-                method:"post",  
-                data:{detail_barang:detail_barang},  
-                success:function(data){  
-                     $('#detail').html(data);  
-                     $('#modalDetail').modal("show");  
-                }  
-           });  
-      });  
- });  
- </script>
+<script>
+    $(document).ready(function() {
+        $('.detail_barang').click(function() {
+            var detail_barang = $(this).attr("id");
+            $.ajax({
+                url: "fungsi/view/modal-barang.php",
+                method: "post",
+                data: {
+                    detail_barang: detail_barang
+                },
+                success: function(data) {
+                    $('#detail').html(data);
+                    $('#modalDetail').modal("show");
+                }
+            });
+        });
+    });
+    $(document).ready(function() {
+        $('.edit_barang').click(function() {
+            var edit_barang = $(this).attr("id");
+            $.ajax({
+                url: "fungsi/edit/modal-barang.php",
+                method: "post",
+                data: {
+                    edit_barang: edit_barang
+                },
+                success: function(data) {
+                    $('#edit').html(data);
+                    $('#modalEdit').modal("show");
+                }
+            });
+        });
+    });
+</script>
 </body>

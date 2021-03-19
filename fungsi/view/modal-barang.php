@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_POST["detail_barang"])) {
 		$output = '';
 		$connect = mysqli_connect("localhost", "root", "", "db_toko");
@@ -57,4 +56,4 @@ if (isset($_POST["detail_barang"])) {
 		$output .= "</table></div>";
 		echo $output;
 	}
-    ?>
+?>

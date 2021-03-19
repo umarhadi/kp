@@ -300,5 +300,4 @@ class view
 		$hasil = $row->fetch();
 		return $hasil;
 	}
-	
 }
