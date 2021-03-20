@@ -33,7 +33,7 @@ $id = $_SESSION['admin']['id_member'];
             <div class="collapse navbar-collapse" id="navbarCollapseAlt">
                 <ul class="navbar-nav">
                     <li class="nav-item show-on-hover active">
-                        <a href="#" class="nav-link"><i class="zmdi zmdi-home"></i> Dashboard</a>
+                        <a href="index.php" class="nav-link"><i class="zmdi zmdi-home"></i> Dashboard</a>
                     </li>
                     <li class="nav-item show-on-hover">
                         <a href="transaksi.php" class="nav-link"><i class="zmdi zmdi-money-box"></i> Transaksi Kasir</a>
