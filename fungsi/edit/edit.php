@@ -74,7 +74,7 @@ if (!empty($_SESSION['admin'])) {
 				harga_beli=?, harga_jual=?, satuan_barang=?, stok=?, tgl_update=?  WHERE id_barang=?';
 		$row = $config->prepare($sql);
 		$row->execute($data);
-		echo '<script>window.location="../../index2.php?page=barang/edit&barang=' . $id . '&success=edit-data"</script>';
+		echo '<script>window.location="../../edit-barang.php?barang=' . $id . '&berhasil=edit-data"</script>';
 	}
 
 	if (!empty($_GET['gambar'])) {

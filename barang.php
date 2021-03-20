@@ -5,12 +5,7 @@ session_start();
 if (!empty($_SESSION['admin'])) {
     require 'config.php';
     include $view;
-    $id = $_SESSION['admin']['id_member'];
-    $lihat = new view($config);
-    $toko = $lihat->toko();
-    $hasil_profil = $lihat->member_edit($id);
-
-
+    
     include 'komponen/header.php';
 } else {
     echo '<script>window.location="login.php";</script>';
@@ -90,47 +85,6 @@ if (!empty($_SESSION['admin'])) {
                             $no = 1;
                             foreach ($hasil as $isi) {
                             ?>
-                                <div id="modalEdit<?php echo $isi['id_barang']; ?>" class="modal fade" role="dialog">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header btn btn-info">
-                                                <h5 class="modal-title"><i class="zmdi zmdi-plus"></i> Edit</h5>
-                                                <button type="button" class="close" data-dismiss="modal"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form role="form" action="fungsi/edit/modal-barang.php" method="get">
-                                                    <?php
-                                                    $qEdit = $isi['id_barang'];
-                                                    $edit = $lihat->barang_edit($qEdit);
-                                                    ?>
-                                                    <input type="hidden" name="id" value="<?php echo $isi['id_barang']; ?>">
-                                                    <div class="form-group">
-                                                        <label>Nama</label>
-                                                        <input type="text" name="nama" class="form-control" value="<?php echo $isi['nama_barang']; ?>">
-                                                    </div>
-                                                    <input type="hidden" class="form-control" value="<?php echo $isi['nama_kategori']; ?>" name="kategori">
-                                                    <input type="hidden" class="form-control" value="<?php echo $isi['merk']; ?>" name="merk">
-                                                    <input type="hidden" class="form-control" value="<?php echo $isi['harga_beli']; ?>" name="beli">
-                                                    <div class="form-group">
-                                                        <label>Harga Jual</label>
-                                                        <input type="number" class="form-control" value="<?php echo $isi['harga_jual']; ?>" name="jual">
-                                                    </div>
-                                                    <input type="hidden" class="form-control" value="<?php echo $isi['satuan_barang']; ?>" name="satuan">
-                                                    <div class="form-group">
-                                                        <label>Stok</label>
-                                                        <input type="number" class="form-control" value="<?php echo $isi['stok']; ?>" name="stok">
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-success">Update</button>
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
                                 <tr>
                                     <td><small><?php echo $no; ?>.</td></small>
                                     <td>
@@ -175,8 +129,7 @@ if (!empty($_SESSION['admin'])) {
                                                     Aksi
                                                 </button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalEdit<?php echo $isi['id_barang']; ?>"></i> Quick Edit</a>
-                                                    <a class="dropdown-item" href="index2.php?page=barang/edit&barang=<?php echo $isi['id_barang']; ?>"><i class="zmdi zmdi-edit text-warning"></i> Perbarui</a>
+                                                    <a class="dropdown-item" href="edit-barang.php?barang=<?php echo $isi['id_barang']; ?>"><i class="zmdi zmdi-edit text-warning"></i> Perbarui</a>
                                                     <a class="dropdown-item" href=fungsi/hapus/hapus.php?barang=hapus&id=<?php echo $isi['id_barang']; ?> onclick="javascript:return confirm('Hapus Data barang ?');"><i class="zmdi zmdi-delete text-danger"></i> Hapus</a>
                                                 </div>
                                             </div>

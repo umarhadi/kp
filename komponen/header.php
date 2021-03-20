@@ -1,3 +1,9 @@
+<?php
+$id = $_SESSION['admin']['id_member'];
+    $lihat = new view($config);
+    $toko = $lihat->toko();
+    $hasil_profil = $lihat->member_edit($id);
+?>
 <!DOCTYPE html>
 
 <head>
