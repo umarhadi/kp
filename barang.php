@@ -5,7 +5,7 @@ session_start();
 if (!empty($_SESSION['admin'])) {
     require 'config.php';
     include $view;
-    
+
     include 'komponen/header.php';
 } else {
     echo '<script>window.location="login.php";</script>';
@@ -286,22 +286,6 @@ if (!empty($_SESSION['admin'])) {
                 success: function(data) {
                     $('#detail').html(data);
                     $('#modalDetail').modal("show");
-                }
-            });
-        });
-    });
-    $(document).ready(function() {
-        $('.edit_barang').click(function() {
-            var edit_barang = $(this).attr("id");
-            $.ajax({
-                url: "fungsi/edit/modal-barang.php",
-                method: "post",
-                data: {
-                    edit_barang: edit_barang
-                },
-                success: function(data) {
-                    $('#edit').html(data);
-                    $('#modalEdit').modal("show");
                 }
             });
         });

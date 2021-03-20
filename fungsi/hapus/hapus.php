@@ -8,7 +8,7 @@ if(!empty($_SESSION['admin'])){
 		$sql = 'DELETE FROM kategori WHERE id_kategori=?';
 		$row = $config -> prepare($sql);
 		$row -> execute($data);
-		echo '<script>window.location="../../index2.php?page=kategori&&remove=hapus-data"</script>';
+		echo '<script>window.location="../../kategori.php?hapus=berhasil"</script>';
 	}
 	if(!empty($_GET['barang'])){
 		$id= $_GET['id'];
@@ -57,7 +57,7 @@ if(!empty($_SESSION['admin'])){
 		$sql = 'DELETE FROM nota';
 		$row = $config -> prepare($sql);
 		$row -> execute();
-		echo '<script>window.location="../../index2.php?page=laporan&remove=hapus"</script>';
+		echo '<script>window.location="../../laporan.php?hapus=berhasil"</script>';
 	}
 }
 
