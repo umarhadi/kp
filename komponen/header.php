@@ -1,5 +1,5 @@
 <?php
-$id = $_SESSION['admin']['id_member'];
+    $id = $_SESSION['admin']['id_member'];
     $lihat = new view($config);
     $toko = $lihat->toko();
     $hasil_profil = $lihat->member_edit($id);
@@ -65,7 +65,7 @@ $id = $_SESSION['admin']['id_member'];
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
-                        <a class="dropdown-item" href="profile.html"><i class="dropdown-icon zmdi zmdi-account"></i><span>Edit Akun</span></a>
+                        <a class="dropdown-item" href="edit-user.php"><i class="dropdown-icon zmdi zmdi-account"></i><span>Edit Akun</span></a>
                         <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-settings"></i><span>Pengaturan Toko</span></a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="logout.php"><i class="dropdown-icon zmdi zmdi-power"></i><span>Logout</span></a>

@@ -77,43 +77,46 @@ if (!empty($_SESSION['admin'])) {
 		echo '<script>window.location="../../edit-barang.php?barang=' . $id . '&berhasil=edit-data"</script>';
 	}
 
-	if (!empty($_GET['gambar'])) {
+	if(!empty($_GET['gambar'])){
 		$id = htmlentities($_POST['id']);
 		set_time_limit(0);
-		$allowedImageType = array("image/gif",   "image/JPG",   "image/jpeg",   "image/pjpeg",   "image/png",   "image/x-png");
-
+		$allowedImageType = array("image/gif",   "image/JPG",   "image/jpeg",   "image/pjpeg",   "image/png",   "image/x-png"  );
+		
 		if ($_FILES['foto']["error"] > 0) {
-			$output['error'] = "Error in File";
+			$output['error']= "Error in File";
 		} elseif (!in_array($_FILES['foto']["type"], $allowedImageType)) {
 			echo "You can only upload JPG, PNG and GIF file";
 			echo "<font face='Verdana' size='2' ><BR><BR><BR>
-					<a href='../../index2.php?page=user'>Back to upform</a><BR>";
-		} elseif (round($_FILES['foto']["size"] / 1024) > 4096) {
+					<a href='../../index.php?page=user'>Back to upform</a><BR>";
+
+		}elseif (round($_FILES['foto']["size"] / 1024) > 4096) {
 			echo "WARNING !!! Besar Gambar Tidak Boleh Lebih Dari 4 MB";
 			echo "<font face='Verdana' size='2' ><BR><BR><BR>
-					<a href='../../index2.php?page=user'>Back to upform</a><BR>";
-		} else {
+					<a href='../../index.php?page=user'>Back to upform</a><BR>";
+
+		}else{
 			$target_path = '../../assets/img/user/';
-			$target_path = $target_path . basename($_FILES['foto']['name']);
-			if (file_exists("$target_path")) {
+			$target_path = $target_path . basename( $_FILES['foto']['name']); 
+			if (file_exists("$target_path")){ 
 				echo "<font face='Verdana' size='2' >Ini Terjadi Karena Telah Masuk Nama File Yang Sama,
 				<br> Silahkan Rename File terlebih dahulu<br>";
 
-				echo "<font face='Verdana' size='2' ><BR><BR><BR>
-					<a href='../../index2.php?page=user'>Back to upform</a><BR>";
-			} elseif (move_uploaded_file($_FILES['foto']['tmp_name'], $target_path)) {
-				//post foto lama
+			echo "<font face='Verdana' size='2' ><BR><BR><BR>
+					<a href='../../index.php?page=user'>Back to upform</a><BR>";
+
+				}elseif(move_uploaded_file($_FILES['foto']['tmp_name'], $target_path)){
+					//post foto lama
 				$foto2 = $_POST['foto2'];
 				//remove foto di direktori
-				unlink('../../assets/img/user/' . $foto2 . '');
+				unlink('../../assets/img/user/'.$foto2.'');
 				//input foto
 				$id = $_POST['id'];
 				$data[] = $_FILES['foto']['name'];
 				$data[] = $id;
 				$sql = 'UPDATE member SET gambar=?  WHERE member.id_member=?';
-				$row = $config->prepare($sql);
-				$row->execute($data);
-				echo '<script>window.location="../../index2.php?page=user&success=edit-data"</script>';
+				$row = $config -> prepare($sql);
+				$row -> execute($data);
+				echo '<script>window.location="../../index.php?page=user&success=edit-data"</script>';
 			}
 		}
 	}
