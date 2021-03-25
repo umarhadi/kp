@@ -10,7 +10,7 @@ if(!empty($_SESSION['admin'])){
 		$sql = 'INSERT INTO kategori (nama_kategori,tgl_input) VALUES(?,?)';
 		$row = $config -> prepare($sql);
 		$row -> execute($data);
-		echo '<script>window.location="../../index2.php?page=kategori&&success=tambah-data"</script>';
+		echo '<script>window.location="../../kategori.php?berhasil=tambah-data"</script>';
 	}
 	if(!empty($_GET['barang'])){
 		$id = $_POST['id'];
@@ -36,7 +36,7 @@ if(!empty($_SESSION['admin'])){
 			    VALUES (?,?,?,?,?,?,?,?,?) ';
 		$row = $config -> prepare($sql);
 		$row -> execute($data);
-		echo '<script>window.location="../../barang.php?sukses"</script>';
+		echo '<script>window.location="../../barang.php?berhasil"</script>';
 	}
 	if(!empty($_GET['jual'])){
 		$id = $_GET['id'];

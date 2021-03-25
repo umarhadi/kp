@@ -65,8 +65,8 @@
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
-                        <a class="dropdown-item" href="edit-user.php"><i class="dropdown-icon zmdi zmdi-account"></i><span>Edit Akun</span></a>
-                        <a class="dropdown-item" href="#"><i class="dropdown-icon zmdi zmdi-settings"></i><span>Pengaturan Toko</span></a>
+                        <a class="dropdown-item" href="akun.php"><i class="dropdown-icon zmdi zmdi-account"></i><span>Akun</span></a>
+                        <a class="dropdown-item" href="toko.php"><i class="dropdown-icon zmdi zmdi-settings"></i><span>Toko</span></a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="logout.php"><i class="dropdown-icon zmdi zmdi-power"></i><span>Logout</span></a>
                     </div>

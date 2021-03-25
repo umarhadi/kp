@@ -65,58 +65,6 @@ if (!empty($_SESSION['admin'])) {
 				?>
 			</div>
 		</div>
-
-		<div class="row">
-			<div class="col-xl-12">
-				<div class="hk-row">
-					<div class="col-md-4">
-						<div class="card card-sm">
-							<a class="card-body" href="#">
-								<div class="d-flex align-items-center justify-content-between">
-									<div>
-										<span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Modal</span>
-										Rp.<span class="d-block display-6 font-weight-400 text-dark counter-anim">54,450.000</span>
-									</div>
-									<div>
-										<i class="zmdi zmdi-widgets zmdi-hc-3x text-primary"></i>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card card-sm">
-							<a class="card-body" href="#">
-								<div class="d-flex align-items-center justify-content-between">
-									<div>
-										<span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Keuntungan</span>
-										Rp.<span class="d-block display-6 font-weight-400 text-dark counter-anim">14,375.000</span>
-									</div>
-									<div>
-										<i class="zmdi zmdi-chart zmdi-hc-3x text-primary"></i>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-					<div class="col-md-4">
-						<div class="card card-sm">
-							<a class="card-body" href="#">
-								<div class="d-flex align-items-center justify-content-between">
-									<div>
-										<span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Total Belanja Toko</span>
-										Rp.<span class="d-block display-6 font-weight-400 text-dark counter-anim">54,450.000</span>
-									</div>
-									<div>
-										<i class="zmdi zmdi-label zmdi-hc-3x text-primary"></i>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 		<div class="card hk-dash-type-1 overflow-hide">
 			<div class="card-header pa-0">
 				<div class="nav nav-tabs nav-light nav-justified" id="dash-tab" role="tablist">
@@ -230,7 +178,7 @@ if (!empty($_SESSION['admin'])) {
 					<div class="tab-pane fade " id="Terjual" role="tabpanel" aria-labelledby="Terjual">
 						<div class="table-wrap">
 							<div class="table-wrap">
-								<button class="btn btn-dark align-items-center btn-wth-icon icon-wthot-bg btn-rounded icon-right btn-lg"><span class="btn-text">Ke halaman laporan</span> <span class="icon-label"><span class="feather-icon"><i data-feather="arrow-right"></i></span> </span>
+								<button class="btn btn-dark align-items-center btn-wth-icon icon-wthot-bg btn-rounded icon-right btn-lg"><span class="btn-text">Ke halaman laporan</span> <span class="icon-label"><i class="zmdi zmdi-delete"></i>
 							</div>
 						</div>
 					</div>
@@ -276,55 +224,19 @@ if (!empty($_SESSION['admin'])) {
 <script src="vendors/popper.js/dist/umd/popper.min.js"></script>
 <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 
-<!-- Slimscroll JavaScript -->
-<script src="dist/js/jquery.slimscroll.js"></script>
-
 <!-- Fancy Dropdown JS -->
 <script src="dist/js/dropdown-bootstrap-extended.js"></script>
-
-<!-- FeatherIcons JavaScript -->
-<script src="dist/js/feather.min.js"></script>
-
-<!-- Toggles JavaScript -->
-<script src="vendors/jquery-toggles/toggles.min.js"></script>
-<script src="dist/js/toggle-data.js"></script>
 
 <!-- Counter Animation JavaScript -->
 <script src="vendors/waypoints/lib/jquery.waypoints.min.js"></script>
 <script src="vendors/jquery.counterup/jquery.counterup.min.js"></script>
 
-<!-- Easy pie chart JS -->
-<script src="vendors/easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
-
-<!-- Sparkline JavaScript -->
-<script src="vendors/jquery.sparkline/dist/jquery.sparkline.min.js"></script>
-
-<!-- Morris Charts JavaScript -->
-<script src="vendors/raphael/raphael.min.js"></script>
-<script src="vendors/morris.js/morris.min.js"></script>
-
-<!-- EChartJS JavaScript -->
-<script src="vendors/echarts/dist/echarts-en.min.js"></script>
-
-<!-- Peity JavaScript -->
-<script src="vendors/peity/jquery.peity.min.js"></script>
-
 <!-- Data Table JavaScript -->
 <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="vendors/datatables.net-dt/js/dataTables.dataTables.min.js"></script>
-<script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-<script src="vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-<script src="vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-<script src="vendors/jszip/dist/jszip.min.js"></script>
-<script src="vendors/pdfmake/build/pdfmake.min.js"></script>
-<script src="vendors/pdfmake/build/vfs_fonts.js"></script>
-<script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-<script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
 <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
 <script src="dist/js/dataTables-data.js"></script>
 
 <!-- Init JavaScript -->
 <script src="dist/js/init.js"></script>
-<script src="dist/js/dashboard3-data.js"></script>
 </body>

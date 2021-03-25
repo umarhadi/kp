@@ -262,7 +262,6 @@ if (!empty($_SESSION['admin'])) {
 <!-- Fancy Dropdown JS -->
 <script src="dist/js/dropdown-bootstrap-extended.js"></script>
 
-
 <!-- Data Table JavaScript -->
 <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>

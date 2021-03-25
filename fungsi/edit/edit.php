@@ -17,7 +17,7 @@ if (!empty($_SESSION['admin'])) {
 		$sql = 'UPDATE toko SET nama_toko=?, alamat_toko=?, tlp=?, nama_pemilik=? WHERE id_toko = ?';
 		$row = $config->prepare($sql);
 		$row->execute($data);
-		echo '<script>window.location="../../index2.php?page=pengaturan&success=edit-data"</script>';
+		echo '<script>window.location="../../toko.php?berhasil=edit-data"</script>';
 	}
 
 	if (!empty($_GET['kategori'])) {
@@ -28,7 +28,7 @@ if (!empty($_SESSION['admin'])) {
 		$sql = 'UPDATE kategori SET  nama_kategori=? WHERE id_kategori=?';
 		$row = $config->prepare($sql);
 		$row->execute($data);
-		echo '<script>window.location="../../index2.php?page=kategori&uid=' . $id . '&success-edit=edit-data"</script>';
+		echo '<script>window.location="../../kategori.php?uid=' . $id . '&berhasil=edit-data"</script>';
 	}
 
 	if (!empty($_GET['stok'])) {
@@ -47,7 +47,7 @@ if (!empty($_SESSION['admin'])) {
 		$sql = 'UPDATE barang SET stok=? WHERE id_barang=?';
 		$row = $config->prepare($sql);
 		$row->execute($data);
-		echo '<script>window.location="../../index2.php?page=barang&success-stok=stok-data"</script>';
+		echo '<script>window.location="../../barang.php?success-stok=stok-data"</script>';
 	}
 
 	if (!empty($_GET['barang'])) {
@@ -87,12 +87,12 @@ if (!empty($_SESSION['admin'])) {
 		} elseif (!in_array($_FILES['foto']["type"], $allowedImageType)) {
 			echo "You can only upload JPG, PNG and GIF file";
 			echo "<font face='Verdana' size='2' ><BR><BR><BR>
-					<a href='../../index.php?page=user'>Back to upform</a><BR>";
+					<a href='../../akun.php'>Back to upform</a><BR>";
 
 		}elseif (round($_FILES['foto']["size"] / 1024) > 4096) {
 			echo "WARNING !!! Besar Gambar Tidak Boleh Lebih Dari 4 MB";
 			echo "<font face='Verdana' size='2' ><BR><BR><BR>
-					<a href='../../index.php?page=user'>Back to upform</a><BR>";
+					<a href='../../akun.php'>Back to upform</a><BR>";
 
 		}else{
 			$target_path = '../../assets/img/user/';
@@ -102,7 +102,7 @@ if (!empty($_SESSION['admin'])) {
 				<br> Silahkan Rename File terlebih dahulu<br>";
 
 			echo "<font face='Verdana' size='2' ><BR><BR><BR>
-					<a href='../../index.php?page=user'>Back to upform</a><BR>";
+					<a href='../../akun.php'>Back to upform</a><BR>";
 
 				}elseif(move_uploaded_file($_FILES['foto']['tmp_name'], $target_path)){
 					//post foto lama
@@ -116,7 +116,7 @@ if (!empty($_SESSION['admin'])) {
 				$sql = 'UPDATE member SET gambar=?  WHERE member.id_member=?';
 				$row = $config -> prepare($sql);
 				$row -> execute($data);
-				echo '<script>window.location="../../index.php?page=user&success=edit-data"</script>';
+				echo '<script>window.location="../../akun.php?berhasil=edit-data"</script>';
 			}
 		}
 	}
@@ -138,7 +138,7 @@ if (!empty($_SESSION['admin'])) {
 		$sql = 'UPDATE member SET nm_member=?,alamat_member=?,telepon=?,email=?,NIK=? WHERE id_member=?';
 		$row = $config->prepare($sql);
 		$row->execute($data);
-		echo '<script>window.location="../../index2.php?page=user&success=edit-data"</script>';
+		echo '<script>window.location="../../akun.php?success=edit-data"</script>';
 	}
 	if (!empty($_GET['pass'])) {
 		$id = htmlentities($_POST['id']);
@@ -151,7 +151,7 @@ if (!empty($_SESSION['admin'])) {
 		$sql = 'UPDATE login SET user=?,pass=md5(?) WHERE id_member=?';
 		$row = $config->prepare($sql);
 		$row->execute($data);
-		echo '<script>window.location="../../index2.php?page=user&success=edit-data"</script>';
+		echo '<script>window.location="../../akun.php?success=edit-data"</script>';
 	}
 
 	if (!empty($_GET['jual'])) {
