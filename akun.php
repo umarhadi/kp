@@ -58,8 +58,8 @@ if (!empty($_SESSION['admin'])) {
                     <div class="row">
                         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mx-auto d-block">
                             <div class="card-body">
-                                <div class="card">
-                                    <div class="card-body">
+                                <div class="card bg-sky-light-4">
+                                    <div class="card-body ">
                                         <img class="img-fluid circle" src="assets/img/user/<?php echo $hasil_profil['gambar']; ?>" style="width:200px;" />
                                     </div>
                                 </div>
@@ -67,14 +67,14 @@ if (!empty($_SESSION['admin'])) {
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="card">
+                        <div class="card bg-sky-light-4">
                             <div class="card-body">
                                 <form method="POST" action="fungsi/edit/edit.php?gambar=user" enctype="multipart/form-data">
                                     <input type="file" accept="image/*" name="foto">
                                     <input type="hidden" value="<?php echo $hasil_profil['gambar']; ?>" name="foto2">
                                     <input type="hidden" name="id" value="<?php echo $hasil_profil['id_member']; ?>">
                                     <span class="pull-right">
-                                        <button type="submit" class="btn btn-primary btn-sm"><i class="zmdi zmdi-upload"> Ganti Foto</i></button>
+                                        <button type="submit" class="btn bg-sky-light-4 btn-sm"><i class="zmdi zmdi-upload"> Ganti Foto</i></button>
                                     </span>
                                 </form>
                             </div>

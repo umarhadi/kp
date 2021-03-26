@@ -9,37 +9,19 @@ if (!empty($_SESSION['admin'])) {
 	$toko = $lihat->toko();
 	$id = $_SESSION['admin']['id_member'];
 
-	// variable view stok, nama, kategori, sudah terjual
 	$hasil_profil = $lihat->member_edit($id);
 	$hasil_barang = $lihat->barang_row();
 	$hasil_kategori = $lihat->kategori_row();
 	$stok = $lihat->barang_stok_row();
 	$jual = $lihat->jual_row();
 
-	// variable view penjualan, laba, modal
-	//$bln = date('m');
-	//$thn = date('Y');
-	$periode_bln = '"02-2021"'; //date('m').'-'.date('Y');
-	$hasil_jual = $lihat->penjualan_bulan_row($periode_bln);
-
-	/*$bayar += $hasil_jual['total'];
-            $modal += $hasil_jual['harga_beli']* $hasil_jual['jumlah'];
-            $jumlah += $hasil_jual['jumlah'];
-            */
-
-	//  admin
 	include 'komponen/header.php';
 
-	if (!empty($_GET['page'])) {
-		include 'admin/module/' . $_GET['page'] . '/index.php';
-	} else {
-		//include 'admin/template/home.php';
-	}
-	// end admin
 } else {
 	echo '<script>window.location="login.php";</script>';
 }
 ?>
+
 <title>Dashboard - CV. Mahardika Komputer</title>
 <div class="hk-pg-wrapper">
 	<nav class="hk-breadcrumb" aria-label="breadcrumb">
@@ -76,32 +58,32 @@ if (!empty($_SESSION['admin'])) {
 					<a class="d-flex align-items-center justify-content-center nav-item nav-link active" id="dash-tab-1" data-toggle="tab" href="#NamaBarang" role="tab" aria-selected="true">
 						<div class="d-flex">
 							<div>
-								<span class="d-block mb-5"><span class="display-4 counter-anim"><?php echo number_format($hasil_barang); ?></span></span>
-								<span class="d-block"><i class="zmdi zmdi-collection-text mr-10"></i>Nama Barang</span>
+								<span class="d-block mb-5"><span class="display-4 text-sky counter-anim"><?php echo number_format($hasil_barang); ?></span></span>
+								<span class="d-block"><i class="zmdi zmdi-collection-text mr-10 text-sky"></i>Nama Barang</span>
 							</div>
 						</div>
 					</a>
 					<a class="d-flex align-items-center justify-content-center nav-item nav-link" id="dash-tab-2" data-toggle="tab" href="#Stok" role="tab" aria-selected="false">
 						<div class="d-flex">
 							<div>
-								<span class="d-block mb-5"><span class="display-4 counter-anim"><?php echo number_format($stok['jml']); ?></span></span>
-								<span class="d-block"><i class="zmdi zmdi-trending-up mr-10"></i>Stok Barang Tersisa</span>
+								<span class="d-block mb-5"><span class="display-4 text-sky counter-anim"><?php echo number_format($stok['jml']); ?></span></span>
+								<span class="d-block"><i class="zmdi zmdi-archive mr-10 text-sky"></i>Stok Barang Tersisa</span>
 							</div>
 						</div>
 					</a>
 					<a class="d-flex align-items-center justify-content-center nav-item nav-link" id="dash-tab-3" data-toggle="tab" href="#Terjual" role="tab" aria-selected="false">
 						<div class="d-flex">
 							<div>
-								<span class="d-block mb-5"><span class="display-4 counter-anim"><?php echo number_format($jual['stok']); ?></span></span>
-								<span class="d-block"><i class="zmdi zmdi-money mr-10"></i>Barang Telah Terjual</span>
+								<span class="d-block mb-5"><span class="display-4 text-sky counter-anim"><?php echo number_format($jual['stok']); ?></span></span>
+								<span class="d-block"><i class="zmdi zmdi-money mr-10 text-sky"></i>Barang Telah Terjual</span>
 							</div>
 						</div>
 					</a>
 					<a class="d-flex align-items-center justify-content-center nav-item nav-link" id="dash-tab-3" data-toggle="tab" href="#Kategori" role="tab" aria-selected="false">
 						<div class="d-flex">
 							<div>
-								<span class="d-block mb-5"><span class="display-4 counter-anim"><?php echo number_format($hasil_kategori); ?></span></span>
-								<span class="d-block"><i class="zmdi zmdi-money mr-10"></i>Kategori Barang</span>
+								<span class="d-block mb-5"><span class="display-4 text-sky counter-anim"><?php echo number_format($hasil_kategori); ?></span></span>
+								<span class="d-block"><i class="zmdi zmdi-label-alt mr-10 text-sky"></i>Kategori Barang</span>
 							</div>
 						</div>
 					</a>
@@ -130,7 +112,7 @@ if (!empty($_SESSION['admin'])) {
 											<td><?php echo $no; ?>.</td>
 											<td><?php echo $isi['nama_barang']; ?></td>
 											<td><?php echo $isi['merk']; ?></td>
-											<td><a href="#"><button class="btn btn-warning">Edit</button></a>
+											<td><a href="edit-barang.php?barang=<?php echo $isi['id_barang']; ?>"><button class="btn btn-warning">Edit</button></a>
 												<a href="#" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-danger">Hapus</button></a>
 											</td>
 										<?php $no++;
@@ -163,7 +145,7 @@ if (!empty($_SESSION['admin'])) {
 											<td><?php echo $no; ?>.</td>
 											<td><?php echo $isi['nama_barang']; ?></td>
 											<td><?php echo $isi['stok']; ?></td>
-											<td><a href="#"><button class="btn btn-warning">Edit</button></a>
+											<td><a href="edit-barang.php?barang=<?php echo $isi['id_barang']; ?>"><button class="btn btn-warning">Edit</button></a>
 												<a href="#" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-danger">Hapus</button></a>
 											</td>
 										<?php $no++;
@@ -181,10 +163,11 @@ if (!empty($_SESSION['admin'])) {
 						</div>
 					</div>
 					<div class="tab-pane fade " id="Terjual" role="tabpanel" aria-labelledby="Terjual">
-						<div class="table-wrap">
-							<div class="table-wrap">
-								<button class="btn btn-dark align-items-center btn-wth-icon icon-wthot-bg btn-rounded icon-right btn-lg">
-									<span class="btn-text">Ke halaman laporan</span> <span class="icon-label"><i class="zmdi zmdi-delete"></i>
+						<div class="card">
+							<div class="card-body">
+							<a href="laporan.php"><button class="btn btn-dark align-items-center btn-wth-icon icon-wthot-bg btn-rounded icon-right btn-lg mx-auto d-block">
+									<span class="btn-text">Ke halaman laporan</span> <span class="icon-label"><i class="zmdi zmdi-arrow-right"></i>
+								</button></a>
 							</div>
 						</div>
 					</div>
@@ -206,7 +189,7 @@ if (!empty($_SESSION['admin'])) {
 									<tr>
 										<td><?php echo $no; ?>.</td>
 										<td><?php echo $isi['nama_kategori']; ?></td>
-										<td><a href="#"><button class="btn btn-warning">Edit</button></a>
+										<td><a href="kategori.php?uid=<?php echo $isi['id_kategori']; ?>"><button class="btn btn-warning">Edit</button></a>
 											<a href="#" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-danger">Hapus</button></a>
 										</td>
 									<?php $no++;

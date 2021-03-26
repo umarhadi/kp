@@ -33,8 +33,8 @@ var sparklineLogin = function() {
 			barWidth: '5',
 			resize: true,
 			barSpacing: '5',
-			barColor: '#88c241',	
-			highlightSpotColor: '#88c241'
+			barColor: '#00acf0',	
+			highlightSpotColor: '#00acf0'
 		});
 	}
 	if( $('#sparkline_5').length > 0 ){
@@ -45,8 +45,8 @@ var sparklineLogin = function() {
 			barWidth: '5',
 			resize: true,
 			barSpacing: '5',
-			barColor: '#88c241',	
-			highlightSpotColor: '#88c241'
+			barColor: '#00acf0',	
+			highlightSpotColor: '#00acf0'
 		});
 	}
 }
@@ -133,7 +133,7 @@ var echartsConfig = function() {
 						shadowBlur: 5,
 						shadowColor: 'rgba(0, 0, 0, 0.5)',
 						shadowOffsetY: 5,
-						color: '#88c241'
+						color: '#00acf0'
 					}
 				}
 			}, {
@@ -244,7 +244,7 @@ var echartsConfig = function() {
 						shadowBlur: 5,
 						shadowColor: 'rgba(0, 0, 0, 0.5)',
 						shadowOffsetY: 5,
-						color: '#88c241'
+						color: '#00acf0'
 					}
 				}
 			}, {
@@ -351,7 +351,7 @@ var echartsConfig = function() {
 						shadowBlur: 5,
 						shadowColor: 'rgba(0, 0, 0, 0.5)',
 						shadowOffsetY: 5,
-						color: '#88c241'
+						color: '#00acf0'
 					}
 				}
 			}, {

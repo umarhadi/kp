@@ -26,9 +26,9 @@ $(document).ready(function() {
 				smooth:true,
 				pointSize: 3,
 				lineWidth:2,
-				pointFillColors:['#88c241','#c3e0a0'],
-				pointStrokeColors: ['#88c241','#c3e0a0'],
-				lineColors: ['#88c241','#c3e0a0'],
+				pointFillColors:['#00acf0','#c3e0a0'],
+				pointStrokeColors: ['#00acf0','#c3e0a0'],
+				lineColors: ['#00acf0','#c3e0a0'],
 			});	
 	}
 });
@@ -41,14 +41,14 @@ var sparklineLogin = function() {
 			height: '50',
 			resize: true,
 			lineWidth: '1',
-			lineColor: '#88c241',
+			lineColor: '#00acf0',
 			fillColor: '#c3e0a0',
-			spotColor:'88c241',
+			spotColor:'00acf0',
 			spotRadius:'2',
-			minSpotColor: '#88c241',
-			maxSpotColor: '#88c241',
+			minSpotColor: '#00acf0',
+			maxSpotColor: '#00acf0',
 			highlightLineColor: 'rgba(0, 0, 0, 0)',
-			highlightSpotColor: '#88c241'
+			highlightSpotColor: '#00acf0'
 		});
 	}
 	if( $('#sparkline_2').length > 0 ){
@@ -58,14 +58,14 @@ var sparklineLogin = function() {
 			height: '50',
 			resize: true,
 			lineWidth: '1',
-			lineColor: '#88c241',
+			lineColor: '#00acf0',
 			fillColor: '#c3e0a0',
-			spotColor:'88c241',
+			spotColor:'00acf0',
 			spotRadius:'2',
-			minSpotColor: '#88c241',
-			maxSpotColor: '#88c241',
+			minSpotColor: '#00acf0',
+			maxSpotColor: '#00acf0',
 			highlightLineColor: 'rgba(0, 0, 0, 0)',
-			highlightSpotColor: '#88c241'
+			highlightSpotColor: '#00acf0'
 		});
 	}
 	if( $('#sparkline_3').length > 0 ){
@@ -75,14 +75,14 @@ var sparklineLogin = function() {
 			height: '50',
 			resize: true,
 			lineWidth: '1',
-			lineColor: '#88c241',
+			lineColor: '#00acf0',
 			fillColor: '#c3e0a0',
-			spotColor:'88c241',
+			spotColor:'00acf0',
 			spotRadius:'2',
-			minSpotColor: '#88c241',
-			maxSpotColor: '#88c241',
+			minSpotColor: '#00acf0',
+			maxSpotColor: '#00acf0',
 			highlightLineColor: 'rgba(0, 0, 0, 0)',
-			highlightSpotColor: '#88c241'
+			highlightSpotColor: '#00acf0'
 		});
 	}
 	if( $('#sparkline_4').length > 0 ){
@@ -91,7 +91,7 @@ var sparklineLogin = function() {
 			width: '50',
 			height: '50',
 			resize: true,
-			sliceColors: ['#88c241', '#c3e0a0', '#97ca5a']
+			sliceColors: ['#00acf0', '#c3e0a0', '#97ca5a']
 		});
 	}
 	if( $('#sparkline_5').length > 0 ){
@@ -100,7 +100,7 @@ var sparklineLogin = function() {
 			width: '50',
 			height: '50',
 			resize: true,
-			sliceColors: ['#88c241', '#c3e0a0', '#97ca5a']
+			sliceColors: ['#00acf0', '#c3e0a0', '#97ca5a']
 		});
 	}
 }
@@ -136,7 +136,7 @@ var echartsConfig = function() {
 							show: false
 						}
 					},
-					color: ['#88c241', '#c3e0a0', '#97ca5a'],
+					color: ['#00acf0', '#c3e0a0', '#97ca5a'],
 					data:[
 						{value:435, name:''},
 						{value:679, name:''},
@@ -177,7 +177,7 @@ var echartsConfig = function() {
 				},
 				"axisTick": {
 					"lineStyle": {
-						"color": '#88c241', 
+						"color": '#00acf0', 
 						"width": 2
 					},
 					"length": -25,

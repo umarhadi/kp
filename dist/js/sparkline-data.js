@@ -8,14 +8,14 @@ var sparklineLogin = function() {
 			height: '50',
 			resize: true,
 			lineWidth: '1',
-			lineColor: '#88c241',
+			lineColor: '#00acf0',
 			fillColor: '#aed67e',
-			spotColor:'#88c241',
+			spotColor:'#00acf0',
 			spotRadius:'2',
-			minSpotColor: '#88c241',
-			maxSpotColor: '#88c241',
+			minSpotColor: '#00acf0',
+			maxSpotColor: '#00acf0',
 			highlightLineColor: 'rgba(0, 0, 0, 0)',
-			highlightSpotColor: '#88c241'
+			highlightSpotColor: '#00acf0'
 		});
 	}	
 	if( $('#sparkline_2').length > 0 ){
@@ -26,8 +26,8 @@ var sparklineLogin = function() {
 			barWidth: '5',
 			resize: true,
 			barSpacing: '5',
-			barColor: '#88c241',	
-			highlightSpotColor: '#88c241'
+			barColor: '#00acf0',	
+			highlightSpotColor: '#00acf0'
 		});
 	}	
 	if( $('#sparkline_3').length > 0 ){
@@ -36,7 +36,7 @@ var sparklineLogin = function() {
 			width: '50',
 			height: '50',
 			resize: true,
-			sliceColors: ['#88c241', '#c3e0a0', 'a58b84']
+			sliceColors: ['#00acf0', '#c3e0a0', 'a58b84']
 		});
 	}
 	if( $('#sparkline_7').length > 0 ){
@@ -47,14 +47,14 @@ var sparklineLogin = function() {
 			chartRangeMax: 50,
 			resize: true,
 			lineWidth: '1',
-			lineColor: '#88c241',
+			lineColor: '#00acf0',
 			fillColor: '#aed67e',
-			spotColor:'#88c241',
+			spotColor:'#00acf0',
 			spotRadius:'2',
-			minSpotColor: '#88c241',
-			maxSpotColor: '#88c241',
+			minSpotColor: '#00acf0',
+			maxSpotColor: '#00acf0',
 			highlightLineColor: 'rgba(0, 0, 0, 0)',
-			highlightSpotColor: '#88c241'
+			highlightSpotColor: '#00acf0'
 		});
 		$('#sparkline_7').sparkline([0, 13, 10, 14, 15, 10, 18, 20, 0], {
 			type: 'line',
@@ -62,15 +62,15 @@ var sparklineLogin = function() {
 			height: '50',
 			chartRangeMax: 40,
 			lineWidth: '1',
-			lineColor: '#88c241',
+			lineColor: '#00acf0',
 			fillColor: '#aed67e',
-			spotColor:'#88c241',
+			spotColor:'#00acf0',
 			composite: true,
 			spotRadius:'2',
-			minSpotColor: '#88c241',
-			maxSpotColor: '#88c241',
+			minSpotColor: '#00acf0',
+			maxSpotColor: '#00acf0',
 			highlightLineColor: 'rgba(0, 0, 0, 0)',
-			highlightSpotColor: '#88c241'
+			highlightSpotColor: '#00acf0'
 		});
 	}	
 }

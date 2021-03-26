@@ -7,7 +7,7 @@ $(document).ready(function() {
 		heading: 'Oh snap!',
 		text: '<p>Change a few things and try submitting again.</p>',
 		position: 'bottom-right',
-		loaderBg:'#88c241',
+		loaderBg:'#00acf0',
 		class: 'jq-toast-danger',
 		hideAfter: 3500, 
 		stack: 6,
@@ -16,7 +16,7 @@ $(document).ready(function() {
 	
 	if( $('#pie_chart_1').length > 0 ){
 		$('#pie_chart_1').easyPieChart({
-			barColor : '#88c241',
+			barColor : '#00acf0',
 			lineWidth: 3,
 			animate: 3000,
 			size:	50,
@@ -30,7 +30,7 @@ $(document).ready(function() {
 	}
 	if( $('#pie_chart_2').length > 0 ){
 		$('#pie_chart_2').easyPieChart({
-			barColor : '#88c241',
+			barColor : '#00acf0',
 			lineWidth: 3,
 			animate: 3000,
 			size:	50,
@@ -171,12 +171,12 @@ $(document).ready(function() {
 				pointSize: 3,
 				lineWidth: 2,
 				grid: false,
-				pointStrokeColors:['#88c241'],
+				pointStrokeColors:['#00acf0'],
 				pointFillColors:['#ffffff'],
 				behaveLikeLine: true,
 				smooth: false,
 				hideHover: 'auto',
-				lineColors: ['#88c241'],
+				lineColors: ['#00acf0'],
 				resize: true,
 				gridTextColor:'#878787',
 				gridTextFamily:"Nunito",
@@ -237,7 +237,7 @@ $(document).ready(function() {
 				borderWidth: 0,
 				backgroundColor: 'transparent'
 			},
-			colors: ["#88c241"],
+			colors: ["#00acf0"],
 			tooltip: true,
 			tooltipOpts: {
 				content: "Y: %y",
@@ -292,7 +292,7 @@ var echartsConfig = function() {
 	if( $('#e_chart_4').length > 0 ){
 		var eChart_4 = echarts.init(document.getElementById('e_chart_4'));
 		var option4 = {
-			color: ['#88c241'],
+			color: ['#00acf0'],
 			tooltip: {
 				show: true,
 				trigger: 'axis',
@@ -370,7 +370,7 @@ var echartsConfig = function() {
 	if( $('#e_chart_5').length > 0 ){
 		var eChart_5 = echarts.init(document.getElementById('e_chart_5'));
 		var option5 = {
-			color: ['#88c241', '#97ca5a'],		
+			color: ['#00acf0', '#97ca5a'],		
 			tooltip: {
 				show: true,
 				trigger: 'axis',
@@ -481,7 +481,7 @@ var echartsConfig = function() {
 					radius : '60%',
 					center : ['50%', '50%'],
 					roseType : 'radius',
-					color: ['#88c241', '#c3e0a0', '#aed67e', '#f6f3f2'],
+					color: ['#00acf0', '#c3e0a0', '#aed67e', '#f6f3f2'],
 					data:[
 						{value:735, name:''},
 						{value:479, name:''},
@@ -526,7 +526,7 @@ var echartsConfig = function() {
 					name:'',
 					type:'pie',
 					radius: ['0', '50%'],
-					color: ['#88c241', '#97ca5a', '#aed67e', '#c3e0a0'],
+					color: ['#00acf0', '#97ca5a', '#aed67e', '#c3e0a0'],
 					data:[
 						{value:435, name:''},
 						{value:679, name:''},

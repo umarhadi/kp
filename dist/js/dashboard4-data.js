@@ -7,7 +7,7 @@ $(document).ready(function() {
 		heading: 'Welcome Back!',
 		text: '<p>You have successfully completed level 1.</p><button class="btn btn-primary btn-sm mt-10">Play again</button>',
 		position: 'top-right',
-		loaderBg:'#88c241',
+		loaderBg:'#00acf0',
 		class: 'jq-toast-primary',
 		hideAfter: 3500, 
 		stack: 6,
@@ -97,17 +97,17 @@ var echartsConfig = function() {
 					type: 'line',
 					symbolSize: 0,
 					lineStyle: {
-						color: '#88c241',
+						color: '#00acf0',
 						width:0,
 					},
 					itemStyle: {
-						color: '#88c241',
+						color: '#00acf0',
 					},
 					areaStyle: {
 						normal: {
 							color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
 								offset: 0,
-								color: '#88c241'
+								color: '#00acf0'
 							}, {
 								offset: 1,
 								color: '#ffffff'

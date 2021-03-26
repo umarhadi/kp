@@ -24,7 +24,7 @@ $(function() {
 			markerStyle: {
 				initial: {
 							r: 10,
-							'fill': '#88c241',
+							'fill': '#00acf0',
 							'fill-opacity':1,
 							'stroke': '#fff',
 							'stroke-width' : 2,
@@ -32,7 +32,7 @@ $(function() {
 						},
 				hover: {
 					r: 5,
-					'fill': '#88c241',
+					'fill': '#00acf0',
 					'fill-opacity':1,
 					'stroke': '#fff',
 					'stroke-width' : 2,
@@ -124,7 +124,7 @@ $(function() {
 		backgroundColor: 'transparent',
 		markerStyle: {
 			initial: {
-				fill: '#88c241',
+				fill: '#00acf0',
 				r: 5,
 				'fill-opacity':1,
 				'stroke': '#fff',
@@ -132,7 +132,7 @@ $(function() {
 				'stroke-opacity': 1
 			},
 			hover: {
-				fill: '#88c241',
+				fill: '#00acf0',
 				r: 5,
 				'fill-opacity':1,
 				'stroke': '#fff',
@@ -228,7 +228,7 @@ $(function() {
 				},
 				markerStyle: {
 					initial: {
-						fill: '#88c241',
+						fill: '#00acf0',
 						r: 5,
 						'fill-opacity':1,
 						'stroke': '#fff',
@@ -236,7 +236,7 @@ $(function() {
 						'stroke-opacity': 1
 					},
 					hover: {
-						fill: '#88c241',
+						fill: '#00acf0',
 						r: 5,
 						'fill-opacity':1,
 						'stroke': '#fff',
@@ -291,7 +291,7 @@ $(function() {
 		regionLabelStyle: {
 			initial: {
 			'font-family': 'inherit',
-			fill: '#88c241'
+			fill: '#00acf0'
 			},
 			hover: {
 			fill: '#324148'
@@ -344,7 +344,7 @@ $(function() {
 		],
 		markerStyle: {
 			initial: {
-				fill: '#88c241',
+				fill: '#00acf0',
 				r: 5,
 				'fill-opacity':1,
 				'stroke': '#fff',
@@ -352,7 +352,7 @@ $(function() {
 				'stroke-opacity': 1
 			},
 			hover: {
-				fill: '#88c241',
+				fill: '#00acf0',
 				r: 5,
 				'fill-opacity':1,
 				'stroke': '#fff',
@@ -371,7 +371,7 @@ $(function() {
 		series: {
 		  markers: [{
 			attribute: 'fill',
-			scale: ['#edf9fe', '#88c241'],
+			scale: ['#edf9fe', '#00acf0'],
 			normalizeFunction: 'polynomial',
 			values: [408, 512, 550, 781],
 			legend: {

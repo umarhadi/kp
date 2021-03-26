@@ -25,7 +25,7 @@ $hasil_profil = $lihat->member_edit($id);
 
     <div class="hk-wrapper hk-alt-nav">
         <!-- mulai bar navigasi-->
-        <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar hk-navbar-alt">
+        <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar hk-navbar-alt ">
             <a class="navbar-toggle-btn nav-link-hover navbar-toggler" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarCollapseAlt" aria-controls="navbarCollapseAlt" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="zmdi zmdi-menu"></i></a>
             <a class="navbar-brand" href="index.php">

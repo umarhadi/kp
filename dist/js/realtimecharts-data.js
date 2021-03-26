@@ -52,7 +52,7 @@ var data = [],
 				borderWidth: 0,
 				backgroundColor: 'transparent'
 			},
-			colors: ["#88c241"],
+			colors: ["#00acf0"],
 			tooltip: true,
 			tooltipOpts: {
 				content: "Y: %y",
@@ -114,7 +114,7 @@ var echartsConfig = function() {
 				bottom: '3%',
 				containLabel: true
 			},
-			color: ['#88c241', '#aed67e'],		
+			color: ['#00acf0', '#aed67e'],		
 			legend: {
 				show : false,
 				data:['Latest transaction price', 'Order'],
@@ -351,21 +351,21 @@ var echartsConfig = function() {
 					playInterval: 1000,
 					 checkpointStyle: {
 						color: 'transparent',
-						borderColor: '#88c241'
+						borderColor: '#00acf0'
 					},
 					itemStyle: {
 						normal: {
-							color: '#88c241'
+							color: '#00acf0'
 						},
 						emphasis: {
-							color: '#88c241'
+							color: '#00acf0'
 						}
 					},
 					controlStyle: {
 						show:false
 					},
 					lineStyle: {
-						color: '#88c241'
+						color: '#00acf0'
 					},
 					label: {
 						normal: {
@@ -603,10 +603,10 @@ var echartsConfig = function() {
 						},
 						itemStyle: {
 							normal: {
-								color: '#88c241',
+								color: '#00acf0',
 							},
 							emphasis: {
-								color: '#88c241',
+								color: '#00acf0',
 							},
 						},
 						data: databeauty[timeLineData[i]],
@@ -717,14 +717,14 @@ var echartsConfig = function() {
 					symbolSize: 6,
 					itemStyle: {
 						normal: {
-							color: '#88c241'
+							color: '#00acf0'
 						}
 					},
 					areaStyle: {
 						normal: {
 							color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
 								offset: 0,
-								color: '#88c241'
+								color: '#00acf0'
 							}, {
 								offset: 1,
 								color: '#aed67e'

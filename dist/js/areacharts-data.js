@@ -71,14 +71,14 @@ var echartsConfig = function() {
 					type: 'line',
 					symbolSize: 6,
 					itemStyle: {
-						color: '#88c241',
+						color: '#00acf0',
 					},
 					lineStyle: {
-						color: '#88c241',
+						color: '#00acf0',
 						width:2,
 					},
 					areaStyle: {
-						color: '#88c241',
+						color: '#00acf0',
 					},
 				}
 			]
@@ -155,14 +155,14 @@ var echartsConfig = function() {
 					stack: 'a',
 					symbolSize: 6,
 					itemStyle: {
-						color: '#88c241',
+						color: '#00acf0',
 					},
 					lineStyle: {
-						color: '#88c241',
+						color: '#00acf0',
 						width:2,
 					},
 					areaStyle: {
-						color: '#88c241',
+						color: '#00acf0',
 					},
 				},
 				{
@@ -270,17 +270,17 @@ var echartsConfig = function() {
 					type: 'line',
 					symbolSize: 6,
 					lineStyle: {
-						color: '#88c241',
+						color: '#00acf0',
 						width:2,
 					},
 					itemStyle: {
-						color: '#88c241',
+						color: '#00acf0',
 					},
 					areaStyle: {
 						normal: {
 							color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
 								offset: 0,
-								color: '#88c241'
+								color: '#00acf0'
 							}, {
 								offset: 1,
 								color: '#aed67e'

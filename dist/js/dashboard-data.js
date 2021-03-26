@@ -7,7 +7,7 @@ $(document).ready(function() {
 		heading: 'Well done!',
 		text: '<p>You have successfully completed level 1.</p><button class="btn btn-primary btn-sm mt-10">Play again</button>',
 		position: 'top-right',
-		loaderBg:'#88c241',
+		loaderBg:'#00acf0',
 		class: 'jq-toast-primary',
 		hideAfter: 3500, 
 		stack: 6,
@@ -54,11 +54,11 @@ $(document).ready(function() {
         pointSize: 0,
         lineWidth:0,
 		fillOpacity: 0.95,
-		pointStrokeColors:['#97ca5a','#88c241'],
+		pointStrokeColors:['#97ca5a','#00acf0'],
 		behaveLikeLine: true,
 		grid: false,
 		hideHover: 'auto',
-		lineColors: ['#97ca5a','#88c241'],
+		lineColors: ['#97ca5a','#00acf0'],
 		resize: true,
 		redraw: true,
 		smooth: true,
@@ -92,8 +92,8 @@ $(document).ready(function() {
 				pointSize:4,
 				lineWidth:2,
 				pointFillColors:['#fff','#fff','#fff'],
-				pointStrokeColors: ['#88c241','#97ca5a','#aed67e'],
-				lineColors: ['#88c241','#97ca5a','#aed67e'],
+				pointStrokeColors: ['#00acf0','#97ca5a','#aed67e'],
+				lineColors: ['#00acf0','#97ca5a','#aed67e'],
 			});	
 	}
 
@@ -182,10 +182,10 @@ var echartsConfig = function() {
 					symbolSize: 6,
 					smooth: true,
 					itemStyle: {
-						color: '#88c241',
+						color: '#00acf0',
 					},
 					lineStyle: {
-						color: '#88c241',
+						color: '#00acf0',
 						width:2,
 					}
 				}
@@ -207,8 +207,8 @@ var sparklineLogin = function() {
 			barWidth: '5',
 			resize: true,
 			barSpacing: '5',
-			barColor: '#88c241',	
-			highlightSpotColor: '#88c241'
+			barColor: '#00acf0',	
+			highlightSpotColor: '#00acf0'
 		});
 	}	
 	if( $('#sparkline_2').length > 0 ){
@@ -219,8 +219,8 @@ var sparklineLogin = function() {
 			barWidth: '5',
 			resize: true,
 			barSpacing: '5',
-			barColor: '#88c241',	
-			highlightSpotColor: '#88c241'
+			barColor: '#00acf0',	
+			highlightSpotColor: '#00acf0'
 		});
 	}	
 	if( $('#sparkline_3').length > 0 ){
@@ -231,8 +231,8 @@ var sparklineLogin = function() {
 			barWidth: '5',
 			resize: true,
 			barSpacing: '5',
-			barColor: '#88c241',	
-			highlightSpotColor: '#88c241'
+			barColor: '#00acf0',	
+			highlightSpotColor: '#00acf0'
 		});
 	}
 	if( $('#sparkline_4').length > 0 ){
@@ -243,8 +243,8 @@ var sparklineLogin = function() {
 			barWidth: '5',
 			resize: true,
 			barSpacing: '5',
-			barColor: '#88c241',	
-			highlightSpotColor: '#88c241'
+			barColor: '#00acf0',	
+			highlightSpotColor: '#00acf0'
 		});
 	}
 }
