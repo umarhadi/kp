@@ -1,8 +1,8 @@
 <?php
-    $id = $_SESSION['admin']['id_member'];
-    $lihat = new view($config);
-    $toko = $lihat->toko();
-    $hasil_profil = $lihat->member_edit($id);
+$id = $_SESSION['admin']['id_member'];
+$lihat = new view($config);
+$toko = $lihat->toko();
+$hasil_profil = $lihat->member_edit($id);
 ?>
 <!DOCTYPE html>
 
@@ -26,27 +26,28 @@
     <div class="hk-wrapper hk-alt-nav">
         <!-- mulai bar navigasi-->
         <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar hk-navbar-alt">
-            <a class="navbar-toggle-btn nav-link-hover navbar-toggler" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarCollapseAlt" aria-controls="navbarCollapseAlt" aria-expanded="false" aria-label="Toggle navigation"><span class="feather-icon"><i data-feather="menu"></i></span></a>
+            <a class="navbar-toggle-btn nav-link-hover navbar-toggler" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarCollapseAlt" aria-controls="navbarCollapseAlt" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="zmdi zmdi-menu"></i></a>
             <a class="navbar-brand" href="index.php">
                 <h5 class="brand-img d-inline-block align-top"><?php echo $toko['nama_toko'] ?></h5>
             </a>
             <div class="collapse navbar-collapse" id="navbarCollapseAlt">
                 <ul class="navbar-nav">
-                    <li class="nav-item show-on-hover active">
+                    <li class="nav-item active">
                         <a href="index.php" class="nav-link"><i class="zmdi zmdi-home"></i> Dashboard</a>
                     </li>
-                    <li class="nav-item show-on-hover">
+                    <li class="nav-item active">
                         <a href="transaksi.php" class="nav-link"><i class="zmdi zmdi-money-box"></i> Transaksi Kasir</a>
                     </li>
-                    <li class="nav-item dropdown show-on-hover">
+                    <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-collection-text"></i> Barang</a>
-                        <div class="dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                            <a class="dropdown-item" href="kategori.php"><i class="zmdi zmdi-label-alt"></i> Kategori</a>
-                            <a class="dropdown-item" href="barang.php"><i class="zmdi zmdi-archive"></i> Stok Barang</a>
+                        <div class="dropdown-menu" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
+                            <a class="dropdown-item " href="kategori.php"><i class="zmdi zmdi-label-alt"></i> Kategori</a>
+                            <a class="dropdown-item " href="barang.php"><i class="zmdi zmdi-archive"></i> Stok Barang</a>
                         </div>
                     </li>
                     <li class="nav-item show-on-hover">
-                        <a href="laporan.php" class="nav-link"><i class="zmdi zmdi-assignment"></i> Laporan</a>
+                        <a href="laporan.php" class="nav-link active"><i class="zmdi zmdi-assignment"></i> Laporan</a>
                     </li>
                 </ul>
             </div>

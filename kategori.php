@@ -13,6 +13,13 @@ if (!empty($_SESSION['admin'])) {
 ?>
 <title>Kategori - CV. Mahardika Komputer</title>
 <div class="hk-pg-wrapper">
+    <nav class="hk-breadcrumb" aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-light bg-transparent">
+            <li class="breadcrumb-item"><a href="index.php"><i class="zmdi zmdi-home"></i> Dashboard</a></li>
+            <li class="breadcrumb-item" aria-current="page"><a href="barang.php">Barang</a></li>
+            <li class="breadcrumb-item" aria-current="page">Kategori</li>
+        </ol>
+    </nav>
     <div class="container mt-xl-50 mt-sm-30 mt-15">
         <div class="hk-pg-header mb-1">
             <div>
@@ -49,11 +56,11 @@ if (!empty($_SESSION['admin'])) {
                                 <div class="card card-lg">
                                     <div class="card-body">
                                         <div class="align-items-center justify-content-between">
-                                            <span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Ubah Nama Kategori: <strong><?php echo $edit['nama_kategori'];?></strong></span>
+                                            <span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Ubah Nama Kategori: <strong><?php echo $edit['nama_kategori']; ?></strong></span>
                                             <div>
                                                 <div class="input-group">
-                                                    <input type="text" class="form-control" name="kategori" value="<?= $edit['nama_kategori'];?>" placeholder="Masukkan kategori baru..">
-                                                    <input type="hidden" name="id" value="<?= $edit['id_kategori'];?>">
+                                                    <input type="text" class="form-control" name="kategori" value="<?= $edit['nama_kategori']; ?>" placeholder="Masukkan kategori baru..">
+                                                    <input type="hidden" name="id" value="<?= $edit['id_kategori']; ?>">
                                                     <div class="input-group-append">
                                                         <button class="btn btn-info" type="submit"><i class="zmdi zmdi-upload"></i></button>
                                                     </div>
@@ -119,11 +126,12 @@ if (!empty($_SESSION['admin'])) {
                                     </td>
                                     <td><?php echo $isi['tgl_input']; ?></td>
                                     <td>
-                                        <a href="kategori.php?uid=<?php echo $isi['id_kategori'];?>"><button class="btn btn-sm btn-warning"><i class="zmdi zmdi-edit"></i></button></a>
-										<a href="fungsi/hapus/hapus.php?kategori=hapus&id=<?php echo $isi['id_kategori'];?>" onclick="javascript:return confirm('Hapus kategori <?php echo $isi['nama_kategori'];?>?');"><button class="btn btn-sm btn-danger"><i class="zmdi zmdi-delete"></i></button></a>
+                                        <a href="kategori.php?uid=<?php echo $isi['id_kategori']; ?>"><button class="btn btn-sm btn-warning"><i class="zmdi zmdi-edit"></i></button></a>
+                                        <a href="fungsi/hapus/hapus.php?kategori=hapus&id=<?php echo $isi['id_kategori']; ?>" onclick="javascript:return confirm('Hapus kategori <?php echo $isi['nama_kategori']; ?>?');"><button class="btn btn-sm btn-danger"><i class="zmdi zmdi-delete"></i></button></a>
                                     </td>
                                 </tr>
-                            <?php $no++; } ?>
+                            <?php $no++;
+                            } ?>
                         </tbody>
                     </table>
                 </div>

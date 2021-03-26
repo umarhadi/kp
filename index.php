@@ -42,6 +42,11 @@ if (!empty($_SESSION['admin'])) {
 ?>
 <title>Dashboard - CV. Mahardika Komputer</title>
 <div class="hk-pg-wrapper">
+	<nav class="hk-breadcrumb" aria-label="breadcrumb">
+		<ol class="breadcrumb breadcrumb-light bg-transparent">
+			<li class="breadcrumb-item active"><a href="#"><i class="zmdi zmdi-home"></i> Dashboard</a></li>
+		</ol>
+	</nav>
 	<div class="container mt-xl-50 mt-sm-30 mt-15">
 		<div class="hk-pg-header mb-1">
 			<div>
@@ -106,7 +111,7 @@ if (!empty($_SESSION['admin'])) {
 				<div class="tab-content" id="nav-tabContent">
 					<div class="tab-pane fade show active" id="NamaBarang" role="tabpanel" aria-labelledby="NamaBarang">
 						<div class="table-wrap">
-							<table id="tableDash1" class="table w-100 display pb-30">
+							<table id="tableDash1" class="table w-100 pb-30">
 								<thead>
 									<tr>
 										<th>No.</th>
@@ -138,7 +143,7 @@ if (!empty($_SESSION['admin'])) {
 					</div>
 					<div class="tab-pane fade" id="Stok" role="tabpanel" aria-labelledby="Stok">
 						<div class="table-wrap">
-							<table id="tableDash2" class="table w-100 pb-30">
+							<table id="tableDash2" class="table w-100 pb-30 ">
 								<thead>
 									<tr>
 										<th>No.</th>
@@ -178,12 +183,13 @@ if (!empty($_SESSION['admin'])) {
 					<div class="tab-pane fade " id="Terjual" role="tabpanel" aria-labelledby="Terjual">
 						<div class="table-wrap">
 							<div class="table-wrap">
-								<button class="btn btn-dark align-items-center btn-wth-icon icon-wthot-bg btn-rounded icon-right btn-lg"><span class="btn-text">Ke halaman laporan</span> <span class="icon-label"><i class="zmdi zmdi-delete"></i>
+								<button class="btn btn-dark align-items-center btn-wth-icon icon-wthot-bg btn-rounded icon-right btn-lg">
+									<span class="btn-text">Ke halaman laporan</span> <span class="icon-label"><i class="zmdi zmdi-delete"></i>
 							</div>
 						</div>
 					</div>
 					<div class="tab-pane fade" id="Kategori" role="tabpanel" aria-labelledby="Kategori">
-						<table id="tableDash3" class="table table-hover w-100 display pb-30">
+						<table id="tableDash3" class="table w-100 pb-30">
 							<thead>
 								<tr>
 									<th>No.</th>
@@ -214,8 +220,6 @@ if (!empty($_SESSION['admin'])) {
 		</div>
 	</div>
 </div>
-
-
 </div>
 
 <script src="vendors/jquery/dist/jquery.min.js"></script>
@@ -236,7 +240,6 @@ if (!empty($_SESSION['admin'])) {
 <script src="vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
 <script src="dist/js/dataTables-data.js"></script>
-
 <!-- Init JavaScript -->
 <script src="dist/js/init.js"></script>
 </body>

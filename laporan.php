@@ -29,6 +29,12 @@ $bulan_tes = array(
 ?>
 <title>Laporan - CV. Mahardika Komputer</title>
 <div class="hk-pg-wrapper">
+<nav class="hk-breadcrumb" aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-light bg-transparent">
+            <li class="breadcrumb-item"><a href="index.php"><i class="zmdi zmdi-home"></i> Dashboard</a></li>
+            <li class="breadcrumb-item" aria-current="page">Laporan</a></li>
+        </ol>
+    </nav>
     <div class="container mt-xl-50 mt-sm-30 mt-15">
         <div class="hk-pg-header mb-1">
             <div>

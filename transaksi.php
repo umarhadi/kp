@@ -42,6 +42,12 @@ if (!empty($_SESSION['admin'])) {
 ?>
 <title>Transaksi - CV. Mahardika Komputer</title>
 <div class="hk-pg-wrapper">
+    <nav class="hk-breadcrumb" aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-light bg-transparent">
+            <li class="breadcrumb-item active"><a href="#"><i class="zmdi zmdi-home"></i> Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Transaksi</li>
+        </ol>
+    </nav>
     <div class="container mt-xl-50 mt-sm-30 mt-15">
         <div class="hk-pg-header mb-1">
             <div>
@@ -193,7 +199,7 @@ if (!empty($_SESSION['admin'])) {
                         <div class="card card-sm">
                             <div class="card-body">
                                 <div class="d-flex align-items-start justify-content-between">
-                                <?php $hasil = $lihat->jumlah(); ?>
+                                    <?php $hasil = $lihat->jumlah(); ?>
                                     <form action="transaksi.php?nota=yes#kasirnya" method="POST">
                                         <span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Total Semua</span>
                                         <div class="input-group">
@@ -212,14 +218,14 @@ if (!empty($_SESSION['admin'])) {
                                         </div>
                                         <br>
                                         <?php foreach ($hasil_penjualan as $isi) {; ?>
-                                                    <input type="hidden" name="id_barang[]" value="<?php echo $isi['id_barang']; ?>">
-                                                    <input type="hidden" name="id_member[]" value="<?php echo $isi['id_member']; ?>">
-                                                    <input type="hidden" name="jumlah[]" value="<?php echo $isi['jumlah']; ?>">
-                                                    <input type="hidden" name="total1[]" value="<?php echo $isi['total']; ?>">
-                                                    <input type="hidden" name="tgl_input[]" value="<?php echo $isi['tanggal_input']; ?>">
-                                                    <input type="hidden" name="periode[]" value="<?php echo date('m-Y'); ?>">
-                                                <?php $no++;
-                                                } ?>
+                                            <input type="hidden" name="id_barang[]" value="<?php echo $isi['id_barang']; ?>">
+                                            <input type="hidden" name="id_member[]" value="<?php echo $isi['id_member']; ?>">
+                                            <input type="hidden" name="jumlah[]" value="<?php echo $isi['jumlah']; ?>">
+                                            <input type="hidden" name="total1[]" value="<?php echo $isi['total']; ?>">
+                                            <input type="hidden" name="tgl_input[]" value="<?php echo $isi['tanggal_input']; ?>">
+                                            <input type="hidden" name="periode[]" value="<?php echo date('m-Y'); ?>">
+                                        <?php $no++;
+                                        } ?>
                                         <button class="btn btn-dark btn-wth-icon align-items-center justify icon-wthot-bg btn-rounded icon-right btn-lg"><span class="btn-text">Bayar</span> <span class="icon-label"><span class="feather-icon"><i data-feather="arrow-right"></i></span> </span>
                                     </form>
                                 </div>

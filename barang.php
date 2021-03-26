@@ -13,6 +13,13 @@ if (!empty($_SESSION['admin'])) {
 ?>
 <title>Barang - CV. Mahardika Komputer</title>
 <div class="hk-pg-wrapper">
+    <nav class="hk-breadcrumb" aria-label="breadcrumb">
+        <ol class="breadcrumb breadcrumb-light bg-transparent">
+            <li class="breadcrumb-item active"><a href="index.php"><i class="zmdi zmdi-home"></i> Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="barang.php"> Barang</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Stok Barang</li>
+        </ol>
+    </nav>
     <div class="container mt-xl-50 mt-sm-30 mt-15">
         <div class="hk-pg-header mb-1">
             <div>
