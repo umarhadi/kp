@@ -5,37 +5,8 @@ session_start();
 if (!empty($_SESSION['admin'])) {
     require 'config.php';
     include $view;
-    $lihat = new view($config);
-    $toko = $lihat->toko();
-    $id = $_SESSION['admin']['id_member'];
 
-    // variable view stok, nama, kategori, sudah terjual
-    $hasil_profil = $lihat->member_edit($id);
-    $hasil_barang = $lihat->barang_row();
-    $hasil_kategori = $lihat->kategori_row();
-    $stok = $lihat->barang_stok_row();
-    $jual = $lihat->jual_row();
-
-    // variable view penjualan, laba, modal
-    //$bln = date('m');
-    //$thn = date('Y');
-    $periode_bln = '"02-2021"'; //date('m').'-'.date('Y');
-    $hasil_jual = $lihat->penjualan_bulan_row($periode_bln);
-
-    /*$bayar += $hasil_jual['total'];
-            $modal += $hasil_jual['harga_beli']* $hasil_jual['jumlah'];
-            $jumlah += $hasil_jual['jumlah'];
-            */
-
-    //  admin
     include 'komponen/header.php';
-
-    if (!empty($_GET['page'])) {
-        include 'admin/module/' . $_GET['page'] . '/index.php';
-    } else {
-        //include 'admin/template/home.php';
-    }
-    // end admin
 } else {
     echo '<script>window.location="login.php";</script>';
 }

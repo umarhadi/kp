@@ -132,7 +132,7 @@ $bulan_tes = array(
                                     <thead>
                                         <tr>
                                             <th> No</th>
-                                            <th> ID Barang</th>
+                                            <th> ID Nota</th>
                                             <th> Nama Barang</th>
                                             <th style="width:10%;"> Jumlah</th>
                                             <th style="width:10%;"> Modal</th>
@@ -170,7 +170,7 @@ $bulan_tes = array(
                                         ?>
                                             <tr>
                                                 <td><?php echo $no; ?>.</td>
-                                                <td><?php echo $isi['id_barang']; ?></td>
+                                                <td><?php echo $isi['id_nota']; ?></td>
                                                 <td><?php echo $isi['nama_barang']; ?></td>
                                                 <td><?php echo $isi['jumlah']; ?> </td>
                                                 <td>Rp.<?php echo number_format($isi['harga_beli'] * $isi['jumlah']); ?>,-</td>
