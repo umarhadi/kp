@@ -62,7 +62,7 @@ if (!empty($_SESSION['admin'])) {
                 <?php
                     echo "<div class='alert alert-success alert-wth-icon alert-dismissible fade show mb-0' role='alert'>
 							<span class='alert-icon-wrap'><i class='zmdi zmdi-notifications-active'></i></span>Ada <span style='color:red'>$r</span> barang yang stoknya kurang dari 3 item. Silahkan update di
-							<a href='index.php?page=barang&stok=yes'><span class='text-warning'>Tabel Barang</span></a>
+							<a href='barang.php?stok=yes'><span class='text-warning'>Tabel Barang</span></a>
 							<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
 								<span aria-hidden='true'>&times;</span>
 							</button>
@@ -200,7 +200,7 @@ if (!empty($_SESSION['admin'])) {
                             <div class="card-body">
                                 <div class="d-flex align-items-start justify-content-between">
                                     <?php $hasil = $lihat->jumlah(); ?>
-                                    <form action="transaksi.php?nota=yes#kasirnya" method="POST">
+                                    <form action="transaksi.php?nota=yes#info" method="POST">
                                         <span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Total Semua</span>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
@@ -233,7 +233,7 @@ if (!empty($_SESSION['admin'])) {
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="hk-pg-header mb-1">
+                        <div class="hk-pg-header mb-1" id="info">
                             <h3 class="hk-pg-title font-weight-300 mb"><i class="zmdi zmdi-info-outline"></i>&nbsp;Info</h3>
                             <a href="print.php?nm_member=<?php echo $_SESSION['admin']['nm_member']; ?>&bayar=<?php echo $bayar; ?>&kembali=<?php echo $hitung; ?>" target="_blank" class="d-flex text-secondary mr-15"><span class="feather-icon"><i data-feather="printer"></i></span></a>
                         </div>

@@ -49,7 +49,7 @@ if (!empty($_SESSION['admin'])) {
                 <?php
                     echo "<div class='alert alert-success alert-wth-icon alert-dismissible fade show mb-0' role='alert'>
 							<span class='alert-icon-wrap'><i class='zmdi zmdi-notifications-active'></i></span>Ada <span style='color:red'>$r</span> barang yang stoknya kurang dari 3 item.
-							<a href='index.php?page=barang&stok=yes'><span class='text-warning'>Lihat barang</span></a>
+							<a href='barang.php?stok=yes'><span class='text-warning'>Lihat barang</span></a>
 							<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
 								<span aria-hidden='true'>&times;</span>
 							</button>
