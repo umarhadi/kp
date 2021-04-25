@@ -23,7 +23,7 @@ if (!empty($_SESSION['admin'])) {
     <div class="container mt-xl-50 mt-sm-30 mt-15">
         <div class="hk-pg-header mb-1">
             <div>
-                <h2 class="hk-pg-title font-weight-300 mb-10"><i class="zmdi zmdi-archive text-success"></i>&nbsp;Tabel Kategori</h2>
+                <h2 class="hk-pg-title font-weight-300 mb-10"><i class="zmdi zmdi-label text-primary"></i>&nbsp;Tabel Kategori</h2>
                 <?php if (isset($_GET['sukses-stok'])) { ?>
                     <div class="alert alert-success">
                         <p>Tambah Stok Berhasil!</p>
@@ -102,7 +102,6 @@ if (!empty($_SESSION['admin'])) {
             </form>
         <?php } ?>
         <div class="card">
-            <button type="button" class="btn btn-primary btn-sm">&nbsp;</button>
             <div class="card-body">
                 <div class="table table-responsive table-striped">
                     <table id="tableDash1" class="table w-100 pb-30">
