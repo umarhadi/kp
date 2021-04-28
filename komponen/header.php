@@ -22,7 +22,9 @@ $hasil_profil = $lihat->member_edit($id);
 </head>
 
 <body>
-
+<div class="preloader-it">
+        <div class="loader-pendulums"></div>
+</div>
     <div class="hk-wrapper hk-alt-nav">
         <!-- mulai bar navigasi-->
         <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar hk-navbar-alt ">
