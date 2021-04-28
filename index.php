@@ -32,7 +32,7 @@ if (!empty($_SESSION['admin'])) {
 	<div class="container mt-xl-50 mt-sm-30 mt-15">
 		<div class="hk-pg-header mb-1">
 			<div>
-				<h2 class="hk-pg-title font-weight-600 mb-10">Dashboard</h2>
+				<h2 class="hk-pg-title font-weight-600 mb-10"><i class="zmdi zmdi-home"></i>&nbsp;Dashboard</h2>
 				<?php
 				$sql = " select * from barang where stok <= 3";
 				$row = $config->prepare($sql);
@@ -165,7 +165,7 @@ if (!empty($_SESSION['admin'])) {
 					<div class="tab-pane fade " id="Terjual" role="tabpanel" aria-labelledby="Terjual">
 						<div class="card">
 							<div class="card-body">
-							<a href="laporan.php"><button class="btn btn-dark align-items-center btn-wth-icon icon-wthot-bg btn-rounded icon-right btn-lg mx-auto d-block">
+							<a href="laporan.php"><button class="btn btn-primary align-items-center btn-wth-icon icon-wthot-bg btn-rounded icon-right btn-lg mx-auto d-block">
 									<span class="btn-text">Ke halaman laporan</span> <span class="icon-label"><i class="zmdi zmdi-arrow-right"></i>
 								</button></a>
 							</div>
