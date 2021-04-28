@@ -12,6 +12,7 @@ $(document).ready(function() {
 			lengthMenu: "Tampilkan _MENU_ baris data",
 			info: "Menampilkan _END_ dari total _TOTAL_ data",
 			infoEmpty: "Data tidak ada",
+			infoFiltered: "(difilter dari _MAX_ total data)",
 			paginate: {
 				first:   "Awal",
 				last:    "Akhir",
@@ -22,13 +23,14 @@ $(document).ready(function() {
 	});
 	$('#tableDash2').DataTable({
 		responsive: true,
-		autoWidth: true,
+		autoWidth: false,
 		language: { 
 			search: "",
 			searchPlaceholder: "Cari..",
 			lengthMenu: "Tampilkan _MENU_ baris data",
 			info: "Menampilkan _END_ dari total _TOTAL_ data",
 			infoEmpty: "Data tidak ada",
+			infoFiltered: "(difilter dari _MAX_ total data)",
 			paginate: {
 				first:   "Awal",
 				last:    "Akhir",
@@ -39,13 +41,14 @@ $(document).ready(function() {
 	});
 	$('#tableDash3').DataTable({
 		responsive: true,
-		autoWidth: true,
+		autoWidth: false,
 		language: { 
 			search: "",
 			searchPlaceholder: "Cari..",
 			lengthMenu: "Tampilkan _MENU_ baris data",
 			info: "Menampilkan _END_ dari total _TOTAL_ data",
 			infoEmpty: "Data tidak ada",
+			infoFiltered: "(difilter dari _MAX_ total data)",
 			paginate: {
 				first:   "Awal",
 				last:    "Akhir",

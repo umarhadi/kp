@@ -23,6 +23,9 @@ if (!empty($_SESSION['admin'])) {
 ?>
 
 <title>Dashboard - CV. Mahardika Komputer</title>
+<div class="preloader-it">
+        <div class="loader-pendulums"></div>
+</div>
 <div class="hk-pg-wrapper">
 	<nav class="hk-breadcrumb" aria-label="breadcrumb">
 		<ol class="breadcrumb breadcrumb-light bg-transparent">
@@ -112,8 +115,8 @@ if (!empty($_SESSION['admin'])) {
 											<td><?php echo $no; ?>.</td>
 											<td><?php echo $isi['nama_barang']; ?></td>
 											<td><?php echo $isi['merk']; ?></td>
-											<td><a href="edit-barang.php?barang=<?php echo $isi['id_barang']; ?>"><button class="btn btn-warning">Edit</button></a>
-												<a href="#" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-danger">Hapus</button></a>
+											<td><a href="edit-barang.php?barang=<?php echo $isi['id_barang']; ?>"><button class="btn btn-sm btn-warning"><i class="zmdi zmdi-edit"></i> Edit</button></a>
+												<a href="#" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-sm btn-danger"><i class="zmdi zmdi-delete"></i> Hapus</button></a>
 											</td>
 										<?php $no++;
 									} ?>
@@ -145,20 +148,18 @@ if (!empty($_SESSION['admin'])) {
 											<td><?php echo $no; ?>.</td>
 											<td><?php echo $isi['nama_barang']; ?></td>
 											<td><?php echo $isi['stok']; ?></td>
-											<td><a href="edit-barang.php?barang=<?php echo $isi['id_barang']; ?>"><button class="btn btn-warning">Edit</button></a>
-												<a href="#" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-danger">Hapus</button></a>
+											<td><a href="edit-barang.php?barang=<?php echo $isi['id_barang']; ?>"><button class="btn btn-sm btn-warning"><i class="zmdi zmdi-edit"></i> Edit</button></a>
+												<a href="#" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-sm btn-danger"><i class="zmdi zmdi-delete"></i> Hapus</button></a>
 											</td>
 										<?php $no++;
 									} ?>
 										</tr>
 								</tbody>
-								<tfoot>
 									<tr>
 										<th>&nbsp;</th>
-										<th>Total</th>
-										<th><?php echo $hasilhtg; ?></th>
+										<th><b>Total</b></th>
+										<th><b><?php echo $hasilhtg; ?></b></th>
 									</tr>
-								</tfoot>
 							</table>
 						</div>
 					</div>
@@ -189,8 +190,8 @@ if (!empty($_SESSION['admin'])) {
 									<tr>
 										<td><?php echo $no; ?>.</td>
 										<td><?php echo $isi['nama_kategori']; ?></td>
-										<td><a href="kategori.php?uid=<?php echo $isi['id_kategori']; ?>"><button class="btn btn-warning">Edit</button></a>
-											<a href="#" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-danger">Hapus</button></a>
+										<td><a href="kategori.php?uid=<?php echo $isi['id_kategori']; ?>"><button class="btn btn-sm btn-warning"><i class="zmdi zmdi-edit"></i> Edit</button></a>
+											<a href="#" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-sm btn-danger"><i class="zmdi zmdi-delete"></i> Hapus</button></a>
 										</td>
 									<?php $no++;
 								} ?>
