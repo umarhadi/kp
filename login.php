@@ -10,6 +10,7 @@
 	<title>Login Kasir - CV. Mahardika Komputer</title>
 
 	<link href="dist/css/style.css" rel="stylesheet" type="text/css">
+	<link href="vendors/sweetalert/sweetalert2.min.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -76,5 +77,6 @@
 	</div>
 	<script src="vendors/jquery/dist/jquery.min.js"></script>
 	<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="vendors/sweetalert/sweetalert2.min.js"></script>
 
 </html>
