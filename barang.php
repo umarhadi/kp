@@ -61,7 +61,7 @@ if (!empty($_SESSION['admin'])) {
         </div>
         <div class="card">
             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalTmbh">
-                <i class="fa fa-plus"></i> Tambah Data Barang</button>
+                <i class="zmdi zmdi-plus-circle-o"></i> Tambah Data Barang</button>
             <div class="card-body">
                 <div class="table-wrap table-striped">
                     <table id="tableDash1" class="table w-100 pb-30">
@@ -246,7 +246,7 @@ if (!empty($_SESSION['admin'])) {
                             </table>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah</button>
+                            <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-plus-circle-o"></i> Tambah</button>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                         </div>
                     </form>
@@ -258,27 +258,13 @@ if (!empty($_SESSION['admin'])) {
 
 
 <script src="vendors/jquery/dist/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="vendors/popper.js/dist/umd/popper.min.js"></script>
 <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-
-<!-- Slimscroll JavaScript -->
-<script src="dist/js/jquery.slimscroll.js"></script>
-
-<!-- Fancy Dropdown JS -->
 <script src="dist/js/dropdown-bootstrap-extended.js"></script>
-
-<!-- Data Table JavaScript -->
 <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
 <script src="dist/js/dataTables-data.js"></script>
-
-<!-- Init JavaScript -->
 <script src="dist/js/init.js"></script>
-<script src="dist/js/dashboard3-data.js"></script>
-
 <script>
     $(document).ready(function() {
         $('.detail_barang').click(function() {

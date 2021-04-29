@@ -122,7 +122,7 @@ if (!empty($_SESSION['admin'])) {
                         </tr>
                         <tr>
                             <td></td>
-                            <td><button class="btn btn-primary"><i class="fa fa-edit"></i> Update Data</button></td>
+                            <td><button class="btn btn-primary"><i class="zmdi zmdi-edit"></i> Update Data</button></td>
                         </tr>
                     </form>
                 </table>

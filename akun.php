@@ -168,21 +168,8 @@ if (!empty($_SESSION['admin'])) {
 </div>
 
 <script src="vendors/jquery/dist/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="vendors/popper.js/dist/umd/popper.min.js"></script>
 <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-
-<!-- Slimscroll JavaScript -->
-<script src="dist/js/jquery.slimscroll.js"></script>
-
-<!-- Fancy Dropdown JS -->
 <script src="dist/js/dropdown-bootstrap-extended.js"></script>
-
-<!-- File upload -->
 <script src="vendors/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
-
-<!-- Init JavaScript -->
 <script src="dist/js/init.js"></script>
-<script src="dist/js/dashboard3-data.js"></script>
 </body>

@@ -17,8 +17,6 @@ $hsl = $lihat->penjualan();
 
 	<link href="vendors/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
 	<link href="vendors/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet" type="text/css" />
-	<link href="vendors/jquery-toggles/css/toggles.css" rel="stylesheet" type="text/css">
-	<link href="vendors/jquery-toggles/css/themes/toggles-light.css" rel="stylesheet" type="text/css">
 
 	<link href="dist/css/style.css" rel="stylesheet" type="text/css">
 </head>

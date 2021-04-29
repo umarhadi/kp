@@ -210,7 +210,7 @@ if (!empty($_SESSION['admin'])) {
 				<td>
 				<a href="fungsi/tambah/tambah.php?jual=jual&id=<?php echo $hasil['id_barang'];?>&id_kasir=<?php echo $_SESSION['admin']['id_member'];?>" 
 					class="btn btn-success">
-					<i class="fa fa-shopping-cart"></i></a></td>
+					<i class="zmdi zmdi-shopping-cart-plus"></i></a></td>
 			</tr>
 		<?php }?>
 		</table>

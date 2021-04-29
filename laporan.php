@@ -91,10 +91,10 @@ $bulan_tes = array(
                                     <div>
                                         <input type="hidden" name="periode" value="ya">
                                         <button class="btn btn-sm btn-primary">
-                                            <i class="fa fa-search"></i> Cari
+                                            <i class="zmdi zmdi-search"></i> Cari
                                         </button>
                                         <a href="index.php?page=laporan" class="btn btn-sm btn-success">
-                                            <i class="fa fa-refresh"></i> Refresh</a>
+                                            <i class="zmdi zmdi-refresh-alt"></i> Refresh</a>
                                     </div>
                                     </form>
                                 </div>
@@ -115,10 +115,10 @@ $bulan_tes = array(
                                     <div class="pull-right">
                                         <input type="hidden" name="periode" value="ya">
                                         <button class="btn btn-sm btn-primary">
-                                            <i class="fa fa-search"></i> Cari
+                                            <i class="zmdi zmdi-search"></i> Cari
                                         </button>
                                         <a href="index.php?page=laporan" class="btn btn-sm btn-success">
-                                            <i class="fa fa-refresh"></i> Refresh</a>
+                                            <i class="zmdi zmdi-refresh-alt"></i> Refresh</a>
                                     </div>
                                     </form>
                                 </div>
@@ -202,27 +202,13 @@ $bulan_tes = array(
 </div>
 
 <script src="vendors/jquery/dist/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="vendors/popper.js/dist/umd/popper.min.js"></script>
 <script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-
-<!-- Slimscroll JavaScript -->
-<script src="dist/js/jquery.slimscroll.js"></script>
-
-<!-- Fancy Dropdown JS -->
 <script src="dist/js/dropdown-bootstrap-extended.js"></script>
-
-
-<!-- Data Table JavaScript -->
 <script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
 <script src="dist/js/dataTables-data.js"></script>
-
-<!-- Init JavaScript -->
 <script src="dist/js/init.js"></script>
-<script src="dist/js/dashboard3-data.js"></script>
 
 <script>
     $(document).ready(function() {
