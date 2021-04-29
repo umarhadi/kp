@@ -113,7 +113,7 @@ if (!empty($_SESSION['admin'])) {
 											<td><?php echo $isi['nama_barang']; ?></td>
 											<td><?php echo $isi['merk']; ?></td>
 											<td><a href="edit-barang.php?barang=<?php echo $isi['id_barang']; ?>"><button class="btn btn-sm btn-warning"><i class="zmdi zmdi-edit"></i> Edit</button></a>
-												<a href="#" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-sm btn-danger"><i class="zmdi zmdi-delete"></i> Hapus</button></a>
+												<a href="fungsi/hapus/hapus.php?barang=hapus&id=<?php echo $isi['id_barang']; ?>" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-sm btn-danger"><i class="zmdi zmdi-delete"></i> Hapus</button></a>
 											</td>
 										<?php $no++;
 									} ?>
@@ -146,7 +146,7 @@ if (!empty($_SESSION['admin'])) {
 											<td><?php echo $isi['nama_barang']; ?></td>
 											<td><?php echo $isi['stok']; ?></td>
 											<td><a href="edit-barang.php?barang=<?php echo $isi['id_barang']; ?>"><button class="btn btn-sm btn-warning"><i class="zmdi zmdi-edit"></i> Edit</button></a>
-												<a href="#" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-sm btn-danger"><i class="zmdi zmdi-delete"></i> Hapus</button></a>
+											<a href="fungsi/hapus/hapus.php?barang=hapus&id=<?php echo $isi['id_barang']; ?>" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-sm btn-danger"><i class="zmdi zmdi-delete"></i> Hapus</button></a>
 											</td>
 										<?php $no++;
 									} ?>
