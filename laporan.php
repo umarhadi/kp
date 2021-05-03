@@ -29,7 +29,7 @@ $bulan_tes = array(
 ?>
 <title>Laporan - CV. Mahardika Komputer</title>
 <div class="hk-pg-wrapper">
-<nav class="hk-breadcrumb" aria-label="breadcrumb">
+    <nav class="hk-breadcrumb" aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-light bg-transparent">
             <li class="breadcrumb-item"><a href="index.php"><i class="zmdi zmdi-home"></i> Dashboard</a></li>
             <li class="breadcrumb-item" aria-current="page">Laporan</a></li>
@@ -95,6 +95,14 @@ $bulan_tes = array(
                                         </button>
                                         <a href="index.php?page=laporan" class="btn btn-sm btn-success">
                                             <i class="zmdi zmdi-refresh-alt"></i> Refresh</a>
+
+                                        <?php if (!empty($_GET['cari'])) { ?>
+                                            <a href="excel.php?cari=yes&bln=<?= $_POST['bln']; ?>&thn=<?= $_POST['thn']; ?>" class="btn btn-sm btn-warning"><i class="zmdi zmdi-download"></i>
+                                                Excel</a>
+                                        <?php } else { ?>
+                                            <a href="excel.php" class="btn btn-sm btn-warning"><i class="zmdi zmdi-download"></i>
+                                                Excel</a>
+                                        <?php } ?>
                                     </div>
                                     </form>
                                 </div>
@@ -119,6 +127,14 @@ $bulan_tes = array(
                                         </button>
                                         <a href="index.php?page=laporan" class="btn btn-sm btn-success">
                                             <i class="zmdi zmdi-refresh-alt"></i> Refresh</a>
+
+                                        <?php if (!empty($_GET['hari'])) { ?>
+                                            <a href="excel.php?hari=cek&tgl=<?= $_POST['hari']; ?>" class="btn btn-sm btn-warning"><i class="zmdi zmdi-download"></i>
+                                                Excel</a>
+                                        <?php } else { ?>
+                                            <a href="excel.php" class="btn btn-sm btn-warning"><i class="zmdi zmdi-download"></i>
+                                                Excel</a>
+                                        <?php } ?>
                                     </div>
                                     </form>
                                 </div>
