@@ -41,13 +41,13 @@ if (!empty($_SESSION['admin'])) {
 				if ($r > 0) {
 				?>
 				<?php
-					echo "<div class='alert alert-secondary alert-wth-icon alert-dismissible fade show' role='alert'>
-							<span class='alert-icon-wrap'><i class='zmdi zmdi-notifications-active'></i></span>Ada <span style='color:red'>$r</span> barang yang stoknya kurang dari 3 item. Silahkan update di
-							<a href='barang.php?stok=yes'><span class='text-primary'>Tabel Barang</span></a>
-							<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-								<span aria-hidden='true'>&times;</span>
-							</button>
-							</div>";
+					echo "<div class='alert alert-success alert-wth-icon alert-dismissible fade show mb-0' role='alert'>
+					<span class='alert-icon-wrap'><i class='zmdi zmdi-notifications-active'></i></span>Ada <span style='color:red'>$r</span> barang yang stoknya kurang dari 3 item. Silahkan update di
+					<a href='barang.php?stok=yes'><span class='text-warning'>Tabel Barang</span></a>
+					<button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+						<span aria-hidden='true'>&times;</span>
+					</button>
+					</div>";
 				}
 				?>
 			</div>
