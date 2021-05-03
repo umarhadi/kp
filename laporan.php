@@ -120,7 +120,7 @@ $bulan_tes = array(
                                                 <input type="date" value="<?= date('Y-m-d'); ?>" class="form-control rounded-input custom-select" name="hari">
                                         </div>
                                     </div>
-                                    <div class="pull-right">
+                                    <div>
                                         <input type="hidden" name="periode" value="ya">
                                         <button class="btn btn-sm btn-primary">
                                             <i class="zmdi zmdi-search"></i> Cari
