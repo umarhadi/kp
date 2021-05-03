@@ -77,7 +77,6 @@ if (!empty($_SESSION['admin'])) {
                             <td>
                                 <select name="kategori" class="form-control">
                                     <option value="<?php echo $hasil['id_kategori']; ?>"><?php echo $hasil['nama_kategori']; ?></option>
-                                    <option value="#">Pilih Kategori</option>
                                     <?php $kat = $lihat->kategori();
                                     foreach ($kat as $isi) {     ?>
                                         <option value="<?php echo $isi['id_kategori']; ?>"><?php echo $isi['nama_kategori']; ?></option>
