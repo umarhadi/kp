@@ -197,7 +197,7 @@ if (!empty($_SESSION['admin'])) {
                                             <input type="hidden" name="periode[]" value="<?php echo date('m-Y'); ?>">
                                         <?php $no++;
                                         } ?>
-                                        <button class="btn btn-dark btn-wth-icon align-items-center justify icon-wthot-bg btn-rounded icon-right btn-lg"><span class="btn-text">Bayar</span> <span class="icon-label"><span class="feather-icon"><i data-feather="arrow-right"></i></span> </span>
+                                        <button class="btn btn-dark btn-wth-icon align-items-center justify icon-wthot-bg btn-rounded icon-right btn-lg"><span class="btn-text">Bayar</span> <span class="icon-label"><i class="zmdi zmdi-arrow-right"></i></span>
                                     </form>
                                 </div>
                             </div>
@@ -206,7 +206,7 @@ if (!empty($_SESSION['admin'])) {
                     <div class="col-md-4">
                         <div class="hk-pg-header mb-1" id="info">
                             <h3 class="hk-pg-title font-weight-300 mb"><i class="zmdi zmdi-info-outline"></i>&nbsp;Info</h3>
-                            <a href="print.php?nm_member=<?php echo $_SESSION['admin']['nm_member']; ?>&bayar=<?php echo $bayar; ?>&kembali=<?php echo $hitung; ?>" target="_blank" class="d-flex text-secondary mr-15"><span class="feather-icon"><i data-feather="printer"></i></span></a>
+                            <a href="print.php?nm_member=<?php echo $_SESSION['admin']['nm_member']; ?>&bayar=<?php echo $bayar; ?>&kembali=<?php echo $hitung; ?>" target="_blank" class="d-flex text-secondary mr-15"><i class="zmdi zmdi-print zmdi-hc-2x"></i></a>
                         </div>
                         <div class="card card-sm">
                             <div class="card-body">
