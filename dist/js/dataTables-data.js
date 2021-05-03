@@ -16,8 +16,8 @@ $(document).ready(function() {
 			paginate: {
 				first:   "Awal",
 				last:    "Akhir",
-				next:    "Selanjutnya",
-				previous:"Sebelumnya",
+				next:    '<i class="zmdi zmdi-arrow-right"></i>',
+				previous:'<i class="zmdi zmdi-arrow-left"></i>'
 			}
 		}
 	});
@@ -34,8 +34,8 @@ $(document).ready(function() {
 			paginate: {
 				first:   "Awal",
 				last:    "Akhir",
-				next:    "Selanjutnya",
-				previous:"Sebelumnya",
+				next:    '<i class="zmdi zmdi-arrow-right"></i>',
+				previous:'<i class="zmdi zmdi-arrow-left"></i>'
 			}
 		}
 	});
@@ -52,8 +52,8 @@ $(document).ready(function() {
 			paginate: {
 				first:   "Awal",
 				last:    "Akhir",
-				next:    "Selanjutnya",
-				previous:"Sebelumnya",
+				next:    '<i class="zmdi zmdi-arrow-right"></i>',
+				previous:'<i class="zmdi zmdi-arrow-left"></i>'
 			}
 		}
 	});
