@@ -131,6 +131,7 @@ if (!empty($_SESSION['admin'])) {
                                                         </div>
                                                     </form>
                                                     <div class="dropdown-divider"></div>
+                                                    <a class="dropdown-item" href="edit-barang.php?barang=<?php echo $isi['id_barang']; ?>"><i class="zmdi zmdi-edit text-warning"></i> Perbarui</a>
                                                     <a class="dropdown-item" href=fungsi/hapus/hapus.php?barang=hapus&id=<?php echo $isi['id_barang']; ?> onclick="javascript:return confirm('Hapus Data barang ?');"><i class="zmdi zmdi-delete text-danger"></i> Hapus</a>
                                                 </div>
                                             </div>
