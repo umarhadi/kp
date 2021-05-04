@@ -60,12 +60,12 @@ if (!empty($_SESSION['admin'])) {
 
         </div>
         <div class="card">
-        <div class="card-body">
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalTmbh">
-                <i class="zmdi zmdi-plus-circle-o"></i> Tambah Data Barang</button>
+            <div class="card-body">
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalTmbh">
+                    <i class="zmdi zmdi-plus-circle-o"></i> Tambah Data Barang</button>
                 <button type="button" class="btn btn-warning btn-sm">
-                <a class="text-white" href="excel-barang.php"><i class="zmdi zmdi-download"></i> Excel</a></button>
-        </div>
+                    <a class="text-white" href="excel-barang.php"><i class="zmdi zmdi-download"></i> Excel</a></button>
+            </div>
             <div class="card-body">
                 <div class="table-wrap table-striped">
                     <table id="tableDash1" class="table w-100 pb-30">

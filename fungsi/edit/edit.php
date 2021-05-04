@@ -77,45 +77,42 @@ if (!empty($_SESSION['admin'])) {
 		echo '<script>window.location="../../edit-barang.php?barang=' . $id . '&berhasil=edit-data"</script>';
 	}
 
-	if(!empty($_GET['gambar'])){
+	if (!empty($_GET['gambar'])) {
 		$id = htmlentities($_POST['id']);
 		set_time_limit(0);
-		$allowedImageType = array("image/gif",   "image/JPG",   "image/jpeg",   "image/pjpeg",   "image/png",   "image/x-png"  );
-		
+		$allowedImageType = array("image/gif",   "image/JPG",   "image/jpeg",   "image/pjpeg",   "image/png",   "image/x-png");
+
 		if ($_FILES['foto']["error"] > 0) {
-			$output['error']= "Error in File";
+			$output['error'] = "Error in File";
 		} elseif (!in_array($_FILES['foto']["type"], $allowedImageType)) {
 			echo "You can only upload JPG, PNG and GIF file";
 			echo "<font face='Verdana' size='2' ><BR><BR><BR>
 					<a href='../../akun.php'>Back to upform</a><BR>";
-
-		}elseif (round($_FILES['foto']["size"] / 1024) > 4096) {
+		} elseif (round($_FILES['foto']["size"] / 1024) > 4096) {
 			echo "WARNING !!! Besar Gambar Tidak Boleh Lebih Dari 4 MB";
 			echo "<font face='Verdana' size='2' ><BR><BR><BR>
 					<a href='../../akun.php'>Back to upform</a><BR>";
-
-		}else{
+		} else {
 			$target_path = '../../assets/img/user/';
-			$target_path = $target_path . basename( $_FILES['foto']['name']); 
-			if (file_exists("$target_path")){ 
+			$target_path = $target_path . basename($_FILES['foto']['name']);
+			if (file_exists("$target_path")) {
 				echo "<font face='Verdana' size='2' >Ini Terjadi Karena Telah Masuk Nama File Yang Sama,
 				<br> Silahkan Rename File terlebih dahulu<br>";
 
-			echo "<font face='Verdana' size='2' ><BR><BR><BR>
+				echo "<font face='Verdana' size='2' ><BR><BR><BR>
 					<a href='../../akun.php'>Back to upform</a><BR>";
-
-				}elseif(move_uploaded_file($_FILES['foto']['tmp_name'], $target_path)){
-					//post foto lama
+			} elseif (move_uploaded_file($_FILES['foto']['tmp_name'], $target_path)) {
+				//post foto lama
 				$foto2 = $_POST['foto2'];
 				//remove foto di direktori
-				unlink('../../assets/img/user/'.$foto2.'');
+				unlink('../../assets/img/user/' . $foto2 . '');
 				//input foto
 				$id = $_POST['id'];
 				$data[] = $_FILES['foto']['name'];
 				$data[] = $id;
 				$sql = 'UPDATE member SET gambar=?  WHERE member.id_member=?';
-				$row = $config -> prepare($sql);
-				$row -> execute($data);
+				$row = $config->prepare($sql);
+				$row->execute($data);
 				echo '<script>window.location="../../akun.php?berhasil=edit-data"</script>';
 			}
 		}
@@ -180,41 +177,39 @@ if (!empty($_SESSION['admin'])) {
 		}
 	}
 
-	if(!empty($_GET['cari_barang'])){
+	if (!empty($_GET['cari_barang'])) {
 		$cari = trim(strip_tags($_POST['keyword']));
-		if($cari == '')
-		{
-
-		}else{
+		if ($cari == '') {
+		} else {
 			$sql = "select barang.*, kategori.id_kategori, kategori.nama_kategori
 					from barang inner join kategori on barang.id_kategori = kategori.id_kategori
 					where barang.id_barang like '%$cari%' or barang.nama_barang like '%$cari%' or barang.merk like '%$cari%'";
-			$row = $config -> prepare($sql);
-			$row -> execute();
-			$hasil1= $row -> fetchAll();
+			$row = $config->prepare($sql);
+			$row->execute();
+			$hasil1 = $row->fetchAll();
 ?>
-		<table class="table table-stripped" width="100%" id="example2">
-			<tr>
-				<th>ID Barang</th>
-				<th>Nama Barang</th>
-				<th>Merk</th>
-				<th>Harga Jual</th>
-				<th>Aksi</th>
-			</tr>
-		<?php foreach($hasil1 as $hasil){?>
-			<tr>
-				<td><?php echo $hasil['id_barang'];?></td>
-				<td><?php echo $hasil['nama_barang'];?></td>
-				<td><?php echo $hasil['merk'];?></td>
-				<td><?php echo $hasil['harga_jual'];?></td>
-				<td>
-				<a href="fungsi/tambah/tambah.php?jual=jual&id=<?php echo $hasil['id_barang'];?>&id_kasir=<?php echo $_SESSION['admin']['id_member'];?>" 
-					class="btn btn-success">
-					<i class="zmdi zmdi-shopping-cart-plus"></i></a></td>
-			</tr>
-		<?php }?>
-		</table>
-<?php	
+			<table class="table table-stripped" width="100%" id="example2">
+				<tr>
+					<th>ID Barang</th>
+					<th>Nama Barang</th>
+					<th>Merk</th>
+					<th>Harga Jual</th>
+					<th>Aksi</th>
+				</tr>
+				<?php foreach ($hasil1 as $hasil) { ?>
+					<tr>
+						<td><?php echo $hasil['id_barang']; ?></td>
+						<td><?php echo $hasil['nama_barang']; ?></td>
+						<td><?php echo $hasil['merk']; ?></td>
+						<td><?php echo $hasil['harga_jual']; ?></td>
+						<td>
+							<a href="fungsi/tambah/tambah.php?jual=jual&id=<?php echo $hasil['id_barang']; ?>&id_kasir=<?php echo $_SESSION['admin']['id_member']; ?>" class="btn btn-success">
+								<i class="zmdi zmdi-shopping-cart-plus"></i></a>
+						</td>
+					</tr>
+				<?php } ?>
+			</table>
+<?php
 		}
 	}
 }

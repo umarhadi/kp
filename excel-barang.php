@@ -20,8 +20,6 @@ $lihat = new view($config);
 </head>
 
 <body>
-    <!-- view barang -->
-    <!-- view barang -->
     <div class="modal-view">
         <h3 style="text-align:center;">
             Data Barang
@@ -77,10 +75,10 @@ $lihat = new view($config);
                 }
                 ?>
                 <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
                     <td><b>Total </b></td>
                     <td><?php echo $totalStok; ?></td>
                     <td>Rp.<?php echo number_format($totalBeli); ?>,-</td>
@@ -89,7 +87,7 @@ $lihat = new view($config);
 
             </tbody>
         </table>
-        <i>Dicetak pada <?php echo date('d F Y');?></i>
+        <i>Dicetak pada <?php echo date('d F Y'); ?></i>
     </div>
 </body>
 
