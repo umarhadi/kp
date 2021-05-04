@@ -198,12 +198,12 @@ $bulan_tes = array(
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th colspan="2">Total Terjual</td>
-                                            <th colspan="1"><?php echo $jumlah; ?></td>
+                                            <th colspan="2">&nbsp;</td>
+                                            <th colspan="1">Total Terjual</td>
+                                            <th><?php echo $jumlah; ?></td>
                                             <th>Rp.<?php echo number_format($modal); ?>,-</th>
                                             <th>Rp.<?php echo number_format($bayar); ?>,-</th>
-                                            <th style="background:#0bb365;color:#fff;">Keuntungan</th>
-                                            <th style="background:#0bb365;color:#fff;">
+                                            <th style="background:#0bb365;color:#fff;" title="Keuntungan">
                                                 Rp.<?php echo number_format($bayar - $modal); ?>,-</th>
                                         </tr>
                                     </tfoot>
