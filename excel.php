@@ -110,6 +110,7 @@
                 </tr>
             </tbody>
         </table>
+        <i>Dicetak pada <?php echo date('d F Y');?></i>
     </div>
 </body>
 </html>

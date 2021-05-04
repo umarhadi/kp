@@ -15198,8 +15198,8 @@ Project:	Mintos
 .hk-breadcrumb .breadcrumb-item + .breadcrumb-item {
   padding-left: .3rem; }
   .hk-breadcrumb .breadcrumb-item + .breadcrumb-item:before {
-    font-family: "dripicons-v2" !important;
-    content: "V";
+    font-family: "Ionicons" !important;
+    content: "/";
     font-style: normal !important;
     font-weight: normal !important;
     font-variant: normal !important;

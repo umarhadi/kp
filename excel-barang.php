@@ -1,7 +1,7 @@
 <?php
 
 header("Content-Type:   application/vnd.ms-excel; charset=utf-8");
-header("Content-Disposition: attachment; filename=data-laporan-" . date('Y-m-d') . ".xls");  //File name extension was wrong
+header("Content-Disposition: attachment; filename=data-barang-" . date('Y-m-d') . ".xls");  //File name extension was wrong
 header("Expires: 0");
 header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 header("Cache-Control: private", false);
@@ -24,7 +24,7 @@ $lihat = new view($config);
     <!-- view barang -->
     <div class="modal-view">
         <h3 style="text-align:center;">
-            Data Barang bulan sekaranggg
+            Data Barang
         </h3>
         <table border="1" width="100%" cellpadding="3" cellspacing="4">
             <thead>
@@ -89,6 +89,7 @@ $lihat = new view($config);
 
             </tbody>
         </table>
+        <i>Dicetak pada <?php echo date('d F Y');?></i>
     </div>
 </body>
 
