@@ -23,7 +23,7 @@ if (!empty($_SESSION['admin'])) {
     <div class="container mt-xl-50 mt-sm-30 mt-15">
         <div class="hk-pg-header mb-1">
             <div>
-                <h2 class="hk-pg-title font-weight-300 mb-10"><i class="zmdi zmdi-archive text-primary"></i>&nbsp;Tabel Barang</h2>
+                <h2 class="hk-pg-title font-weight-300 mb-10"><i class="zmdi zmdi-archive"></i>&nbsp;Tabel Barang</h2>
                 <?php if (isset($_GET['sukses-stok'])) { ?>
                     <div class="alert alert-success">
                         <p>Tambah Stok Berhasil!</p>
