@@ -22,7 +22,7 @@ if (!empty($_SESSION['admin'])) {
     <div class="container mt-xl-50 mt-sm-30 mt-15">
         <div class="hk-pg-header mb-1">
             <div>
-                <h2 class="hk-pg-title font-weight-600 mb-10">Toko</h2>
+                <h2 class="hk-pg-title font-weight-600 mb-10"><i class="zmdi zmdi-pin"></i>&nbsp;Toko</h2>
                 <?php if (isset($_GET['berhasil'])) { ?>
                     <div class="alert alert-success">
                         <p>Berhasil perbarui data</p>

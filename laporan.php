@@ -40,11 +40,11 @@ $bulan_tes = array(
             <div>
                 <h2 class="hk-pg-title font-weight-600 mb-10">
                     <?php if (!empty($_GET['cari'])) { ?>
-                        Laporan Penjualan Bulan <?= $bulan_tes[$_POST['bln']]; ?> <?= $_POST['thn']; ?>
+                        <i class="zmdi zmdi-assignment"></i>&nbsp;Laporan Penjualan Bulan <?= $bulan_tes[$_POST['bln']]; ?> <?= $_POST['thn']; ?>
                     <?php } elseif (!empty($_GET['hari'])) { ?>
-                        Laporan Penjualan <?= $_POST['hari']; ?>
+                        <i class="zmdi zmdi-assignment"></i>&nbsp;Laporan Penjualan <?= $_POST['hari']; ?>
                     <?php } else { ?>
-                        Laporan Penjualan Bulan <?= $bulan_tes[date('m')]; ?> <?= date('Y'); ?>
+                        <i class="zmdi zmdi-assignment"></i>&nbsp;Laporan Penjualan Bulan <?= $bulan_tes[date('m')]; ?> <?= date('Y'); ?>
                     <?php } ?>
                 </h2>
             </div>

@@ -197,7 +197,7 @@ if (!empty($_SESSION['admin'])) {
                                             <input type="hidden" name="periode[]" value="<?php echo date('m-Y'); ?>">
                                         <?php $no++;
                                         } ?>
-                                        <button class="btn btn-dark btn-wth-icon align-items-center justify icon-wthot-bg btn-rounded icon-right btn-lg"><span class="btn-text">Bayar</span> <span class="icon-label"><i class="zmdi zmdi-arrow-right"></i></span>
+                                        <button class="btn btn-primary btn-wth-icon align-items-center justify icon-wthot-bg btn-rounded icon-right btn-lg"><span class="btn-text">Bayar</span> <span class="icon-label"><i class="zmdi zmdi-arrow-right"></i></span>
                                     </form>
                                 </div>
                             </div>
