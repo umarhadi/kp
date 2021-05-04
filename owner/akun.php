@@ -60,7 +60,7 @@ if (!empty($_SESSION['admin'])) {
                             <div class="card-body">
                                 <div class="card bg-sky-light-4">
                                     <div class="card-body ">
-                                        <img class="img-fluid circle" src="assets/img/user/<?php echo $hasil_profil['gambar']; ?>" style="width:200px;" />
+                                        <img class="img-fluid circle" src="../assets/img/user/<?php echo $hasil_profil['gambar']; ?>" style="width:200px;" />
                                     </div>
                                 </div>
                             </div>
@@ -167,9 +167,9 @@ if (!empty($_SESSION['admin'])) {
 </div>
 </div>
 
-<script src="vendors/jquery/dist/jquery.min.js"></script>
-<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="dist/js/dropdown-bootstrap-extended.js"></script>
-<script src="vendors/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
-<script src="dist/js/init.js"></script>
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../dist/js/dropdown-bootstrap-extended.js"></script>
+<script src="../vendors/jasny-bootstrap/dist/js/jasny-bootstrap.min.js"></script>
+<script src="../dist/js/init.js"></script>
 </body>

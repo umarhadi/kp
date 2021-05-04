@@ -2,6 +2,23 @@
 session_start();
 if (!empty($_SESSION['admin'])) {
 	require '../../config.php';
+	if (!empty($_GET['pengaturan'])) {
+		$nama = htmlentities($_POST['namatoko']);
+		$alamat = htmlentities($_POST['alamat']);
+		$kontak = htmlentities($_POST['kontak']);
+		$pemilik = htmlentities($_POST['pemilik']);
+		$id = '1';
+
+		$data[] = $nama;
+		$data[] = $alamat;
+		$data[] = $kontak;
+		$data[] = $pemilik;
+		$data[] = $id;
+		$sql = 'UPDATE toko SET nama_toko=?, alamat_toko=?, tlp=?, nama_pemilik=? WHERE id_toko = ?';
+		$row = $config->prepare($sql);
+		$row->execute($data);
+		echo '<script>window.location="../../owner/toko.php?berhasil=edit-data"</script>';
+	}
 
 	if (!empty($_GET['kategori'])) {
 		$nama = htmlentities($_POST['kategori']);
@@ -76,7 +93,7 @@ if (!empty($_SESSION['admin'])) {
 			echo "<font face='Verdana' size='2' ><BR><BR><BR>
 					<a href='../../akun.php'>Back to upform</a><BR>";
 		} else {
-			$target_path = '../../assets/img/user/';
+			$target_path = '../../../assets/img/user/';
 			$target_path = $target_path . basename($_FILES['foto']['name']);
 			if (file_exists("$target_path")) {
 				echo "<font face='Verdana' size='2' >Ini Terjadi Karena Telah Masuk Nama File Yang Sama,
@@ -88,7 +105,7 @@ if (!empty($_SESSION['admin'])) {
 				//post foto lama
 				$foto2 = $_POST['foto2'];
 				//remove foto di direktori
-				unlink('../../assets/img/user/' . $foto2 . '');
+				unlink('../../../assets/img/user/' . $foto2 . '');
 				//input foto
 				$id = $_POST['id'];
 				$data[] = $_FILES['foto']['name'];
