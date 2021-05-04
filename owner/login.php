@@ -7,9 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Umar Hadi Siswanto">
 
-	<title>Login Kasir - CV. Mahardika Komputer</title>
+	<title>Login Owner - CV. Mahardika Komputer</title>
 
-	<link href="dist/css/style.css" rel="stylesheet" type="text/css">
+	<link href="../dist/css/style.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -36,7 +36,7 @@
 
 										$sql = 'select member.*, login.user, login.pass
 															from member inner join login on member.id_member = login.id_member
-															where user =? and pass = md5(?) and id_login = 1';
+															where user =? and pass = md5(?) and id_login = 2';
 										$row = $config->prepare($sql);
 										$row->execute(array($user, $pass));
 										$jum = $row->rowCount();
@@ -67,7 +67,7 @@
 									</div>
 									<button class="btn btn-primary btn-block" type="submit" name="proses">Login <i class="zmdi zmdi-sign-in"></i></button>
 								</form><br>
-								<a href="owner/login.php"><button class="btn btn-warning btn-block">Login Owner <i class="zmdi zmdi-arrow-right"></i></button></a>
+								<a href="../login.php"><button class="btn btn-warning btn-block"><i class="zmdi zmdi-arrow-left"></i>&nbsp;Login Kasir</button></a>
 							</div>
 						</div>
 					</div>
@@ -75,7 +75,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="vendors/jquery/dist/jquery.min.js"></script>
-	<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="../vendors/jquery/dist/jquery.min.js"></script>
+	<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
 
 </html>

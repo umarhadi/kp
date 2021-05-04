@@ -13,10 +13,10 @@ $hasil_profil = $lihat->member_edit($id);
 
     <meta content="Umar Hadi Siswanto" name="author" />
 
-    <link href="vendors/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
-    <link href="vendors/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="../vendors/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="../vendors/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet" type="text/css" />
 
-    <link href="dist/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../dist/css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -36,9 +36,6 @@ $hasil_profil = $lihat->member_edit($id);
                     <li class="nav-item active">
                         <a href="index.php" class="nav-link"><i class="zmdi zmdi-home"></i> Dashboard</a>
                     </li>
-                    <li class="nav-item active">
-                        <a href="transaksi.php" class="nav-link"><i class="zmdi zmdi-money-box"></i> Transaksi</a>
-                    </li>
                     <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-collection-text"></i> Barang</a>
                         <div class="dropdown-menu" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
@@ -57,7 +54,7 @@ $hasil_profil = $lihat->member_edit($id);
                         <div class="media">
                             <div class="media-img-wrap">
                                 <div class="avatar">
-                                    <img src="assets/img/user/<?php echo $hasil_profil['gambar']; ?>" alt="user" class="avatar-img rounded-circle">
+                                    <img src="../assets/img/user/<?php echo $hasil_profil['gambar']; ?>" alt="user" class="avatar-img rounded-circle">
                                 </div>
                             </div>
                             <div class="media-body">
@@ -67,8 +64,9 @@ $hasil_profil = $lihat->member_edit($id);
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
                         <a class="dropdown-item" href="akun.php"><i class="dropdown-icon zmdi zmdi-account"></i><span>Akun</span></a>
+                        <a class="dropdown-item" href="toko.php"><i class="dropdown-icon zmdi zmdi-settings"></i><span>Toko</span></a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="logout.php"><i class="dropdown-icon zmdi zmdi-power"></i><span>Logout</span></a>
+                        <a class="dropdown-item" href="../logout.php"><i class="dropdown-icon zmdi zmdi-power"></i><span>Logout</span></a>
                     </div>
                 </li>
             </ul>

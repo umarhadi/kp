@@ -67,8 +67,8 @@ if (!empty($_SESSION['admin'])) {
         </div>
     </div>
 </div>
-<script src="vendors/jquery/dist/jquery.min.js"></script>
-<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="dist/js/dropdown-bootstrap-extended.js"></script>
-<script src="dist/js/init.js"></script>
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../dist/js/dropdown-bootstrap-extended.js"></script>
+<script src="../dist/js/init.js"></script>
 </body>

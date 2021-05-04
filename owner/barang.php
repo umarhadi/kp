@@ -63,6 +63,8 @@ if (!empty($_SESSION['admin'])) {
             <div class="card-body">
                 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalTmbh">
                     <i class="zmdi zmdi-plus-circle-o"></i> Tambah Data Barang</button>
+                <button type="button" class="btn btn-warning btn-sm">
+                    <a class="text-white" href="excel-barang.php"><i class="zmdi zmdi-download"></i> Excel</a></button>
             </div>
             <div class="card-body">
                 <div class="table-wrap table-striped">
@@ -260,14 +262,14 @@ if (!empty($_SESSION['admin'])) {
 </div>
 
 
-<script src="vendors/jquery/dist/jquery.min.js"></script>
-<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="dist/js/dropdown-bootstrap-extended.js"></script>
-<script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-<script src="dist/js/dataTables-data.js"></script>
-<script src="dist/js/init.js"></script>
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../dist/js/dropdown-bootstrap-extended.js"></script>
+<script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../dist/js/dataTables-data.js"></script>
+<script src="../dist/js/init.js"></script>
 <script>
     $(document).ready(function() {
         $('.detail_barang').click(function() {

@@ -96,6 +96,13 @@ $bulan_tes = array(
                                         <a href="index.php?page=laporan" class="btn btn-sm btn-success">
                                             <i class="zmdi zmdi-refresh-alt"></i> Refresh</a>
 
+                                        <?php if (!empty($_GET['cari'])) { ?>
+                                            <a href="excel.php?cari=yes&bln=<?= $_POST['bln']; ?>&thn=<?= $_POST['thn']; ?>" class="btn btn-sm btn-warning"><i class="zmdi zmdi-download"></i>
+                                                Excel</a>
+                                        <?php } else { ?>
+                                            <a href="excel.php" class="btn btn-sm btn-warning"><i class="zmdi zmdi-download"></i>
+                                                Excel</a>
+                                        <?php } ?>
                                     </div>
                                     </form>
                                 </div>
@@ -121,6 +128,13 @@ $bulan_tes = array(
                                         <a href="index.php?page=laporan" class="btn btn-sm btn-success">
                                             <i class="zmdi zmdi-refresh-alt"></i> Refresh</a>
 
+                                        <?php if (!empty($_GET['hari'])) { ?>
+                                            <a href="excel.php?hari=cek&tgl=<?= $_POST['hari']; ?>" class="btn btn-sm btn-warning"><i class="zmdi zmdi-download"></i>
+                                                Excel</a>
+                                        <?php } else { ?>
+                                            <a href="excel.php" class="btn btn-sm btn-warning"><i class="zmdi zmdi-download"></i>
+                                                Excel</a>
+                                        <?php } ?>
                                     </div>
                                     </form>
                                 </div>
@@ -203,21 +217,21 @@ $bulan_tes = array(
     </div>
 </div>
 
-<script src="vendors/jquery/dist/jquery.min.js"></script>
-<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="dist/js/dropdown-bootstrap-extended.js"></script>
-<script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-<script src="dist/js/dataTables-data.js"></script>
-<script src="dist/js/init.js"></script>
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../dist/js/dropdown-bootstrap-extended.js"></script>
+<script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../dist/js/dataTables-data.js"></script>
+<script src="../dist/js/init.js"></script>
 
 <script>
     $(document).ready(function() {
         $('.detail_barang').click(function() {
             var detail_barang = $(this).attr("id");
             $.ajax({
-                url: "fungsi/view/modal-barang.php",
+                url: "../fungsi/view/modal-barang.php",
                 method: "post",
                 data: {
                     detail_barang: detail_barang
