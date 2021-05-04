@@ -118,7 +118,7 @@ if (!empty($_SESSION['admin'])) {
                                             <input type="hidden" name="nik" value="<?php echo $hasil_profil['NIK']; ?>">
                                             <input type="hidden" name="alamat" value="<?php echo $hasil_profil['alamat_member']; ?>">
                                             <input type="hidden" name="id" value="<?php echo $hasil_profil['id_member']; ?>">
-                                            <button type="submit" class="btn btn-primary mr-10">Perbarui</button>
+                                            <button type="submit" class="btn btn-primary mr-10"><i class="zmdi zmdi-edit"></i>&nbsp;Perbarui</button>
                                         </form>
                                     </div>
                                 </div>
@@ -152,7 +152,7 @@ if (!empty($_SESSION['admin'])) {
                                                 </div>
                                             </div>
                                             <input type="hidden" name="id" value="<?php echo $hasil_profil['id_member']; ?>">
-                                            <button type="submit" class="btn btn-primary mr-10">Perbarui</button>
+                                            <button type="submit" class="btn btn-primary mr-10"><i class="zmdi zmdi-edit"></i>&nbsp;Perbarui</button>
                                         </form>
                                     </div>
                                 </div>

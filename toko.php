@@ -61,7 +61,7 @@ if (!empty($_SESSION['admin'])) {
                         </div>
                     </div>
                     <input type="hidden" name="pemilik" value="<?php echo $toko['nama_pemilik']; ?>">
-                    <button type="submit" class="btn btn-primary mr-10">Perbarui</button>
+                    <button type="submit" class="btn btn-primary mr-10"><i class="zmdi zmdi-edit"></i>&nbsp;Perbarui</button>
                 </form>
             </div>
         </div>
