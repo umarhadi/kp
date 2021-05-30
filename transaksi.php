@@ -71,6 +71,7 @@ if (!empty($_SESSION['admin'])) {
         </div>
         <div class="hk-pg-header mb-1">
             <h2 class="hk-pg-title font-weight-300 mb-10"><i class="zmdi zmdi-shopping-cart"></i>&nbsp;Transaksi</h2>
+            <a class="btn btn-danger pull-right" href="fungsi/hapus/hapus.php?penjualan=jual"><i class="zmdi zmdi-delete"></i> Reset </a>
         </div>
         <div class="card hk-row">
             <div class="card-body">
@@ -93,7 +94,7 @@ if (!empty($_SESSION['admin'])) {
                             <?php foreach ($hasil_penjualan as $isi) {; ?>
                                 <tr>
                                     <td><?php echo $no; ?>.</td>
-                                    <td><?php echo $isi['nama_barang']; ?></td>
+                                    <td><a class="text-info detail_barang" href="#" data-toggle="modal" data-target="#modalDetail" id="<?php echo $isi['id_barang']; ?>"><?php echo $isi['nama_barang']; ?></a></td>
                                     <td>Rp. <?php echo number_format($isi['harga_jual']); ?></td>
                                     <td style="width: 15%" class="justify">
                                         <form method="POST" action="fungsi/edit/edit.php?jual=jual">
@@ -115,6 +116,19 @@ if (!empty($_SESSION['admin'])) {
 
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+        <div id="modalDetail" class="modal fade" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header btn btn-info">
+                        <h5 class="modal-title"><i class="zmdi zmdi-plus"></i> Detail</h5>
+                        <button type="button" class="close" data-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body" id="detail">
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -258,6 +272,24 @@ if (!empty($_SESSION['admin'])) {
     $("#hapus_cari").click(function() {
         $("#hasil_cari").hide();
         $("#cari").show();
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        $('.detail_barang').click(function() {
+            var detail_barang = $(this).attr("id");
+            $.ajax({
+                url: "fungsi/view/modal-barang.php",
+                method: "post",
+                data: {
+                    detail_barang: detail_barang
+                },
+                success: function(data) {
+                    $('#detail').html(data);
+                    $('#modalDetail').modal("show");
+                }
+            });
+        });
     });
 </script>
 </body>
