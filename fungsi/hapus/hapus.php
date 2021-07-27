@@ -31,7 +31,7 @@ if (!empty($_SESSION['admin'])) {
 		$sql = 'DELETE FROM penjualan WHERE id_penjualan=?';
 		$row = $config->prepare($sql);
 		$row->execute($data);
-		echo '<script>window.location="../../transaksi.php"</script>';
+		echo '<script>window.location="../../transaksi-offline.php"</script>';
 	}
 	if (!empty($_GET['penjualan'])) {
 
@@ -42,7 +42,7 @@ if (!empty($_SESSION['admin'])) {
 		$sql = 'DELETE FROM penjualan';
 		$row = $config->prepare($sql);
 		$row->execute();
-		echo '<script>window.location="../../transaksi.php"</script>';
+		echo '<script>window.location="../../transaksi-offline.php"</script>';
 	}
 	if (!empty($_GET['laporan'])) {
 

@@ -185,7 +185,7 @@ if (!empty($_SESSION['admin'])) {
                             <div class="card-body">
                                 <div class="d-flex align-items-start justify-content-between">
                                     <?php $hasil = $lihat->jumlah(); ?>
-                                    <form action="transaksi.php?nota=yes#info" method="POST">
+                                    <form action="transaksi-offline.php?nota=yes#info" method="POST">
                                         <span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Total Semua</span>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
