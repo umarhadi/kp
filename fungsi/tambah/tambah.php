@@ -62,11 +62,11 @@ if(!empty($_SESSION['admin'])){
 			$row1 = $config -> prepare($sql1);
 			$row1 -> execute($data1);
 
-			echo '<script>window.location="../../transaksi.php"</script>';
+			echo '<script>window.location="../../transaksi-offline.php"</script>';
 
 		}else{
 			echo '<script>alert("Stok Barang Habis");
-					window.location="../../transaksi.php"</script>';
+					window.location="../../transaksi-offline.php"</script>';
 		}
 	}
 }

@@ -36,8 +36,12 @@ $hasil_profil = $lihat->member_edit($id);
                     <li class="nav-item active">
                         <a href="index.php" class="nav-link"><i class="zmdi zmdi-home"></i> Dashboard</a>
                     </li>
-                    <li class="nav-item active">
-                        <a href="transaksi.php" class="nav-link"><i class="zmdi zmdi-money-box"></i> Transaksi</a>
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-collection-text"></i> Transaksi</a>
+                        <div class="dropdown-menu" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
+                            <a class="dropdown-item " href="transaksi-offline.php"><i class="zmdi zmdi-money-box"></i> Transaksi Offline</a>
+                            <a class="dropdown-item " href="transaksi-online.php"><i class="zmdi zmdi-archive"></i> Transaksi Online</a>
+                        </div>
                     </li>
                     <li class="nav-item dropdown active">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="zmdi zmdi-collection-text"></i> Barang</a>
