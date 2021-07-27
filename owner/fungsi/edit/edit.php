@@ -6,18 +6,16 @@ if (!empty($_SESSION['admin'])) {
 		$nama = htmlentities($_POST['namatoko']);
 		$alamat = htmlentities($_POST['alamat']);
 		$kontak = htmlentities($_POST['kontak']);
-		$pemilik = htmlentities($_POST['pemilik']);
 		$id = '1';
 
 		$data[] = $nama;
 		$data[] = $alamat;
 		$data[] = $kontak;
-		$data[] = $pemilik;
 		$data[] = $id;
-		$sql = 'UPDATE toko SET nama_toko=?, alamat_toko=?, tlp=?, nama_pemilik=? WHERE id_toko = ?';
+		$sql = 'UPDATE toko SET nama_toko=?, alamat_toko=?, tlp=? WHERE id_toko = ?';
 		$row = $config->prepare($sql);
 		$row->execute($data);
-		echo '<script>window.location="../../owner/toko.php?berhasil=edit-data"</script>';
+		echo '<script>window.location="../../toko.php?berhasil=edit-data"</script>';
 	}
 
 	if (!empty($_GET['kategori'])) {
