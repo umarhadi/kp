@@ -1,3 +1,1 @@
-### Kerja praktik
-
-wish me luck, bismillah
+### hehehe cuma kerja praktik yang belum selesai-selesai
