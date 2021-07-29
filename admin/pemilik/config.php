@@ -4,7 +4,7 @@ error_reporting(0);
 
 	$host 	= 'localhost';
 	$user 	= 'root';
-	$pass 	= '';
+	$pass 	= 'v8kKnLbnQehK';
 	$dbname = 'db_toko';
 	
 	try{

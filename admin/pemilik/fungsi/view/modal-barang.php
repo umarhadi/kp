@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST["detail_barang"])) {
 		$output = '';
-		$connect = mysqli_connect("localhost", "root", "", "db_toko");
+		$connect = mysqli_connect("localhost", "root", "v8kKnLbnQehK", "db_toko");
 		$query = "SELECT barang.*, kategori.id_kategori, kategori.nama_kategori
 	  from barang inner join kategori on barang.id_kategori = kategori.id_kategori
 	  where id_barang='" . $_POST["detail_barang"] . "'";
