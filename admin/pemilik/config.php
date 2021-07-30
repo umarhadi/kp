@@ -14,5 +14,5 @@ error_reporting(0);
 		echo 'KONEKSI GAGAL' .$e -> getMessage();
 	}
 	
-	$view = '../fungsi/view/view.php'; // direktori fungsi select data
+	$view = 'fungsi/view/view.php'; // direktori fungsi select data
 ?>
