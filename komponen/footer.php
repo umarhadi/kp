@@ -7,6 +7,7 @@
 <script src="assets/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
 <script src="assets/dist/js/dataTables-data.js"></script>
 <script src="assets/dist/js/init.js"></script>
+<script src="assets/dist/js/home-data.js"></script>
 <!-- <script>
     $(document).ready(function() {
         $("#cari").change(function() {

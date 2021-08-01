@@ -28,41 +28,38 @@ $toko = $lihat->toko(); ?>
 
     <!-- HK Wrapper -->
     <div class="hk-wrapper hk-alt-nav">
+        
+            <div class="container px-0">
 
-        <!-- Top Navbar -->
-        <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar hk-navbar-alt">
-            <a class="navbar-toggle-btn nav-link-hover navbar-toggler" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarCollapseAlt" aria-controls="navbarCollapseAlt" aria-expanded="false" aria-label="Toggle navigation"><span class="feather-icon"><i data-feather="menu"></i></span></a>
-            <a class="navbar-brand" href="dashboard1.html">
-                <h5 class="brand-img d-inline-block align-top"><?php echo $toko['nama_toko'] ?></h5>
-            </a>
-            <div class="collapse navbar-collapse" id="navbarCollapseAlt">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="documentation.html">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Produk</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="documentation.html">Cara Belanja</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Kontak</a>
-                    </li>
-                </ul>
-                <div class="navbar-search-alt">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="zmdi zmdi-search"></i></span>
+                <!-- Top Navbar -->
+                <nav class="navbar navbar-expand-xl navbar-light hk-navbar hk-navbar-alt shadow-none">
+                    <a class="navbar-toggle-btn nav-link-hover navbar-toggler" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarCollapseAlt" aria-controls="navbarCollapseAlt" aria-expanded="false" aria-label="Toggle navigation"><span class="feather-icon"><i data-feather="menu"></i></span></a>
+                    <a class="navbar-brand" href="dashboard1.html">
+                        <h5 class="brand-img d-inline-block align-top"><?php echo $toko['nama_toko'] ?></h5>
+                    </a>
+                    <div class="collapse navbar-collapse" id="navbarCollapseAlt">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-scroll href="#produk">Produk</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-scroll href="#cara-belanja">Cara Belanja</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Kontak</a>
+                            </li>
+                        </ul>
+                        <div class="navbar-search-alt">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="zmdi zmdi-search"></i></span>
+                                </div>
+
+                                <input class="form-control" type="text" name="cari" id="cari" placeholder="Cari" aria-label="Cari">
+
+                            </div>
                         </div>
-                        <input class="form-control" type="text" name="cari" id="cari" placeholder="Cari" aria-label="Cari">
-                        
-                        <!-- <div class="input-group-append">
-                    <button class="btn btn-info" type="button"><i class="zmdi zmdi-search"></i></button>
-                    <button class="btn btn-danger" value="reset" type="reset" id="hapus_cari"><i class="zmdi zmdi-close"></i></button>
-                </div> -->
-                    
                     </div>
-                </div>
+                </nav>
             </div>
-        </nav>
+        </div>
