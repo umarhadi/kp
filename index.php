@@ -1,0 +1,171 @@
+<?php
+require 'config.php';
+include $view;
+$lihat = new view($config);
+$toko = $lihat->toko();
+include 'komponen/header.php';
+include 'komponen/footer.php';
+?>
+
+<div class="hk-pg-wrapper">
+	<nav class="hk-breadcrumb" aria-label="breadcrumb">
+		<ol class="breadcrumb breadcrumb-light bg-transparent">
+			<li class="breadcrumb-item active"><a href="#"><i class="zmdi zmdi-home"></i> Dashboard</a></li>
+		</ol>
+	</nav>
+	<div class="container mt-xl-50 mt-sm-30 mt-15">
+		<div class="hk-pg-header mb-1">
+			<div>
+				<h2 class="hk-pg-title font-weight-600 mb-10"><i class="zmdi zmdi-home"></i>&nbsp;Dashboard</h2>
+			</div>
+		</div>
+		<div class="card hk-dash-type-1 overflow-hide">
+			<div class="card-header pa-0">
+				<div class="nav nav-tabs nav-light nav-justified" id="dash-tab" role="tablist">
+					<a class="d-flex align-items-center justify-content-center nav-item nav-link active" id="dash-tab-1" data-toggle="tab" href="#NamaBarang" role="tab" aria-selected="true">
+						<div class="d-flex">
+							<div>
+								<span class="d-block mb-5"><span class="display-4 text-sky counter-anim"><?php echo number_format($hasil_barang); ?></span></span>
+								<span class="d-block"><i class="zmdi zmdi-collection-text mr-10 text-sky"></i>Nama Barang</span>
+							</div>
+						</div>
+					</a>
+					<a class="d-flex align-items-center justify-content-center nav-item nav-link" id="dash-tab-2" data-toggle="tab" href="#Stok" role="tab" aria-selected="false">
+						<div class="d-flex">
+							<div>
+								<span class="d-block mb-5"><span class="display-4 text-sky counter-anim"><?php echo number_format($stok['jml']); ?></span></span>
+								<span class="d-block"><i class="zmdi zmdi-archive mr-10 text-sky"></i>Stok Barang Tersisa</span>
+							</div>
+						</div>
+					</a>
+					<a class="d-flex align-items-center justify-content-center nav-item nav-link" id="dash-tab-3" data-toggle="tab" href="#Terjual" role="tab" aria-selected="false">
+						<div class="d-flex">
+							<div>
+								<span class="d-block mb-5"><span class="display-4 text-sky counter-anim"><?php echo number_format($jual['stok']); ?></span></span>
+								<span class="d-block"><i class="zmdi zmdi-money mr-10 text-sky"></i>Barang Telah Terjual</span>
+							</div>
+						</div>
+					</a>
+					<a class="d-flex align-items-center justify-content-center nav-item nav-link" id="dash-tab-3" data-toggle="tab" href="#Kategori" role="tab" aria-selected="false">
+						<div class="d-flex">
+							<div>
+								<span class="d-block mb-5"><span class="display-4 text-sky counter-anim"><?php echo number_format($hasil_kategori); ?></span></span>
+								<span class="d-block"><i class="zmdi zmdi-label-alt mr-10 text-sky"></i>Kategori Barang</span>
+							</div>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="card-body">
+				<div class="tab-content" id="nav-tabContent">
+					<div class="tab-pane fade show active" id="NamaBarang" role="tabpanel" aria-labelledby="NamaBarang">
+						<div class="table-wrap">
+							<table id="tableDash1" class="table w-100 pb-30">
+								<thead>
+									<tr>
+										<th>No.</th>
+										<th>Nama Barang</th>
+										<th>Merk</th>
+										<th>Aksi</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php
+									$hasil = $lihat->barang();
+									$no = 1;
+									foreach ($hasil as $isi) {
+									?>
+										<tr>
+											<td><?php echo $no; ?>.</td>
+											<td><?php echo $isi['nama_barang']; ?></td>
+											<td><?php echo $isi['merk']; ?></td>
+											<td><a href="edit-barang.php?barang=<?php echo $isi['id_barang']; ?>"><button class="btn btn-sm btn-warning"><i class="zmdi zmdi-edit"></i> Edit</button></a>
+												<a href="fungsi/hapus/hapus.php?barang=hapus&id=<?php echo $isi['id_barang']; ?>" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-sm btn-danger"><i class="zmdi zmdi-delete"></i> Hapus</button></a>
+											</td>
+										<?php $no++;
+									} ?>
+										</tr>
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="Stok" role="tabpanel" aria-labelledby="Stok">
+						<div class="table-wrap">
+							<table id="tableDash2" class="table w-100 pb-30 ">
+								<thead>
+									<tr>
+										<th>No.</th>
+										<th>Nama Barang</th>
+										<th>Stok</th>
+										<th>Aksi</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php
+									$hasil = $lihat->barang();
+									$hasilhtg = $lihat->barang_sisa();
+									$no = 1;
+									foreach ($hasil as $isi) {
+									?>
+										<tr>
+											<td><?php echo $no; ?>.</td>
+											<td><?php echo $isi['nama_barang']; ?></td>
+											<td><?php echo $isi['stok']; ?></td>
+											<td><a href="edit-barang.php?barang=<?php echo $isi['id_barang']; ?>"><button class="btn btn-sm btn-warning"><i class="zmdi zmdi-edit"></i> Edit</button></a>
+											<a href="fungsi/hapus/hapus.php?barang=hapus&id=<?php echo $isi['id_barang']; ?>" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-sm btn-danger"><i class="zmdi zmdi-delete"></i> Hapus</button></a>
+											</td>
+										<?php $no++;
+									} ?>
+										</tr>
+								</tbody>
+									<tr>
+										<th>&nbsp;</th>
+										<th><b>Total</b></th>
+										<th><b><?php echo $hasilhtg; ?></b></th>
+									</tr>
+							</table>
+						</div>
+					</div>
+					<div class="tab-pane fade " id="Terjual" role="tabpanel" aria-labelledby="Terjual">
+						<div class="card">
+							<div class="card-body">
+							<a href="laporan.php"><button class="btn btn-primary align-items-center btn-wth-icon icon-wthot-bg btn-rounded icon-right btn-lg mx-auto d-block">
+									<span class="btn-text">Ke halaman laporan</span> <span class="icon-label"><i class="zmdi zmdi-arrow-right"></i>
+								</button></a>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="Kategori" role="tabpanel" aria-labelledby="Kategori">
+						<table id="tableDash3" class="table w-100 pb-30">
+							<thead>
+								<tr>
+									<th>No.</th>
+									<th>Kategori</th>
+									<th>Aksi</th>
+								</tr>
+							</thead>
+							<tbody>
+								<?php
+								$hasil = $lihat->kategori();
+								$no = 1;
+								foreach ($hasil as $isi) {
+								?>
+									<tr>
+										<td><?php echo $no; ?>.</td>
+										<td><?php echo $isi['nama_kategori']; ?></td>
+										<td><a href="kategori.php?uid=<?php echo $isi['id_kategori']; ?>"><button class="btn btn-sm btn-warning"><i class="zmdi zmdi-edit"></i> Edit</button></a>
+											<a href="#" onclick="javascript:return confirm('Hapus?');"><button class="btn btn-sm btn-danger"><i class="zmdi zmdi-delete"></i> Hapus</button></a>
+										</td>
+									<?php $no++;
+								} ?>
+									</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
