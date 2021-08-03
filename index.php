@@ -1,11 +1,11 @@
 <?php
-require 'config.php';
-include $view;
-$lihat = new view($config);
-$toko = $lihat->toko();
-$hasil_barang = $lihat->barang_row();
-$hasil_kategori = $lihat->kategori_row();
-$jual = $lihat->jual_row();
+    require 'config.php';
+    include $view;
+    $lihat = new view($config);
+    $toko = $lihat->toko();
+    $hasil_barang = $lihat->barang_row();
+    $hasil_kategori = $lihat->kategori_row();
+    $jual = $lihat->jual_row();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +56,7 @@ $jual = $lihat->jual_row();
                                 <a class="nav-link" data-scroll href="#cara-belanja">Cara Belanja</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Kontak</a>
+                                <a class="nav-link" data-scroll href="#kontak">Kontak</a>
                             </li>
                         </ul>
                         <div class="navbar-search-alt">
@@ -196,7 +196,7 @@ $jual = $lihat->jual_row();
                                     </div>
                                 <?php } ?>
                             </div>
-                            <h2 class="text-center mt-40">Lihat semua <a href="produk.php">Produk</h2>
+                            <h2 class="text-center mt-40">Lihat semua <a href="produk.php">Produk</a></h2>
                         </div>
                     </section>
                     <!-- /Pages Sec -->
@@ -411,78 +411,6 @@ $jual = $lihat->jual_row();
                                 </div>
                                 <div class="feature-block">
                                     <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature3.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Free Updates Lifetime
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature4.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Fast Loading Time
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature5.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Light-weighted
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature6.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Clean Code
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature7.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Responsive Layout
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature8.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Ready to use demos
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature9.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Lots of widgets
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature10.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        1000+ UI Components
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature11.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Font Icons
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
                                         <img class="img-fluid" src="assets/img/landing-pg/feature12.png" alt="Card image cap">
                                     </div>
                                     <div class="feature-cap">
@@ -537,118 +465,6 @@ $jual = $lihat->jual_row();
                                         Color Picker
                                     </div>
                                 </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature19.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Multi File Upload
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature20.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Chat App
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature21.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Calendar App
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature22.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Mail App
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature23.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Carousel
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature24.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Owl Slider
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature25.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Modals
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature26.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Menu Options
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature27.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Tabs
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature28.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Data Table Plugin
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature29.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Form Validation
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature30.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Authentication Pages
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature31.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Error Pages
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature32.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Embeds
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </section>
@@ -691,13 +507,15 @@ $jual = $lihat->jual_row();
                     <!-- /Faq Sec -->
 
                     <!-- Adv Sec -->
-                    <section class="hk-landing-sec bg-gradient-primary">
-                        <div class="container text-center">
-                            <h5 class="text-grey mb-15">Additional FREE Landing Page worth $16</h5>
-                            <h1 class="text-white mb-10">Full package for the perfect price</h1>
-                            <h1 class="display-2 text-white mb-15">Only $49</h1>
-                            <h6 class="text-white text-uppercase mb-10">Pay once, use forever.</h6>
-                            <a class="btn btn-primary btn-lg btn-rounded w-xl-400p w-200p mt-30" href="#">Buy Mintos Now</a>
+                    <section id="kontak" class="hk-landing-sec">
+                        <div class="container">
+                            <!-- Row -->
+                            <div class="row">
+                                <div class="col-xl-12 pa-0">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.698623666607!2d116.6600129142544!3d-1.3574424360895716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df13dfb01c9196b%3A0x23dc59c68d949526!2sMAHARDIKA%20KOMPUTER!5e0!3m2!1sen!2sid!4v1627976369136!5m2!1sen!2sid" height="700" width="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                </div>
+                            </div>
+                            <!-- /Row -->
                         </div>
                     </section>
                     <!-- /Adv Sec -->
@@ -710,7 +528,7 @@ $jual = $lihat->jual_row();
                 <footer class="footer">
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
-                            <p>Pampered by<a href="https://hencework.com/" class="text-dark" target="_blank">Hencework</a> © 2019</p>
+                            <p>Build with 💛 and 😭 from<a href="https://polywork.umarhadi.dev/" class="text-dark" target="_blank">Umar</a> © 2021</p>
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <p class="d-inline-block">Follow us</p>
@@ -749,6 +567,8 @@ $jual = $lihat->jual_row();
     <script src="assets/dist/js/lightgallery-all.js"></script>
     <script src="assets/dist/js/home-data.js"></script>
     <script src="assets/dist/js/init.js"></script>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyAinmX2eFKE-gdL1E7IBbdJCnNNnPj9JNU"></script>
+
 </body>
 
 </html>
