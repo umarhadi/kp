@@ -6,6 +6,7 @@
     $hasil_barang = $lihat->barang_row();
     $hasil_kategori = $lihat->kategori_row();
     $jual = $lihat->jual_row();
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -181,7 +182,7 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="d-flex">
-                                                    <img class="d-86 rounded mb-15 mr-15" src="assets/img/landing-pg/emailapp.png" alt="thumb">
+                                                    <img class="d-86 rounded mb-15 mr-15" src="assets/img/barang/<?php echo $isi['img']; ?>" alt="Foto <?php echo $isi['nama_barang']; ?>">
                                                     <div class="w-65">
                                                         <h6 class="mb-5"><span class="text-primary"><?php echo $isi['merk']; ?></span> - <?php echo $isi['nama_barang']; ?></h6>
                                                         <p></p>
