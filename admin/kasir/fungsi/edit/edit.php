@@ -43,6 +43,7 @@ if (!empty($_SESSION['admin'])) {
 		$satuan = htmlentities($_POST['satuan']);
 		$stok = htmlentities($_POST['stok']);
 		$tgl = htmlentities($_POST['tgl']);
+		$desc =htmlentities($_POST['deskripsi']);
 
 		$data[] = $kategori;
 		$data[] = $nama;
@@ -52,9 +53,10 @@ if (!empty($_SESSION['admin'])) {
 		$data[] = $satuan;
 		$data[] = $stok;
 		$data[] = $tgl;
+		$data[] = $desc;
 		$data[] = $id;
 		$sql = 'UPDATE barang SET id_kategori=?, nama_barang=?, merk=?, 
-				harga_beli=?, harga_jual=?, satuan_barang=?, stok=?, tgl_update=?  WHERE id_barang=?';
+				harga_beli=?, harga_jual=?, satuan_barang=?, stok=?, tgl_update=?, deskripsi=? WHERE id_barang=?';
 		$row = $config->prepare($sql);
 		$row->execute($data);
 		echo '<script>window.location="../../edit-barang.php?barang=' . $id . '&berhasil=edit-data"</script>';
@@ -102,7 +104,7 @@ if (!empty($_SESSION['admin'])) {
 	}
 
 	if (!empty($_GET['img'])) {
-		$id = htmlentities($_POST['id']);
+		$id = htmlentities($_POST['id_barang']);
 		set_time_limit(0);
 		$allowedImageType = array("image/gif",   "image/JPG",   "image/jpeg",   "image/pjpeg",   "image/png",   "image/x-png");
 

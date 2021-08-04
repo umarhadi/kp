@@ -57,7 +57,6 @@ if (!empty($_SESSION['admin'])) {
                 }
                 ?>
             </div>
-
         </div>
         <div class="card">
             <div class="card-body">

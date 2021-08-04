@@ -1,12 +1,12 @@
 <?php
-    require 'config.php';
-    include $view;
-    $lihat = new view($config);
-    $toko = $lihat->toko();
-    $hasil_barang = $lihat->barang_row();
-    $hasil_kategori = $lihat->kategori_row();
-    $jual = $lihat->jual_row();
-    
+require 'config.php';
+include $view;
+$lihat = new view($config);
+$toko = $lihat->toko();
+$hasil_barang = $lihat->barang_row();
+$hasil_kategori = $lihat->kategori_row();
+$jual = $lihat->jual_row();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -89,84 +89,27 @@
                                 <div>Orisinal <span class="font-11">&nbsp;&#9679;&nbsp;</span> Bergaransi</div>
                             </div>
                             <div class="hk-row text-center">
-                                <div class="col-lg-6 col-sm-6">
-                                    <a href="dashboard1.html" target="_blank">
-                                        <div class="card shadow-hover">
-                                            <img class="card-img-top" src="assets/img/landing-pg/herodemo1.png" alt="Card image cap">
-                                            <div class="card-footer text-dark">
-                                                CRM
+                                <?php
+                                $hasil = $lihat->kategori();
+                                $no = 1;
+                                foreach ($hasil as $isi) {
+                                ?>
+                                    <div class="col-lg-6 col-sm-6">
+                                        <a href="produk.php?kategori=<?php echo $isi['id_kategori']; ?>">
+                                            <div class="card text-white bg-gradient-royston">
+                                                <div class="card-header text-primary">#<?php echo $no++; ?></div>
+                                                <div class="card-body">
+                                                    <h5 class="card-title text-white"><?php echo $isi['nama_kategori']; ?></h5>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-lg-6 col-sm-6">
-                                    <a href="dashboard2.html" target="_blank">
-                                        <div class="card shadow-hover">
-                                            <img class="card-img-top" src="assets/img/landing-pg/herodemo2.png" alt="Card image cap">
-                                            <div class="card-footer text-dark">
-                                                Project
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-lg-6 col-sm-6">
-                                    <a href="dashboard3.html" target="_blank">
-                                        <div class="card shadow-hover">
-                                            <img class="card-img-top" src="assets/img/landing-pg/herodemo3.png" alt="Card image cap">
-                                            <div class="card-footer text-dark">
-                                                Statistics
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-lg-6 col-sm-6">
-                                    <a href="dashboard4.html" target="_blank">
-                                        <div class="card shadow-hover">
-                                            <img class="card-img-top" src="assets/img/landing-pg/herodemo4.png" alt="Card image cap">
-                                            <div class="card-footer text-dark">
-                                                Classic
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                                        </a>
+                                    </div>
+                                <?php } ?>
                             </div>
                         </div>
+
                     </section>
                     <!-- /Preview Sec -->
-
-                    <!-- Design Sec -->
-                    <section class="hk-landing-sec pb-50">
-                        <div class="container">
-                            <h2 class="text-center">Designed and developed <span class="text-primary">for developers.</span></h2>
-                            <div class="row mt-50 text-center">
-                                <div class="col-lg-4 mb-30">
-                                    <h5 class="mb-20">
-                                        <span class="d-flex align-items-center justify-content-center">
-                                            <span class="feather-icon text-primary mr-15"><i data-feather="layout"></i></span>Flexible Framework
-                                        </span>
-                                    </h5>
-                                    <p>A Bootstrap 4.3.X & Sass based solid core and well-architected framework works for all screens and modern browsers. You can easily be able to develop limitless customized projects.</p>
-                                </div>
-                                <div class="col-lg-4 mb-30">
-                                    <h5 class="mb-20">
-                                        <span class="d-flex align-items-center justify-content-center">
-                                            <span class="feather-icon text-success mr-15"><i data-feather="code"></i></span>Code Structure
-                                        </span>
-                                    </h5>
-                                    <p>HTML5 validated clean code is focused - keeping it simple and orderly. Every function, class, module exposes a single-minded attitude to remain entirely undistracted.</p>
-                                </div>
-                                <div class="col-lg-4 mb-30">
-                                    <h5 class="mb-20">
-                                        <span class="d-flex align-items-center justify-content-center">
-                                            <span class="feather-icon text-purple mr-15"><i data-feather="fast-forward"></i></span>Boost Up Speed
-                                        </span>
-                                    </h5>
-                                    <p>A ton of pre-built material that will genuinely improve D2D process ten folds, allowing Front-End Developrers to nerd out on actually building stuff, rather than editing pixel distances.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <!-- /Design Sec -->
 
                     <!-- Pages Sec -->
                     <section id="produk" class="hk-landing-sec bg-white pb-65">
@@ -179,19 +122,29 @@
                                 foreach ($hasil as $isi) {
                                 ?>
                                     <div class="col-lg-4 col-sm-6">
-                                        <div class="card">
+                                        <div class="card shadow-sm shadow-hover-lg">
                                             <div class="card-body">
                                                 <div class="d-flex">
                                                     <img class="d-86 rounded mb-15 mr-15" src="assets/img/barang/<?php echo $isi['img']; ?>" alt="Foto <?php echo $isi['nama_barang']; ?>">
                                                     <div class="w-65">
                                                         <h6 class="mb-5"><span class="text-primary"><?php echo $isi['merk']; ?></span> - <?php echo $isi['nama_barang']; ?></h6>
-                                                        <p></p>
+                                                        <span class="text-truncate d-inline-block" style="max-width: 100%;"><?php echo $isi['deskripsi']; ?></span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="card-footer text-muted justify-content-between">
-                                                <div><span class="text-dark">IDR<?php echo number_format($isi['harga_jual']); ?></span></div>
-                                                <button class="btn btn-xs btn-success ml-15 w-sm-100p">Detail</button>
+                                                <div><span class="text-dark">IDR <?php echo number_format($isi['harga_jual']); ?> 
+                                                <?php if ($isi['stok'] <=  '0') { ?>
+                                                (Stok Habis)
+                                                <?php } else {?>
+                                                (<?php echo $isi['stok'];?> Stok Tersisa)
+                                                <?php } ?>
+                                                </span></div>
+                                                <?php if ($isi['stok'] <=  '0') { ?>
+                                                <button class="btn btn-xs btn-success ml-15 w-sm-100p disabled">Detail</a>
+                                                <?php } else { ?>
+                                                <a href="produk/detail.php?barang=<?php echo $isi['id_barang'];?>" class="btn btn-xs btn-success ml-15 w-sm-100p">Detail</a>
+                                                <?php } ?>
                                             </div>
                                         </div>
                                     </div>
@@ -513,7 +466,7 @@
                             <!-- Row -->
                             <div class="row">
                                 <div class="col-xl-12 pa-0">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.698623666607!2d116.6600129142544!3d-1.3574424360895716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df13dfb01c9196b%3A0x23dc59c68d949526!2sMAHARDIKA%20KOMPUTER!5e0!3m2!1sen!2sid!4v1627976369136!5m2!1sen!2sid" height="700" width="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.698623666607!2d116.6600129142544!3d-1.3574424360895716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df13dfb01c9196b%3A0x23dc59c68d949526!2sMAHARDIKA%20KOMPUTER!5e0!3m2!1sen!2sid!4v1627976369136!5m2!1sen!2sid" height="700" width="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
                                 </div>
                             </div>
                             <!-- /Row -->
@@ -529,10 +482,10 @@
                 <footer class="footer">
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
-                            <p>Build with 💛 and 😭 from<a href="https://polywork.umarhadi.dev/" class="text-dark" target="_blank">Umar</a> © 2021</p>
+                            <p>Mahardika Komputer® is another thing from<a href="https://polywork.umarhadi.dev/" class="text-dark" target="_blank">Umar Hadi Siswanto</a></p>
                         </div>
                         <div class="col-md-6 col-sm-12">
-                            <p class="d-inline-block">Follow us</p>
+                            <p class="d-inline-block">&copy; 2021 Mahardika Komputer</p>
                             <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-facebook"></i></span></a>
                             <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-twitter"></i></span></a>
                             <a href="#" class="d-inline-block btn btn-icon btn-icon-only btn-indigo btn-icon-style-4"><span class="btn-icon-wrap"><i class="fa fa-google-plus"></i></span></a>
