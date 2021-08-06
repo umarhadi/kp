@@ -99,7 +99,7 @@ $jual = $lihat->jual_row();
                                             <div class="card text-white bg-gradient-royston">
                                                 <div class="card-header text-primary">#<?php echo $no++; ?></div>
                                                 <div class="card-body">
-                                                    <h5 class="card-title text-white"><?php echo $isi['nama_kategori']; ?></h5>
+                                                    <h5 class="card-title text-white display-6"><?php echo $isi['nama_kategori']; ?></h5>
                                                 </div>
                                             </div>
                                         </a>
@@ -156,7 +156,7 @@ $jual = $lihat->jual_row();
                     <!-- /Pages Sec -->
 
                     <!-- Tech Sec -->
-                    <section class="hk-landing-sec pb-50">
+                    <!-- <section class="hk-landing-sec pb-50">
                         <div class="container">
                             <div class="row">
                                 <div class="d-flex align-items-center col-lg-5 mb-30">
@@ -205,11 +205,11 @@ $jual = $lihat->jual_row();
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section> -->
                     <!-- /Tech Sec -->
 
                     <!-- Apps Sec -->
-                    <section id="cara-belanja" class="hk-landing-sec bg-white pb-65">
+                    <!-- <section id="cara-belanja" class="hk-landing-sec bg-gradient-streaks pb-65">
                         <div class="container">
                             <h2 class="text-center">Apps are designed considering <span class="text-primary">UX</span> in mind.</h2>
                             <div class="hk-row mt-50 text-center">
@@ -257,11 +257,11 @@ $jual = $lihat->jual_row();
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section> -->
                     <!-- Apps Sec -->
 
                     <!-- Utilities Sec -->
-                    <section class="hk-landing-sec pb-35">
+                    <!-- <section class="hk-landing-sec pb-35">
                         <div class="container">
                             <h2 class="text-center">Smooth<span class="text-primary"> realtime collaboration</span> of UI Components and advanced functionality to your web applications.</h2>
                             <div class="row mt-50">
@@ -339,11 +339,11 @@ $jual = $lihat->jual_row();
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section> -->
                     <!-- /Utilities Sec -->
 
                     <!-- Features Sec -->
-                    <section id="features_sec" class="hk-landing-sec bg-grey-light-5 pb-65">
+                    <!-- <section id="features_sec" class="hk-landing-sec bg-grey-light-5 pb-65">
                         <div class="container text-center">
                             <h2 class="mb-10"><span class="text-primary">Unlimited</span> features</h2>
                             <div class="row justify-content-center mt-50">
@@ -421,11 +421,11 @@ $jual = $lihat->jual_row();
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section> -->
                     <!-- /Features Sec -->
 
                     <!-- Faq Sec -->
-                    <section id="faq_sec" class="hk-landing-sec pb-25">
+                    <!-- <section id="faq_sec" class="hk-landing-sec pb-25">
                         <div class="container">
                             <h2 class="mb-10">FAQ</h2>
                             <div class="mt-50">
@@ -457,7 +457,7 @@ $jual = $lihat->jual_row();
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section> -->
                     <!-- /Faq Sec -->
 
                     <!-- Adv Sec -->
@@ -466,7 +466,7 @@ $jual = $lihat->jual_row();
                             <!-- Row -->
                             <div class="row">
                                 <div class="col-xl-12 pa-0">
-                                    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.698623666607!2d116.6600129142544!3d-1.3574424360895716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df13dfb01c9196b%3A0x23dc59c68d949526!2sMAHARDIKA%20KOMPUTER!5e0!3m2!1sen!2sid!4v1627976369136!5m2!1sen!2sid" height="700" width="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.698623666607!2d116.6600129142544!3d-1.3574424360895716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df13dfb01c9196b%3A0x23dc59c68d949526!2sMAHARDIKA%20KOMPUTER!5e0!3m2!1sen!2sid!4v1627976369136!5m2!1sen!2sid" height="700" width="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                                 </div>
                             </div>
                             <!-- /Row -->
@@ -521,7 +521,6 @@ $jual = $lihat->jual_row();
     <script src="assets/dist/js/lightgallery-all.js"></script>
     <script src="assets/dist/js/home-data.js"></script>
     <script src="assets/dist/js/init.js"></script>
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyAinmX2eFKE-gdL1E7IBbdJCnNNnPj9JNU"></script>
 
 </body>
 

@@ -253,6 +253,18 @@ class view
 		return $hasil;
 	}
 
+	function penjualan_online(){
+		$sql = "SELECT penjualan.* , barang.id_barang, barang.nama_barang, barang.merk, barang.harga_jual, barang.satuan_barang, member.id_member,
+						member.nm_member from penjualan 
+					   left join barang on barang.id_barang=penjualan.id_barang 
+					   left join member on member.id_member=penjualan.id_member
+					   WHERE penjualan.jenis = 'Online' ORDER BY id_penjualan";
+		$row = $this->db->prepare($sql);
+		$row->execute();
+		$hasil = $row->fetchAll();
+		return $hasil;
+	}
+
 	function struk_total()
 	{
 		$sql = "select sum(total) from penjualan";

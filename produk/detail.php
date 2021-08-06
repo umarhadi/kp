@@ -112,7 +112,7 @@ $hasil = $lihat->barang_edit($id);
                                                 <h3 class="card-title text-white font-weight-bold"><?php echo $hasil['nama_barang']; ?></h3>
                                                 <p class="card-text"><b>Kategori:</b> <a href="../produk.php?kategori=<?php echo $hasil['nama_kategori']; ?>"><span class="badge badge-info"><?php echo $hasil['nama_kategori']; ?></span></a></p>
                                                 <span class="card-text text-white h3">IDR <?php echo number_format($hasil['harga_jual']); ?></span>/<?php echo $hasil['satuan_barang']; ?><br>
-                                                <p class="card-text text-white"><?php echo $hasil['deskripsi']; ?></p>
+                                                <p class="card-text text-white text-truncate"><?php echo $hasil['deskripsi']; ?></p>
                                                 <div class="card-footer">
                                                     <button class="btn btn-info btn-wth-icon btn-lg"> <span class="icon-label"><span class="feather-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card">
                                                                     <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
@@ -122,141 +122,70 @@ $hasil = $lihat->barang_edit($id);
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card hk-dash-type-1 overflow-hide">
-                <div class="card-header pa-0">
-                    <div class="nav nav-tabs nav-light nav-justified" id="dash-tab" role="tablist">
-                        <a class="d-flex align-items-center justify-content-center nav-item nav-link active" id="dash-tab-1" data-toggle="tab" href="#Foto" role="tab" aria-selected="true">
-                            <div class="d-flex">
-                                <div>
-                                    <span class="d-block mb-5"><span class="display-6"><i class="zmdi zmdi-image"></i> Foto Profil</span></span>
-
-                                </div>
-                            </div>
-                        </a>
-                        <a class="d-flex align-items-center justify-content-center nav-item nav-link" id="dash-tab-2" data-toggle="tab" href="#Profile" role="tab" aria-selected="false">
-                            <div class="d-flex">
-                                <div>
-                                    <span class="d-block mb-5"><span class="display-6"><i class="zmdi zmdi-account"></i> Profil</span></span>
-                                </div>
-                            </div>
-                        </a>
-                        <a class="d-flex align-items-center justify-content-center nav-item nav-link" id="dash-tab-2" data-toggle="tab" href="#Password" role="tab" aria-selected="false">
-                            <div class="d-flex">
-                                <div>
-                                    <span class="d-block mb-5"><span class="display-6"><i class="zmdi zmdi-key"></i> Login</span></span>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="Foto" role="tabpanel" aria-labelledby="Foto">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 mx-auto d-block">
-                                <div class="card-body">
-                                    <div class="card bg-sky-light-4">
-                                        <div class="card-body ">
-                                            <img class="img-fluid circle" src="../../assets/img/user/<?php echo $hasil_profil['gambar']; ?>" style="width:200px;" />
+                                    <div class="col-lg-12 col-md-6 col-sm-12 mb-30">
+                                    <div class="card">
+                                        <div class="card-header card-header-action">
+                                            <h6>Ratings &amp; Reviews</h6>
+                                            <div class="d-flex align-items-center card-action-wrap">
+                                                <button class="btn btn-info btn-sm disabled">Berikan Ulasan</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="card bg-sky-light-4">
-                                <div class="card-body">
-                                    <form method="POST" action="fungsi/edit/edit.php?gambar=user" enctype="multipart/form-data">
-                                        <input type="file" accept="image/*" name="foto">
-                                        <input type="hidden" value="<?php echo $hasil_profil['gambar']; ?>" name="foto2">
-                                        <input type="hidden" name="id" value="<?php echo $hasil_profil['id_member']; ?>">
-                                        <span class="pull-right">
-                                            <button type="submit" class="btn bg-sky-light-4 btn-sm"><i class="zmdi zmdi-upload"> Ganti Foto</i></button>
-                                        </span>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="Profile" role="tabpanel" aria-labelledby="Profile">
-                        <div class="row">
-                            <div class="col-lg-6 mx-auto d-block">
-                                <div class="card-body">
                                     <div class="card">
-                                        <div class="card-body">
-                                            <form method="POST" action="fungsi/edit/edit.php?profil=edit" enctype="multipart/form-data">
-                                                <div class="form-group">
-                                                    <label class="control-label mb-10">Nama</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="zmdi zmdi-account"></i></span>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-5">
+                                                <div class="d-flex align-items-center h-100 justify-content-center text-center">
+                                                    <div>
+                                                        <div class="d-flex align-items-center  justify-content-center text-dark">
+                                                            <span class="counter-anim display-2">4.4</span>
+                                                            <span class="review-star starred ml-10">
+                                                                <span class="feather-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
+                                                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                                                    </svg></span>
+                                                            </span>
                                                         </div>
-                                                        <input name="nama" type="text" class="form-control" value="<?php echo $hasil_profil['nm_member']; ?>" required="required">
+                                                        <span class="font-18">949 ratings &amp; 18 reviews</span>
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label class="control-label mb-10">Email</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="zmdi zmdi-email"></i></span>
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="progress-wrap lb-side-left mt-5">
+                                                    <div class="progress-lb-wrap mb-10">
+                                                        <label class="progress-label mnw-50p">5.0<i class="zmdi zmdi-star text-light-20 ml-5"></i></label>
+                                                        <div class="progress progress-bar-rounded progress-bar-xs">
+                                                            <div class="progress-bar bg-primary w-85" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                                                         </div>
-                                                        <input name="email" type="email" class="form-control" value="<?php echo $hasil_profil['email']; ?>" required="required">
+                                                    </div>
+                                                    <div class="progress-lb-wrap mb-10">
+                                                        <label class="progress-label mnw-50p">4.0<i class="zmdi zmdi-star text-light-20 ml-5"></i></label>
+                                                        <div class="progress progress-bar-rounded progress-bar-xs">
+                                                            <div class="progress-bar bg-brown-light-1 w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress-lb-wrap mb-10">
+                                                        <label class="progress-label mnw-50p">3.0<i class="zmdi zmdi-star text-light-20 ml-5"></i></label>
+                                                        <div class="progress progress-bar-rounded progress-bar-xs">
+                                                            <div class="progress-bar bg-brown-light-2 w-65" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress-lb-wrap mb-10">
+                                                        <label class="progress-label mnw-50p">2.0<i class="zmdi zmdi-star text-light-20 ml-5"></i></label>
+                                                        <div class="progress progress-bar-rounded progress-bar-xs">
+                                                            <div class="progress-bar bg-brown-light-3 w-55" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress-lb-wrap mb-10">
+                                                        <label class="progress-label mnw-50p">1.0<i class="zmdi zmdi-star text-light-20 ml-5"></i></label>
+                                                        <div class="progress progress-bar-rounded progress-bar-xs">
+                                                            <div class="progress-bar bg-danger w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label class="control-label mb-10">No. HP</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="zmdi zmdi-phone"></i></span>
-                                                        </div>
-                                                        <input name="tlp" type="number" class="form-control" value="<?php echo $hasil_profil['telepon']; ?>" required="required">
-                                                    </div>
-                                                </div>
-                                                <input type="hidden" name="nik" value="<?php echo $hasil_profil['NIK']; ?>">
-                                                <input type="hidden" name="alamat" value="<?php echo $hasil_profil['alamat_member']; ?>">
-                                                <input type="hidden" name="id" value="<?php echo $hasil_profil['id_member']; ?>">
-                                                <button type="submit" class="btn btn-primary mr-10"><i class="zmdi zmdi-edit"></i>&nbsp;Perbarui</button>
-                                            </form>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="Password" role="tabpanel" aria-labelledby="Password">
-                        <div class="row">
-                            <div class="col-lg-6 mx-auto d-block">
-                                <div class="card-body">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <form method="POST" action="fungsi/edit/edit.php?pass=ganti-pas">
-                                                <div class="form-group">
-                                                    <label class="control-label mb-10">Username</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="zmdi zmdi-account"></i></span>
-                                                        </div>
-                                                        <input name="user" type="text" class="form-control" value="<?php echo $hasil_profil['user']; ?>" required>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="control-label mb-10">Password baru</label>
-                                                    <div class="input-group">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text"><i class="zmdi zmdi-key"></i></span>
-                                                        </div>
-                                                        <input name="pass" type="password" class="form-control" value="" required>
-                                                    </div>
-                                                </div>
-                                                <input type="hidden" name="id" value="<?php echo $hasil_profil['id_member']; ?>">
-                                                <button type="submit" class="btn btn-primary mr-10"><i class="zmdi zmdi-edit"></i>&nbsp;Perbarui</button>
-                                            </form>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
