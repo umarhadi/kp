@@ -1,21 +1,26 @@
 <?php
-require 'config.php';
-include $view;
-$lihat = new view($config);
-$toko = $lihat->toko();
-$id = $_GET['barang'];
-$hasil = $lihat->barang_edit($id);
+include 'config.php';
 
+$id_b = $_POST['id_barang'];
+$jml = $_POST['jumlah'];
+$total = $_POST['total'];
+$tgl = date("j F Y, G:i");
+$jenis = 'Online';
+$nama = $_POST['nama'];
+$nohp = $_POST['no_hp'];
+
+$data[] = $id_b;
+$data[] = $jml;
+$data[] = $total;
+$data[] = $tgl;
+$data[] = $jenis;
+$data[] = $nama;
+$data[] = $nohp;
+$sql = 'INSERT INTO penjualan (id_barang,jumlah,total,tanggal_input,jenis,nama,no_hp)
+VALUES (?,?,?,?,?,?,?) ';
+$row = $config -> prepare($sql);
+$row -> execute($data);
+echo '<script>
+    window.location = "../../barang.php?berhasil"
+</script>';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<a href="../admin/kasir/fungsi/tambah/tambah.php?beli=beli&id=<?php echo $hasil['id_barang']; ?>">
-</body>
-</html>

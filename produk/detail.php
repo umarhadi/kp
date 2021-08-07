@@ -87,11 +87,17 @@ $hasil = $lihat->barang_edit($id);
                     <div class="row">
                         <div class="col-sm">
                             <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-12 mb-30">
+                                <div class="col-lg-12 col-md-12 col-sm-12 mb-30">
                                     <div class="card-img card-img-bg rounded text-white shadow-sm shadow-hover-lg" style="background-image: url(../assets/img/barang/<?php echo $hasil['img']; ?>);">
                                         <div class="card-img-overlay text-white bg-trans-dark-90">
                                             <div class="card-body text-center">
                                                 <a href="../assets/img/barang/<?php echo $hasil['img']; ?>" target="_blank" alt="Lihat ukuran penuh"><img class="card-img-top img-fluid rounded" src="../assets/img/barang/<?php echo $hasil['img']; ?>" style="width:200px;" alt="foto barang"></a>
+                                            </div>
+                                            <div class="card-body">
+                                                <h3 class="card-title text-white font-weight-bold"><?php echo $hasil['nama_barang']; ?></h3>
+                                                <p class="card-text"><b>Kategori:</b> <a href="../produk.php?kategori=<?php echo $hasil['nama_kategori']; ?>"><span class="badge badge-info"><?php echo $hasil['nama_kategori']; ?></span></a></p>
+                                                <span class="card-text text-white h3">IDR <?php echo number_format($hasil['harga_jual']); ?></span>/<?php echo $hasil['satuan_barang']; ?><br>
+                                                <p class="card-text text-white text-truncate"><?php echo $hasil['deskripsi']; ?></p>
                                             </div>
                                             <div class="card-footer">
                                                 Bagikan ke &nbsp;
@@ -105,88 +111,37 @@ $hasil = $lihat->barang_edit($id);
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12 mb-30">
-                                    <div class="card">
-                                        <div class="card-img card-img-bg rounded text-white shadow-sm shadow-hover-lg" style="background-image: url(../assets/img/barang/<?php echo $hasil['img']; ?>);">
-                                            <div class="card-img-overlay text-white bg-trans-dark-90">
-                                                <h3 class="card-title text-white font-weight-bold"><?php echo $hasil['nama_barang']; ?></h3>
-                                                <p class="card-text"><b>Kategori:</b> <a href="../produk.php?kategori=<?php echo $hasil['nama_kategori']; ?>"><span class="badge badge-info"><?php echo $hasil['nama_kategori']; ?></span></a></p>
-                                                <span class="card-text text-white h3">IDR <?php echo number_format($hasil['harga_jual']); ?></span>/<?php echo $hasil['satuan_barang']; ?><br>
-                                                <p class="card-text text-white text-truncate"><?php echo $hasil['deskripsi']; ?></p>
-                                                <div class="card-footer">
-                                                    <button class="btn btn-info btn-wth-icon btn-lg"> <span class="icon-label"><span class="feather-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-credit-card">
-                                                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-                                                                    <line x1="1" y1="10" x2="23" y2="10"></line>
-                                                                </svg></span> </span><span class="btn-text">Beli </span></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-6 col-sm-12 mb-30">
-                                    <div class="card">
-                                        <div class="card-header card-header-action">
-                                            <h6>Ratings &amp; Reviews</h6>
-                                            <div class="d-flex align-items-center card-action-wrap">
-                                                <button class="btn btn-info btn-sm disabled">Berikan Ulasan</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                    <div class="card">
-                                    <div class="card-body">
+                                <div class="col-lg-8 col-md-8 col-sm-12 mb-30">
+                                    <section class="hk-sec-wrapper">
+                                        <h5 class="hk-sec-title">Beli <?php echo $hasil['nama_barang']; ?></h5>
+                                        <p class="mb-25">More complex forms can be built using the grid classes. Use these for form layouts that require multiple columns, varied widths, and additional alignment options.</p>
                                         <div class="row">
-                                            <div class="col-sm-5">
-                                                <div class="d-flex align-items-center h-100 justify-content-center text-center">
-                                                    <div>
-                                                        <div class="d-flex align-items-center  justify-content-center text-dark">
-                                                            <span class="counter-anim display-2">4.4</span>
-                                                            <span class="review-star starred ml-10">
-                                                                <span class="feather-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-star">
-                                                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                                                    </svg></span>
-                                                            </span>
-                                                        </div>
-                                                        <span class="font-18">949 ratings &amp; 18 reviews</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-7">
-                                                <div class="progress-wrap lb-side-left mt-5">
-                                                    <div class="progress-lb-wrap mb-10">
-                                                        <label class="progress-label mnw-50p">5.0<i class="zmdi zmdi-star text-light-20 ml-5"></i></label>
-                                                        <div class="progress progress-bar-rounded progress-bar-xs">
-                                                            <div class="progress-bar bg-primary w-85" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="col-sm">
+                                                <form action="beli.php" method="post">
+                                                    <div class="row">
+                                                        <div class="col-md-12 form-group">
+                                                            <input type="hidden" name="id_barang" value="<?php echo $hasil['id_barang']; ?>" class="form-control">
+                                                            <input type="hidden" name="jumlah" value="1" class="form-control">
+                                                            <input type="hidden" name="total" value="<?php echo $hasil['harga_jual']; ?>" class="form-control">
+                                                            <label for="nama">Nama lengkap</label>
+                                                            <input class="form-control" placeholder="Nama Lengkap" name="nama" type="text">
                                                         </div>
                                                     </div>
-                                                    <div class="progress-lb-wrap mb-10">
-                                                        <label class="progress-label mnw-50p">4.0<i class="zmdi zmdi-star text-light-20 ml-5"></i></label>
-                                                        <div class="progress progress-bar-rounded progress-bar-xs">
-                                                            <div class="progress-bar bg-brown-light-1 w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="form-group">
+                                                        <label for="nohp">Nomor HP</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">+62</span>
+                                                            </div>
+                                                            <input class="form-control" name="no_hp" placeholder="8xxxxxxxx" type="text">
                                                         </div>
                                                     </div>
-                                                    <div class="progress-lb-wrap mb-10">
-                                                        <label class="progress-label mnw-50p">3.0<i class="zmdi zmdi-star text-light-20 ml-5"></i></label>
-                                                        <div class="progress progress-bar-rounded progress-bar-xs">
-                                                            <div class="progress-bar bg-brown-light-2 w-65" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="progress-lb-wrap mb-10">
-                                                        <label class="progress-label mnw-50p">2.0<i class="zmdi zmdi-star text-light-20 ml-5"></i></label>
-                                                        <div class="progress progress-bar-rounded progress-bar-xs">
-                                                            <div class="progress-bar bg-brown-light-3 w-55" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="progress-lb-wrap mb-10">
-                                                        <label class="progress-label mnw-50p">1.0<i class="zmdi zmdi-star text-light-20 ml-5"></i></label>
-                                                        <div class="progress progress-bar-rounded progress-bar-xs">
-                                                            <div class="progress-bar bg-danger w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                    <hr>
+                                                    <button class="btn btn-primary" type="submit">Selanjutnya</button>
+                                                </form>
                                             </div>
                                         </div>
-                                    </div>
-                                    </div>
+                                    </section>
                                 </div>
                             </div>
                         </div>
