@@ -26,6 +26,7 @@ $jual = $lihat->jual_row();
 
     <!-- Custom CSS -->
     <link href="assets/dist/css/style.css" rel="stylesheet" type="text/css">
+    <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
 
 </head>
 
@@ -60,16 +61,14 @@ $jual = $lihat->jual_row();
                                 <a class="nav-link" data-scroll href="#kontak">Kontak</a>
                             </li>
                         </ul>
-                        <div class="navbar-search-alt">
+                        <form class="navbar-search-alt" method="post" action="cari.php?barang=yes">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="zmdi zmdi-search"></i></span>
                                 </div>
-
-                                <input class="form-control" type="text" name="cari" id="cari" placeholder="Cari" aria-label="Cari">
-
+                                <input class="form-control" type="text" name="keyword" id="keyword" placeholder="Cari" aria-label="Cari">
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </nav>
             </div>
@@ -125,7 +124,7 @@ $jual = $lihat->jual_row();
                                         <div class="card shadow-sm shadow-hover-lg">
                                             <div class="card-body">
                                                 <div class="d-flex">
-                                                    <img class="d-86 rounded mb-15 mr-15" src="assets/img/barang/<?php echo $isi['img']; ?>" alt="Foto <?php echo $isi['nama_barang']; ?>">
+                                                    <img class="d-86 rounded mb-15 mr-15" style="object-fit:cover;" src="assets/img/barang/<?php echo $isi['img']; ?>" alt="Foto <?php echo $isi['nama_barang']; ?>">
                                                     <div class="w-65">
                                                         <h6 class="mb-5"><span class="text-primary"><?php echo $isi['merk']; ?></span> - <?php echo $isi['nama_barang']; ?></h6>
                                                         <span class="text-truncate d-inline-block" style="max-width: 100%;"><?php echo $isi['deskripsi']; ?></span>
@@ -133,18 +132,18 @@ $jual = $lihat->jual_row();
                                                 </div>
                                             </div>
                                             <div class="card-footer text-muted justify-content-between">
-                                                <div><span class="text-dark">IDR <?php echo number_format($isi['harga_jual']); ?> 
+                                                <div><span class="text-dark">IDR <?php echo number_format($isi['harga_jual']); ?>
+                                                        <?php if ($isi['stok'] <=  '0') { ?>
+                                                            (Stok Habis)
+                                                        <?php } else { ?>
+                                                            (<?php echo $isi['stok']; ?> Stok Tersisa)
+                                                        <?php } ?>
+                                                    </span></div>
                                                 <?php if ($isi['stok'] <=  '0') { ?>
-                                                (Stok Habis)
-                                                <?php } else {?>
-                                                (<?php echo $isi['stok'];?> Stok Tersisa)
-                                                <?php } ?>
-                                                </span></div>
-                                                <?php if ($isi['stok'] <=  '0') { ?>
-                                                <button class="btn btn-xs btn-success ml-15 w-sm-100p disabled">Detail</a>
-                                                <?php } else { ?>
-                                                <a href="produk/detail.php?barang=<?php echo $isi['id_barang'];?>" class="btn btn-xs btn-success ml-15 w-sm-100p">Detail</a>
-                                                <?php } ?>
+                                                    <button class="btn btn-xs btn-success ml-15 w-sm-100p disabled">Detail</a>
+                                                    <?php } else { ?>
+                                                        <a href="produk/detail.php?barang=<?php echo $isi['id_barang']; ?>" class="btn btn-xs btn-success ml-15 w-sm-100p">Detail</a>
+                                                    <?php } ?>
                                             </div>
                                         </div>
                                     </div>
@@ -466,7 +465,7 @@ $jual = $lihat->jual_row();
                             <!-- Row -->
                             <div class="row">
                                 <div class="col-xl-12 pa-0">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.698623666607!2d116.6600129142544!3d-1.3574424360895716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df13dfb01c9196b%3A0x23dc59c68d949526!2sMAHARDIKA%20KOMPUTER!5e0!3m2!1sen!2sid!4v1627976369136!5m2!1sen!2sid" height="700" width="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.698623666607!2d116.6600129142544!3d-1.3574424360895716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df13dfb01c9196b%3A0x23dc59c68d949526!2sMAHARDIKA%20KOMPUTER!5e0!3m2!1sen!2sid!4v1627976369136!5m2!1sen!2sid" height="700" width="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
                                 </div>
                             </div>
                             <!-- /Row -->

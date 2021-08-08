@@ -114,7 +114,7 @@ $hasil = $lihat->barang_edit($id);
                                 <div class="col-lg-8 col-md-8 col-sm-12 mb-30">
                                     <section class="hk-sec-wrapper">
                                         <h5 class="hk-sec-title">Beli <?php echo $hasil['nama_barang']; ?></h5>
-                                        <p class="mb-25">More complex forms can be built using the grid classes. Use these for form layouts that require multiple columns, varied widths, and additional alignment options.</p>
+                                        <p class="mb-25">Setelah mengirimkan data Nama dan Nomor HP, kami akan menghubungi Anda via WhatsApp untuk Konfirmasi</p>
                                         <div class="row">
                                             <div class="col-sm">
                                                 <form action="beli.php" method="post">
@@ -137,7 +137,7 @@ $hasil = $lihat->barang_edit($id);
                                                         </div>
                                                     </div>
                                                     <hr>
-                                                    <button class="btn btn-primary" type="submit">Selanjutnya</button>
+                                                    <button class="btn btn-primary" type="submit">Beli</button>
                                                 </form>
                                             </div>
                                         </div>

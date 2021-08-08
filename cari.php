@@ -76,107 +76,79 @@ $jual = $lihat->jual_row();
         <div class="hk-pg-wrapper" style="min-height: 447px;">
             <!-- Container -->
             <div class="container mt-xl-50 mt-sm-30 mt-15">
-                <!-- Title -->
-                <div class="hk-pg-header">
-                    <div>
-                        <h5 class="hk-pg-title font-weight-600">Total ada <?php echo number_format($hasil_barang); ?> produk</h5>
-                    </div>
-                </div>
-                <!-- /Title -->
-
-                <!-- Row -->
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="hk-row">
-                            <?php
-                            include 'komponen/koneksi.php';
-                            $batas = 2;
-                            $halaman = isset($_GET['halaman']) ? (int)$_GET['halaman'] : 1;
-                            $halaman_awal = ($halaman > 1) ? ($halaman * $batas) - $batas : 0;
-
-                            $previous = $halaman - 1;
-                            $next = $halaman + 1;
-
-                            $data = mysqli_query($koneksi, "select barang.*, kategori.id_kategori, kategori.nama_kategori
-                from barang inner join kategori on barang.id_kategori = kategori.id_kategori 
-                ORDER BY id DESC");
-                            $jumlah_data = mysqli_num_rows($data);
-                            $total_halaman = ceil($jumlah_data / $batas);
-
-                            $data_produk = mysqli_query($koneksi, "select barang.*, kategori.id_kategori, kategori.nama_kategori
-                from barang inner join kategori on barang.id_kategori = kategori.id_kategori 
-                ORDER BY id DESC limit $halaman_awal, $batas");
-                            while ($d = mysqli_fetch_array($data_produk)) {
-                            ?>
-                                <div class="col-lg-4">
-                                    <div class="card">
-                                        <img class="card-img-top" src="assets/img/barang/<?php echo $d['img']; ?>" width="200" height="200" style="object-fit:cover;" alt="Foto <?php echo $hasil['nama_barang']; ?>">
-                                        <div class="card-header card-header-action">
-                                            <h6 class="text-truncate"><?php echo $d['nama_barang']; ?></h6>
-                                            <?php echo $d['nama_kategori']; ?>
-                                            <div class="d-flex align-items-center card-action-wrap">
-                                                <div class="inline-block dropdown">
-                                                    <a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-ios-more"></i></a>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <a class="dropdown-item" href="#">Detail</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="text-truncate"><?php echo $d['deskripsi']; ?></p>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="hk-legend-wrap mb-20">
-                                                <div class="hk-legend">
-                                                    <p class="display-7">IDR <?php echo number_format($d['harga_jual']); ?></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-footer">
-                                            <?php if ($d['stok'] <=  '0') { ?>
-                                                (Stok Habis)
-                                            <?php } else { ?>
-                                                (<?php echo $d['stok']; ?> Stok Tersisa)
-                                            <?php } ?>
-
-                                            <?php if ($d['stok'] <=  '0') { ?>
-                                                &nbsp;
-                                            <?php } else { ?>
-                                                <a href="produk/detail.php?barang=<?php echo $d['id_barang']; ?>" class="btn btn-xs btn-success ml-15 w-sm-100p">Detail</a>
-                                            <?php } ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php } ?>
+                <?php if (!empty($_GET['barang'])) {
+                    $cari = trim(strip_tags($_POST['keyword']));
+                    if ($cari == '') {
+                    } else ?>
+                    <!-- Title -->
+                    <div class="hk-pg-header">
+                        <div>
+                            <h2 class="hk-pg-title font-weight-600">Hasil pencarian&nbsp;<span class="text-info">'<?php echo $cari; ?>'</span></h2>
                         </div>
                     </div>
-                </div>
-                <nav class="pagination-wrap mt-50 justify-content-center" aria-label="Pagination Produk">
-                    <ul class="pagination custom-pagination pagination-rounded pagination-simple">
-                        <a class="page-link" <?php if ($halaman > 1) {
-                                                    echo "href='?halaman=$previous'";
-                                                } ?>>Sebelumnya</a>
-                        <?php
-                        for ($x = 1; $x <= $total_halaman; $x++) {
-                        ?>
-                            <li class="page-item"><a class="page-link" onclick="reloadData('<?php echo $x ?>')" href="?halaman=<?php echo $x ?>"><?php echo $x; ?></a></li>
-                        <?php
-                        }
-                        ?>
-                        <a class="page-link" <?php if ($halaman < $total_halaman) {
-                                                    echo "href='?halaman=$next'";
-                                                } ?>>Selanjutnya</a>
-                    </ul>
-                    <script>
-                        $("li.page-item").click(function(e) {
-                            $(this).addClass("active").siblings().removeClass("active")
-                            alert($(this).find("1").text()) // do your ajax.
-                        })
-                    </script>
-                </nav>
+                    <!-- /Title -->
+
+                    <!-- Row -->
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="hk-row">
+                                <?php {
+                                    $sql = "select barang.*, kategori.id_kategori, kategori.nama_kategori
+					from barang inner join kategori on barang.id_kategori = kategori.id_kategori
+					where barang.id_barang like '%$cari%' or barang.nama_barang like '%$cari%' or barang.merk like '%$cari%'";
+                                    $row = $config->prepare($sql);
+                                    $row->execute();
+                                    $hasil1 = $row->fetchAll();
+                                    foreach ($hasil1 as $hasil) { ?>
+                                        <div class="col-lg-4">
+                                            <div class="card">
+                                                <img class="card-img-top" src="assets/img/barang/<?php echo $hasil['img']; ?>" width="200" height="200" style="object-fit:cover;" alt="Foto <?php echo $hasil['nama_barang']; ?>">
+                                                <div class="card-header card-header-action">
+                                                    <h6 class="text-truncate"><?php echo $hasil['nama_barang']; ?></h6>
+                                                    <?php echo $hasil['nama_kategori']; ?>
+                                                    <div class="d-flex align-items-center card-action-wrap">
+                                                        <div class="inline-block dropdown">
+                                                            <a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-ios-more"></i></a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a class="dropdown-item" href="#">Detail</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p class="text-truncate"><?php echo $hasil['deskripsi']; ?></p>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="hk-legend-wrap mb-20">
+                                                        <div class="hk-legend">
+                                                            <p class="display-7">IDR <?php echo number_format($hasil['harga_jual']); ?></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <?php if ($hasil['stok'] <=  '0') { ?>
+                                                        (Stok Habis)
+                                                    <?php } else { ?>
+                                                        (<?php echo $hasil['stok']; ?> Stok Tersisa)
+                                                    <?php } ?>
+
+                                                    <?php if ($hasil['stok'] <=  '0') { ?>
+                                                        &nbsp;
+                                                    <?php } else { ?>
+                                                        <a href="produk/detail.php?barang=<?php echo $hasil['id_barang']; ?>" class="btn btn-xs btn-success ml-15 w-sm-100p">Detail</a>
+                                                    <?php } ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                            <?php }
+                                }
+                            } ?>
+                            </div>
+                        </div>
+                    </div>
             </div>
 
+            <!-- /Row -->
         </div>
         <!-- /Container -->
 
@@ -224,7 +196,6 @@ $jual = $lihat->jual_row();
     <script src="assets/dist/js/lightgallery-all.js"></script>
     <script src="assets/dist/js/home-data.js"></script>
     <script src="assets/dist/js/init.js"></script>
-
 
 </body>
 
