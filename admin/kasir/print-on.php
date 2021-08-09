@@ -72,7 +72,7 @@ $hsl = $lihat->penjualan();
 								</tr>
 							<?php $no++;
 							} ?>
-							<?php $hasil = $lihat->jumlah_off(); ?>
+							<?php $hasil = $lihat->jumlah_on(); ?>
 							<tr class="bg-transparent">
 								<td colspan="5" class="text-right text-light">Total Semua</td>
 								<td class="text-right">Rp.<?php echo number_format($hasil['bayar']); ?></td>

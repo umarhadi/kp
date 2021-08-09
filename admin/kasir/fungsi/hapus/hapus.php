@@ -33,17 +33,30 @@ if (!empty($_SESSION['admin'])) {
 		$row->execute($data);
 		echo '<script>window.location="../../transaksi-offline.php"</script>';
 	}
-	if (!empty($_GET['penjualan'])) {
+	if (!empty($_GET['penjualan-offline'])) {
 
 		/*$sqlI = 'INSERT INTO nota SELECT * FROM penjualan';
 		$rowI = $config->prepare($sqlI);
 		$rowI->execute($dataI);*/
 
-		$sql = 'DELETE FROM penjualan';
+		$sql = 'DELETE FROM penjualan WHERE jenis="Offline"';
 		$row = $config->prepare($sql);
 		$row->execute();
 		echo '<script>window.location="../../transaksi-offline.php"</script>';
 	}
+
+	if (!empty($_GET['penjualan-online'])) {
+
+		/*$sqlI = 'INSERT INTO nota SELECT * FROM penjualan';
+		$rowI = $config->prepare($sqlI);
+		$rowI->execute($dataI);*/
+
+		$sql = 'DELETE FROM penjualan WHERE jenis="Online"';
+		$row = $config->prepare($sql);
+		$row->execute();
+		echo '<script>window.location="../../transaksi-online.php"</script>';
+	}
+
 	if (!empty($_GET['laporan'])) {
 
 		$sql = 'DELETE FROM nota';

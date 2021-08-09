@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 require 'config.php';
 include $view;
 $lihat = new view($config);
@@ -96,6 +97,7 @@ $hasil = $lihat->barang_edit($id);
                                             <div class="card-body">
                                                 <h3 class="card-title text-white font-weight-bold"><?php echo $hasil['nama_barang']; ?></h3>
                                                 <p class="card-text"><b>Kategori:</b> <a href="../produk.php?kategori=<?php echo $hasil['nama_kategori']; ?>"><span class="badge badge-info"><?php echo $hasil['nama_kategori']; ?></span></a></p>
+                                                <p class="card-text"><b>Merk:</b> <a href="../produk.php?kategori=<?php echo $hasil['nama_kategori']; ?>"><span class="badge badge-success"><?php echo $hasil['merk']; ?></span></a></p>
                                                 <span class="card-text text-white h3">IDR <?php echo number_format($hasil['harga_jual']); ?></span>/<?php echo $hasil['satuan_barang']; ?><br>
                                                 <p class="card-text text-white text-truncate"><?php echo $hasil['deskripsi']; ?></p>
                                             </div>

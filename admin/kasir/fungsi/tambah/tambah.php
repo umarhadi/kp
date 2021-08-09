@@ -51,14 +51,16 @@ if(!empty($_SESSION['admin'])){
 			$jumlah = 1;
 			$total = $hsl['harga_jual'];
 			$tgl = date("j F Y, G:i");
+			$jenis = 'Offline';
 
 			$data1[] = $id;
 			$data1[] = $kasir;
 			$data1[] = $jumlah;
 			$data1[] = $total;
 			$data1[] = $tgl;
+			$data1[] = $jenis;
 
-			$sql1 = 'INSERT INTO penjualan (id_barang,id_member,jumlah,total,tanggal_input) VALUES (?,?,?,?,?)';
+			$sql1 = 'INSERT INTO penjualan (id_barang,id_member,jumlah,total,tanggal_input,jenis) VALUES (?,?,?,?,?,?)';
 			$row1 = $config -> prepare($sql1);
 			$row1 -> execute($data1);
 

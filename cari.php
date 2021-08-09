@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 require 'config.php';
 include $view;
 $lihat = new view($config);
@@ -7,6 +8,11 @@ $hasil_barang = $lihat->barang_row();
 $hasil_kategori = $lihat->kategori_row();
 $jual = $lihat->jual_row();
 
+if (!empty($_GET['barang'])) {
+    $cari = trim(strip_tags($_POST['keyword']));
+    if ($cari == '') {
+    } else 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +20,7 @@ $jual = $lihat->jual_row();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Jual <?php echo $hasil_barang[''] ?></title>
+    <title>Jual <?php echo $cari; ?></title>
     <meta name="description" content="Tempat Belanja Aksesoris dan Suku Cadang untuk Komputer dan Laptop No. 1 di Penajam." />
 
     <!-- Favicon -->
@@ -76,10 +82,6 @@ $jual = $lihat->jual_row();
         <div class="hk-pg-wrapper" style="min-height: 447px;">
             <!-- Container -->
             <div class="container mt-xl-50 mt-sm-30 mt-15">
-                <?php if (!empty($_GET['barang'])) {
-                    $cari = trim(strip_tags($_POST['keyword']));
-                    if ($cari == '') {
-                    } else ?>
                     <!-- Title -->
                     <div class="hk-pg-header">
                         <div>

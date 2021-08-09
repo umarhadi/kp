@@ -127,6 +127,9 @@ $bulan_tes = array(
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="col-xl-12">
                     <div class="card">
                         <div class="card-body">
                             <div class="table-striped">
@@ -139,6 +142,7 @@ $bulan_tes = array(
                                             <th style="width:10%;"> Jumlah</th>
                                             <th style="width:10%;"> Modal</th>
                                             <th style="width:10%;"> Total</th>
+                                            <th style="width:10%;"> Jenis</th>
                                             <th> Tanggal Input</th>
                                         </tr>
                                     </thead>
@@ -177,6 +181,7 @@ $bulan_tes = array(
                                                 <td><?php echo $isi['jumlah']; ?> </td>
                                                 <td>Rp.<?php echo number_format($isi['harga_beli'] * $isi['jumlah']); ?>,-</td>
                                                 <td>Rp.<?php echo number_format($isi['total']); ?>,-</td>
+                                                <td><?php echo $isi['jenis']; ?></td>
                                                 <td><?php echo $isi['tanggal_input']; ?></td>
                                             </tr>
                                         <?php $no++;

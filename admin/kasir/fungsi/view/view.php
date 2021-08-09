@@ -246,7 +246,7 @@ class view
 						member.nm_member from penjualan 
 					   left join barang on barang.id_barang=penjualan.id_barang 
 					   left join member on member.id_member=penjualan.id_member
-					   ORDER BY id_penjualan";
+					   WHERE penjualan.jenis = 'Offline' ORDER BY id_penjualan" ;
 		$row = $this->db->prepare($sql);
 		$row->execute();
 		$hasil = $row->fetchAll();
@@ -274,9 +274,18 @@ class view
 		return $hasil;
 	}
 
-	function jumlah()
+	function jumlah_off()
 	{
-		$sql = "SELECT SUM(total) as bayar FROM penjualan";
+		$sql = "SELECT SUM(total) as bayar FROM penjualan WHERE jenis='Offline'";
+		$row = $this->db->prepare($sql);
+		$row->execute();
+		$hasil = $row->fetch();
+		return $hasil;
+	}
+
+	function jumlah_on()
+	{
+		$sql = "SELECT SUM(total) as bayar FROM penjualan WHERE jenis='Online'";
 		$row = $this->db->prepare($sql);
 		$row->execute();
 		$hasil = $row->fetch();

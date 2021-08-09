@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 require 'config.php';
 include $view;
 $lihat = new view($config);
@@ -14,7 +15,7 @@ $jual = $lihat->jual_row();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Jual <?php echo $hasil_barang[''] ?></title>
+    <title>Produk - Mahardika Komputer</title>
     <meta name="description" content="Tempat Belanja Aksesoris dan Suku Cadang untuk Komputer dan Laptop No. 1 di Penajam." />
 
     <!-- Favicon -->
@@ -112,7 +113,7 @@ $jual = $lihat->jual_row();
                                     <div class="card">
                                         <img class="card-img-top" src="assets/img/barang/<?php echo $d['img']; ?>" width="200" height="200" style="object-fit:cover;" alt="Foto <?php echo $hasil['nama_barang']; ?>">
                                         <div class="card-header card-header-action">
-                                            <h6 class="text-truncate"><?php echo $d['nama_barang']; ?></h6>
+                                            <h6 class="text-truncate"><?php echo $d['merk']; ?> <?php echo $d['nama_barang']; ?></h6>
                                             <?php echo $d['nama_kategori']; ?>
                                             <div class="d-flex align-items-center card-action-wrap">
                                                 <div class="inline-block dropdown">

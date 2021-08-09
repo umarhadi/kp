@@ -203,6 +203,32 @@ if (!empty($_SESSION['admin'])) {
 		}
 	}
 
+	if (!empty($_GET['beli'])) {
+		$id = htmlentities($_POST['id']);
+		$id_barang = htmlentities($_POST['id_barang']);
+		$jumlah = htmlentities($_POST['jumlah']);
+
+		$sql_tampil = "select *from barang where barang.id_barang=?";
+		$row_tampil = $config->prepare($sql_tampil);
+		$row_tampil->execute(array($id_barang));
+		$hasil = $row_tampil->fetch();
+
+		if ($hasil['stok'] > $jumlah) {
+			$jual = $hasil['harga_jual'];
+			$total = $jual * $jumlah;
+			$data1[] = $jumlah;
+			$data1[] = $total;
+			$data1[] = $id;
+			$sql1 = 'UPDATE penjualan SET jumlah=?,total=? WHERE id_penjualan=?';
+			$row1 = $config->prepare($sql1);
+			$row1->execute($data1);
+			echo '<script>window.location="../../transaksi-online.php#info"</script>';
+		} else {
+			echo '<script>alert("Keranjang Melebihi Stok Barang Anda !");
+					window.location="../../transaksi-online.php#info"</script>';
+		}
+	}
+
 	if (!empty($_GET['cari_barang'])) {
 		$cari = trim(strip_tags($_POST['keyword']));
 		if ($cari == '') {

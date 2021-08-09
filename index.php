@@ -55,7 +55,7 @@ $jual = $lihat->jual_row();
                                 <a class="nav-link active" data-scroll href="#produk">Produk</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-scroll href="#cara-belanja">Cara Belanja</a>
+                                <a class="nav-link" data-scroll href="#faq">Pertanyaan Umum</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-scroll href="#kontak">Kontak</a>
@@ -94,14 +94,13 @@ $jual = $lihat->jual_row();
                                 foreach ($hasil as $isi) {
                                 ?>
                                     <div class="col-lg-6 col-sm-6">
-                                        <a href="produk.php?kategori=<?php echo $isi['id_kategori']; ?>">
+                                        <!-- <a href="produk.php?kategori=<?php echo $isi['id_kategori']; ?>"> -->
                                             <div class="card text-white bg-gradient-royston">
-                                                <div class="card-header text-primary">#<?php echo $no++; ?></div>
                                                 <div class="card-body">
                                                     <h5 class="card-title text-white display-6"><?php echo $isi['nama_kategori']; ?></h5>
                                                 </div>
                                             </div>
-                                        </a>
+                                        <!-- </a> -->
                                     </div>
                                 <?php } ?>
                             </div>
@@ -126,7 +125,7 @@ $jual = $lihat->jual_row();
                                                 <div class="d-flex">
                                                     <img class="d-86 rounded mb-15 mr-15" style="object-fit:cover;" src="assets/img/barang/<?php echo $isi['img']; ?>" alt="Foto <?php echo $isi['nama_barang']; ?>">
                                                     <div class="w-65">
-                                                        <h6 class="mb-5"><span class="text-primary"><?php echo $isi['merk']; ?></span> - <?php echo $isi['nama_barang']; ?></h6>
+                                                        <h6 class="mb-5"><?php echo $isi['merk']; ?> <?php echo $isi['nama_barang']; ?></h6>
                                                         <span class="text-truncate d-inline-block" style="max-width: 100%;"><?php echo $isi['deskripsi']; ?></span>
                                                     </div>
                                                 </div>
@@ -152,290 +151,20 @@ $jual = $lihat->jual_row();
                             <h2 class="text-center mt-40">Lihat semua <a href="produk.php">Produk</a></h2>
                         </div>
                     </section>
-                    <!-- /Pages Sec -->
-
-                    <!-- Tech Sec -->
-                    <!-- <section class="hk-landing-sec pb-50">
-                        <div class="container">
-                            <div class="row">
-                                <div class="d-flex align-items-center col-lg-5 mb-30">
-                                    <img class="img-fluid" src="assets/img/landing-pg/technologo.png" alt="Mintos" />
-                                </div>
-                                <div class="col-lg-7">
-                                    <h2>Powerful yet easy-to-use framework built with <span class="text-primary">Bootstrap 4.3.1</span></h2>
-                                    <div class="row mt-50">
-                                        <div class="col-sm-6 mb-30">
-                                            <h5 class="mb-20">
-                                                Bootstrap 4.3.1
-                                            </h5>
-                                            <p>Mintos is built with the world's most popular front-end component library with custom css and components.</p>
-                                        </div>
-                                        <div class="col-sm-6 mb-30">
-                                            <h5 class="mb-20">
-                                                Preprocessor - Sass
-                                            </h5>
-                                            <p>Built with Sass following a completely modular approach. Easy to understand, light weight and extendible.</p>
-                                        </div>
-                                        <div class="col-sm-6 mb-30">
-                                            <h5 class="mb-20">
-                                                NPM - Node js
-                                            </h5>
-                                            <p>NPM manages project dependencies by compiling open source libraries of reusable code in seconds.</p>
-                                        </div>
-                                        <div class="col-sm-6 mb-30">
-                                            <h5 class="mb-20">
-                                                Jquery 3.3.1
-                                            </h5>
-                                            <p>Simplified HTML document traversing, event handling, and animating for rapid web development.</p>
-                                        </div>
-                                        <div class="col-sm-6 mb-30">
-                                            <h5 class="mb-20">
-                                                Powerful CLI - Grunt
-                                            </h5>
-                                            <p>A task automation tool. Compile and do changes with the introduced grunt command line interface.</p>
-                                        </div>
-                                        <div class="col-sm-6 mb-30">
-                                            <h5 class="mb-20">
-                                                API Usage
-                                            </h5>
-                                            <p>Google maps are built using updated API. Mintos also supports twitter to show live feeds.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section> -->
-                    <!-- /Tech Sec -->
-
-                    <!-- Apps Sec -->
-                    <!-- <section id="cara-belanja" class="hk-landing-sec bg-gradient-streaks pb-65">
-                        <div class="container">
-                            <h2 class="text-center">Apps are designed considering <span class="text-primary">UX</span> in mind.</h2>
-                            <div class="hk-row mt-50 text-center">
-                                <div class="col-md-6 col-sm-12">
-                                    <a href="chats.html" target="_blank">
-                                        <div class="card shadow-hover">
-                                            <img class="card-img-top" src="assets/img/landing-pg/chatapp.png" alt="Card image cap">
-                                            <div class="card-footer text-dark">
-                                                Chats
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-md-6 col-sm-12">
-                                    <a href="email.html" target="_blank">
-                                        <div class="card shadow-hover">
-                                            <img class="card-img-top" src="assets/img/landing-pg/emailapp.png" alt="Card image cap">
-                                            <div class="card-footer text-dark">
-                                                Email
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-md-6 col-sm-12">
-                                    <a href="calendar.html" target="_blank">
-                                        <div class="card shadow-hover">
-                                            <img class="card-img-top" src="assets/img/landing-pg/calenderapp.png" alt="Card image cap">
-                                            <div class="card-footer text-dark">
-                                                Calendar
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-md-6 col-sm-12">
-                                    <a href="file-manager.html">
-                                        <div class="card shadow-hover">
-                                            <div class="card-img position-relative">
-                                                <img class="card-img-top d-block" src="assets/img/landing-pg/fileuploadapp.png" alt="Card image cap">
-                                            </div>
-                                            <div class="card-footer text-dark">
-                                                File Manager
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </section> -->
-                    <!-- Apps Sec -->
-
-                    <!-- Utilities Sec -->
-                    <!-- <section class="hk-landing-sec pb-35">
-                        <div class="container">
-                            <h2 class="text-center">Smooth<span class="text-primary"> realtime collaboration</span> of UI Components and advanced functionality to your web applications.</h2>
-                            <div class="row mt-50">
-                                <div class="col-lg-3 col-sm-6 mb-45">
-                                    <h5 class="mb-20">
-                                        <span class="d-flex align-items-center">
-                                            <span class="feather-icon text-pink mr-15"><i data-feather="underline"></i></span>
-                                            Utilities
-                                        </span>
-                                    </h5>
-                                    <p>Easy styling with spacing, sizing, backgrounds, shadows and many more utilities.</p>
-                                </div>
-                                <div class="col-lg-3 col-sm-6 mb-45">
-                                    <h5 class="mb-20">
-                                        <span class="d-flex align-items-center">
-                                            <span class="feather-icon text-teal mr-15"><i data-feather="type"></i></span>
-                                            Typography
-                                        </span>
-                                    </h5>
-                                    <p>The Typography, includes global settings, headings, body text, lists, responsive typography and more.</p>
-                                </div>
-                                <div class="col-lg-3 col-sm-6 mb-45">
-                                    <h5 class="mb-20">
-                                        <span class="d-flex align-items-center">
-                                            <span class="feather-icon text-orange mr-15"><i data-feather="command"></i></span>
-                                            Colors
-                                        </span>
-                                    </h5>
-                                    <p>Play around contextual colors, 20+ base colors, 230+ color shades and many gradient color options.</p>
-                                </div>
-                                <div class="col-lg-3 col-sm-6 mb-45">
-                                    <h5 class="mb-20">
-                                        <span class="d-flex align-items-center">
-                                            <span class="feather-icon text-primary mr-15"><i data-feather="info"></i></span>
-                                            Icons
-                                        </span>
-                                    </h5>
-                                    <p>Over 1500 free icons. Each icon pack includes SVG or a webfont to easily add in css and html pages.</p>
-                                </div>
-                                <div class="col-lg-3 col-sm-6 mb-45">
-                                    <h5 class="mb-20">
-                                        <span class="d-flex align-items-center">
-                                            <span class="feather-icon text-green mr-15"><i data-feather="server"></i></span>
-                                            Forms
-                                        </span>
-                                    </h5>
-                                    <p>A variety of form control styles, layouts, custom components, editor, form pickers, sliders and more.</p>
-                                </div>
-                                <div class="col-lg-3 col-sm-6 mb-45">
-                                    <h5 class="mb-20">
-                                        <span class="d-flex align-items-center">
-                                            <span class="feather-icon text-red mr-15"><i data-feather="list"></i></span>
-                                            Tables
-                                        </span>
-                                    </h5>
-                                    <p>Add advance interaction controls like search, pagination & selectors, export using exclusive Data table.</p>
-                                </div>
-                                <div class="col-lg-3 col-sm-6 mb-45">
-                                    <h5 class="mb-20">
-                                        <span class="d-flex align-items-center">
-                                            <span class="feather-icon text-pumpkin mr-15"><i data-feather="pie-chart"></i></span>
-                                            Charts
-                                        </span>
-                                    </h5>
-                                    <p>Interactive charts, complex charts, realtime data charts, pie & donut charts and more.</p>
-                                </div>
-                                <div class="col-lg-3 col-sm-6 mb-45">
-                                    <h5 class="mb-20">
-                                        <span class="d-flex align-items-center">
-                                            <span class="feather-icon text-violet mr-15"><i data-feather="map"></i></span>
-                                            Maps
-                                        </span>
-                                    </h5>
-                                    <p>Vector and google maps integration for location hierarchies, basic map view, and key mapping features.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </section> -->
-                    <!-- /Utilities Sec -->
-
-                    <!-- Features Sec -->
-                    <!-- <section id="features_sec" class="hk-landing-sec bg-grey-light-5 pb-65">
-                        <div class="container text-center">
-                            <h2 class="mb-10"><span class="text-primary">Unlimited</span> features</h2>
-                            <div class="row justify-content-center mt-50">
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature1.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        24x7 Support
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature2.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Online Documentation
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature12.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Google Maps
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature13.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Twitter Feed Jquery
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature14.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Google Web Fonts
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature15.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Lightbox Gallery
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature16.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Tinymce Editor
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature17.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Date Range Picker
-                                    </div>
-                                </div>
-                                <div class="feature-block">
-                                    <div class="card">
-                                        <img class="img-fluid" src="assets/img/landing-pg/feature18.png" alt="Card image cap">
-                                    </div>
-                                    <div class="feature-cap">
-                                        Color Picker
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section> -->
-                    <!-- /Features Sec -->
-
+                    
                     <!-- Faq Sec -->
-                    <!-- <section id="faq_sec" class="hk-landing-sec pb-25">
+                    <section id="faq" class="hk-landing-sec pb-25">
                         <div class="container">
-                            <h2 class="mb-10">FAQ</h2>
+                            <h2 class="mb-10">Pertanyaan Umum</h2>
                             <div class="mt-50">
                                 <div class="row">
                                     <div class="col-sm-6 mb-55">
-                                        <h5 class="mb-15">What's your refund policy?</h5>
-                                        <p>A refund or credit on a purchase is not granted unless one of the promises given by the author in section 21 has been breached, or a refund is required under the <a href="https://themeforest.net/page/customer_refund_policy" target="_blank">Envato Market Refund Rules</a>.</p>
+                                        <h5 class="mb-15">Bagaimana cara beli?</h5>
+                                        <p>Pilih produk yang ingin dibeli pada section <a data-scroll href="#produk"> Produk</a>, lalu klik Detail. Untuk menampilkan semua produk, bisa klik bagian <a href="produk.php">Lihat semua Produk</a>.<br> Anda juga bisa menggunakan fitur Cari pada bagian Bar Navigasi di atas.</p>
                                     </div>
                                     <div class="col-sm-6 mb-55">
                                         <h5 class="mb-15">What does support include?</h5>
-                                        <p>Our support mainly covers pre-sale questions, basic front-end development questions, bug reports and help with included 3rd party assets through our support <a href="https://hencework.ticksy.com" target="_blank">https://hencework.ticksy.com</a></p>
+                                        <p>ssasd</p>
                                     </div>
                                     <div class="col-sm-6 mb-55">
                                         <h5 class="mb-15">What's not covered by support?</h5>
@@ -456,7 +185,7 @@ $jual = $lihat->jual_row();
                                 </div>
                             </div>
                         </div>
-                    </section> -->
+                    </section>
                     <!-- /Faq Sec -->
 
                     <!-- Adv Sec -->
@@ -465,7 +194,22 @@ $jual = $lihat->jual_row();
                             <!-- Row -->
                             <div class="row">
                                 <div class="col-xl-12 pa-0">
-                                    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.698623666607!2d116.6600129142544!3d-1.3574424360895716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df13dfb01c9196b%3A0x23dc59c68d949526!2sMAHARDIKA%20KOMPUTER!5e0!3m2!1sen!2sid!4v1627976369136!5m2!1sen!2sid" height="700" width="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3 class="mb-10 mt-10">Kontak</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <p>
+                                                <i class="zmdi zmdi-pin"></i>
+                                                <span class="text-bold">Jl. Propinsi KM 18, Kel. Petung, Kec. Penajam, Penajam Paser Utara, Kalimantan Timur</span>
+                                                <br>
+                                                <i class="zmdi zmdi-phone"></i>
+                                                <span class="text-bold">+62 812 877123773</span>
+                                                <br>
+                                            </p>
+                                        </div>
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.698623666607!2d116.6600129142544!3d-1.3574424360895716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df13dfb01c9196b%3A0x23dc59c68d949526!2sMAHARDIKA%20KOMPUTER!5e0!3m2!1sen!2sid!4v1627976369136!5m2!1sen!2sid" height="700" width="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                    </div>
                                 </div>
                             </div>
                             <!-- /Row -->
