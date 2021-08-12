@@ -6,7 +6,6 @@ $lihat = new view($config);
 $toko = $lihat->toko();
 $id = $_GET['barang'];
 $hasil = $lihat->barang_edit($id);
-
 ?>
 
 <!DOCTYPE html>
@@ -67,9 +66,7 @@ $hasil = $lihat->barang_edit($id);
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="zmdi zmdi-search"></i></span>
                                 </div>
-
                                 <input class="form-control" type="text" name="cari" id="cari" placeholder="Cari" aria-label="Cari">
-
                             </div>
                         </div>
                     </div>
@@ -110,7 +107,6 @@ $hasil = $lihat->barang_edit($id);
                                                 <button class="btn btn-icon btn-icon-circle btn-purple btn-icon-style-2"><span class="btn-icon-wrap"><i class="zmdi zmdi-instagram"></i></span></button>&nbsp;
                                                 <button class="btn btn-icon btn-icon-circle btn-green btn-icon-style-2"><span class="btn-icon-wrap"><i class="zmdi zmdi-whatsapp"></i></span></button>&nbsp;
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -164,15 +160,6 @@ $hasil = $lihat->barang_edit($id);
                                                             <input type="text" id="total" class="form-control" readonly>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="jumlah">Upload bukti transfer</label>
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text">IDR</span>
-                                                            </div>
-                                                            <input type="text" id="total" class="form-control" readonly>
-                                                        </div>
-                                                    </div>
                                                     <hr>
                                                     <button class="btn btn-primary" type="submit">Beli</button>
                                                 </form>
@@ -186,7 +173,7 @@ $hasil = $lihat->barang_edit($id);
                                         <p class="mb-25">
                                         <ol class="ml-20">
                                             <li>Silahkan klik Beli dan Anda bisa membayar di toko.</li>
-                                            <li>Anda bisa membayar dengan cara Transfer ke Rekening di bawah lalu silahkan mengirim bukti transfer pada form di samping.</li>
+                                            <li>Anda bisa membayar dengan cara Transfer ke Rekening di bawah lalu silahkan mengirim bukti transfer ke WhatsApp kami.</li>
                                         </ol>
                                         </p>
                                         <p class="mb-30">
@@ -195,6 +182,7 @@ $hasil = $lihat->barang_edit($id);
                                             <li>Kode Bank: <strong>046</strong></li>
                                             <li>Nama: <strong>Mahardika Komputer</strong></li>
                                             <li>Nomor Rekening: <strong>1720-3661-299</strong></li>
+                                            <li>Nomor WhatsApp: <strong><a href="https://api.whatsapp.com/send?phone=62881025020312">0881 0250 20312</a></strong></li>
                                             <li>&nbsp;</li>
                                             <li>&nbsp;</li>
                                             <li><strong>Nominal sesuai dengan Total Bayar</strong></li>
@@ -230,21 +218,16 @@ $hasil = $lihat->barang_edit($id);
         </div>
 
         <script src="../assets/vendors/jquery/dist/jquery.min.js"></script>
-
         <!-- Bootstrap Core JavaScript -->
         <script src="../assets/vendors/popper.js/dist/umd/popper.min.js"></script>
         <script src="../assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-
         <!-- Owl JavaScript -->
         <script src="../assets/vendors/owl.carousel/dist/owl.carousel.min.js"></script>
-
         <!-- FeatherIcons JavaScript -->
         <script src="../assets/dist/js/feather.min.js"></script>
-
         <!-- Gallery JavaScript -->
         <script src="../assets/vendors/lightgallery/dist/js/lightgallery-all.min.js"></script>
         <script src="../assets/dist/js/froogaloop2.min.js"></script>
-
         <!-- Init JavaScript -->
         <script src="../assets/dist/js/lightgallery-all.js"></script>
         <script src="../assets/dist/js/home-data.js"></script>
