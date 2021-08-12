@@ -33,9 +33,9 @@ $jual = $lihat->jual_row();
 
 <body data-spy="scroll" data-target=".navbar" data-offset="60">
     <!-- Preloader -->
-    <!-- <div class="preloader-it">
+    <div class="preloader-it">
         <div class="loader-pendulums"></div>
-    </div> -->
+    </div>
     <!-- /Preloader -->
 
     <!-- HK Wrapper -->
@@ -185,7 +185,7 @@ $jual = $lihat->jual_row();
             <footer class="footer">
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
-                        <p>Mahardika Komputer® is another thing from<a href="https://polywork.umarhadi.dev/" class="text-dark" target="_blank">Umar Hadi Siswanto</a></p>
+                        <p>Mahardika Komputer® is another thing from<a href="https://gh.umarhadi.dev/" class="text-dark" target="_blank">Umar Hadi Siswanto</a></p>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <p class="d-inline-block">&copy; 2021 Mahardika Komputer</p>
