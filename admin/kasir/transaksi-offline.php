@@ -11,7 +11,7 @@ if (!empty($_SESSION['admin'])) {
     echo '<script>window.location="login.php";</script>';
 }
 ?>
-<title>Transaksi - CV. Mahardika Komputer</title>
+<title>Transaksi - Mahardika Komputer</title>
 <div class="hk-pg-wrapper">
     <nav class="hk-breadcrumb" aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-light bg-transparent">
@@ -71,7 +71,7 @@ if (!empty($_SESSION['admin'])) {
         </div>
         <div class="hk-pg-header mb-1">
             <h2 class="hk-pg-title font-weight-300 mb-10"><i class="zmdi zmdi-shopping-cart"></i>&nbsp;Transaksi</h2>
-            <a class="btn btn-danger pull-right" href="fungsi/hapus/hapus.php?penjualan=jual"><i class="zmdi zmdi-delete"></i> Reset </a>
+            <a class="btn btn-danger pull-right" href="fungsi/hapus/hapus.php?penjualan-offline=jual"><i class="zmdi zmdi-delete"></i> Reset </a>
         </div>
         <div class="card hk-row">
             <div class="card-body">
@@ -153,11 +153,12 @@ if (!empty($_SESSION['admin'])) {
                                     $total = $_POST['total1'];
                                     $tgl_input = $_POST['tgl_input'];
                                     $periode = $_POST['periode'];
+                                    $jenis = "Offline";
                                     $jumlah_dipilih = count($id_barang);
 
                                     for ($x = 0; $x < $jumlah_dipilih; $x++) {
-                                        $d = array($id_barang[$x], $id_member[$x], $jumlah[$x], $total[$x], $tgl_input[$x], $periode[$x]);
-                                        $sql = "INSERT INTO nota (id_barang,id_member,jumlah,total,tanggal_input,periode) VALUES(?,?,?,?,?,?)";
+                                        $d = array($id_barang[$x], $id_member[$x], $jumlah[$x], $total[$x], $tgl_input[$x], $periode[$x], $jenis);
+                                        $sql = "INSERT INTO nota (id_barang,id_member,jumlah,total,tanggal_input,periode,jenis) VALUES(?,?,?,?,?,?,?)";
                                         $row = $config->prepare($sql);
                                         $row->execute($d);
                                         // ubah stok barang
@@ -184,7 +185,7 @@ if (!empty($_SESSION['admin'])) {
                         <div class="card card-sm">
                             <div class="card-body">
                                 <div class="d-flex align-items-start justify-content-between">
-                                    <?php $hasil = $lihat->jumlah(); ?>
+                                    <?php $hasil = $lihat->jumlah_off(); ?>
                                     <form action="transaksi-offline.php?nota=yes#info" method="POST">
                                         <span class="d-block font-12 font-weight-500 text-dark text-uppercase mb-5">Total Semua</span>
                                         <div class="input-group">

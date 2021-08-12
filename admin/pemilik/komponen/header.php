@@ -13,10 +13,10 @@ $hasil_profil = $lihat->member_edit($id);
 
     <meta content="Umar Hadi Siswanto" name="author" />
 
-    <link href="../../../assets/vendors/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../../assets/vendors/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendors/datatables.net-dt/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/vendors/datatables.net-responsive-dt/css/responsive.dataTables.min.css" rel="stylesheet" type="text/css" />
 
-    <link href="../../../assets/dist/css/style.css" rel="stylesheet" type="text/css">
+    <link href="../../assets/dist/css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -54,7 +54,7 @@ $hasil_profil = $lihat->member_edit($id);
                         <div class="media">
                             <div class="media-img-wrap">
                                 <div class="avatar">
-                                    <img src="../assets/img/user/<?php echo $hasil_profil['gambar']; ?>" alt="user" class="avatar-img rounded-circle">
+                                    <img src="../../assets/img/user/<?php echo $hasil_profil['gambar']; ?>" alt="user" class="avatar-img rounded-circle">
                                 </div>
                             </div>
                             <div class="media-body">
@@ -66,7 +66,7 @@ $hasil_profil = $lihat->member_edit($id);
                         <a class="dropdown-item" href="akun.php"><i class="dropdown-icon zmdi zmdi-account"></i><span>Akun</span></a>
                         <a class="dropdown-item" href="toko.php"><i class="dropdown-icon zmdi zmdi-settings"></i><span>Toko</span></a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="../logout.php"><i class="dropdown-icon zmdi zmdi-power"></i><span>Logout</span></a>
+                        <a class="dropdown-item" href="logout.php"><i class="dropdown-icon zmdi zmdi-power"></i><span>Logout</span></a>
                     </div>
                 </li>
             </ul>

@@ -43,6 +43,7 @@ if (!empty($_SESSION['admin'])) {
 		$satuan = htmlentities($_POST['satuan']);
 		$stok = htmlentities($_POST['stok']);
 		$tgl = htmlentities($_POST['tgl']);
+		$desc =htmlentities($_POST['deskripsi']);
 
 		$data[] = $kategori;
 		$data[] = $nama;
@@ -52,9 +53,10 @@ if (!empty($_SESSION['admin'])) {
 		$data[] = $satuan;
 		$data[] = $stok;
 		$data[] = $tgl;
+		$data[] = $desc;
 		$data[] = $id;
 		$sql = 'UPDATE barang SET id_kategori=?, nama_barang=?, merk=?, 
-				harga_beli=?, harga_jual=?, satuan_barang=?, stok=?, tgl_update=?  WHERE id_barang=?';
+				harga_beli=?, harga_jual=?, satuan_barang=?, stok=?, tgl_update=?, deskripsi=? WHERE id_barang=?';
 		$row = $config->prepare($sql);
 		$row->execute($data);
 		echo '<script>window.location="../../edit-barang.php?barang=' . $id . '&berhasil=edit-data"</script>';
@@ -76,7 +78,7 @@ if (!empty($_SESSION['admin'])) {
 			echo "<font face='Verdana' size='2' ><BR><BR><BR>
 					<a href='../../akun.php'>Back to upform</a><BR>";
 		} else {
-			$target_path = '../../assets/img/user/';
+			$target_path = '../../../../assets/img/user/';
 			$target_path = $target_path . basename($_FILES['foto']['name']);
 			if (file_exists("$target_path")) {
 				echo "<font face='Verdana' size='2' >Ini Terjadi Karena Telah Masuk Nama File Yang Sama,
@@ -88,7 +90,7 @@ if (!empty($_SESSION['admin'])) {
 				//post foto lama
 				$foto2 = $_POST['foto2'];
 				//remove foto di direktori
-				unlink('../../assets/img/user/' . $foto2 . '');
+				unlink('../../../../assets/img/user/' . $foto2 . '');
 				//input foto
 				$id = $_POST['id'];
 				$data[] = $_FILES['foto']['name'];
@@ -97,6 +99,47 @@ if (!empty($_SESSION['admin'])) {
 				$row = $config->prepare($sql);
 				$row->execute($data);
 				echo '<script>window.location="../../akun.php?berhasil=edit-data"</script>';
+			}
+		}
+	}
+
+	if (!empty($_GET['img'])) {
+		$id = htmlentities($_POST['id_barang']);
+		set_time_limit(0);
+		$allowedImageType = array("image/gif",   "image/JPG",   "image/jpeg",   "image/pjpeg",   "image/png",   "image/x-png");
+
+		if ($_FILES['foto']["error"] > 0) {
+			$output['error'] = "Error in File";
+		} elseif (!in_array($_FILES['foto']["type"], $allowedImageType)) {
+			echo "You can only upload JPG, PNG and GIF file";
+			echo "<font face='Verdana' size='2' ><BR><BR><BR>
+					<a href='../../barang.php'>Back to upform</a><BR>";
+		} elseif (round($_FILES['foto']["size"] / 1024) > 4096) {
+			echo "WARNING !!! Besar Gambar Tidak Boleh Lebih Dari 4 MB";
+			echo "<font face='Verdana' size='2' ><BR><BR><BR>
+					<a href='../../barang.php'>Back to upform</a><BR>";
+		} else {
+			$target_path = '../../../../assets/img/barang/';
+			$target_path = $target_path . basename($_FILES['foto']['name']);
+			if (file_exists("$target_path")) {
+				echo "<font face='Verdana' size='2' >Ini Terjadi Karena Telah Masuk Nama File Yang Sama,
+				<br> Silahkan Rename File terlebih dahulu<br>";
+
+				echo "<font face='Verdana' size='2' ><BR><BR><BR>
+					<a href='../../akun.php'>Back to upform</a><BR>";
+			} elseif (move_uploaded_file($_FILES['foto']['tmp_name'], $target_path)) {
+				//post foto lama
+				$foto2 = $_POST['foto2'];
+				//remove foto di direktori
+				unlink('../../../../assets/img/barang/' . $foto2 . '');
+				//input foto
+				$id = $_POST['id'];
+				$data[] = $_FILES['foto']['name'];
+				$data[] = $id;
+				$sql = 'UPDATE barang SET img=?  WHERE barang.id_barang=?';
+				$row = $config->prepare($sql);
+				$row->execute($data);
+				echo '<script>window.location="../../barang.php?berhasil=edit-data"</script>';
 			}
 		}
 	}
@@ -157,6 +200,32 @@ if (!empty($_SESSION['admin'])) {
 		} else {
 			echo '<script>alert("Keranjang Melebihi Stok Barang Anda !");
 					window.location="../../transaksi-offline.php#info"</script>';
+		}
+	}
+
+	if (!empty($_GET['beli'])) {
+		$id = htmlentities($_POST['id']);
+		$id_barang = htmlentities($_POST['id_barang']);
+		$jumlah = htmlentities($_POST['jumlah']);
+
+		$sql_tampil = "select *from barang where barang.id_barang=?";
+		$row_tampil = $config->prepare($sql_tampil);
+		$row_tampil->execute(array($id_barang));
+		$hasil = $row_tampil->fetch();
+
+		if ($hasil['stok'] > $jumlah) {
+			$jual = $hasil['harga_jual'];
+			$total = $jual * $jumlah;
+			$data1[] = $jumlah;
+			$data1[] = $total;
+			$data1[] = $id;
+			$sql1 = 'UPDATE penjualan SET jumlah=?,total=? WHERE id_penjualan=?';
+			$row1 = $config->prepare($sql1);
+			$row1->execute($data1);
+			echo '<script>window.location="../../transaksi-online.php#info"</script>';
+		} else {
+			echo '<script>alert("Keranjang Melebihi Stok Barang Anda !");
+					window.location="../../transaksi-online.php#info"</script>';
 		}
 	}
 

@@ -11,7 +11,7 @@ if (!empty($_SESSION['admin'])) {
     echo '<script>window.location="login.php";</script>';
 }
 ?>
-<title>Edit Data Barang - CV. Mahardika Komputer</title>
+<title>Edit Data Barang - Mahardika Komputer</title>
 <div class="hk-pg-wrapper">
     <nav class="hk-breadcrumb" aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-light bg-transparent">

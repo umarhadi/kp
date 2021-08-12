@@ -27,7 +27,7 @@ $bulan_tes = array(
 );
 
 ?>
-<title>Laporan - CV. Mahardika Komputer</title>
+<title>Laporan - Mahardika Komputer</title>
 <div class="hk-pg-wrapper">
     <nav class="hk-breadcrumb" aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-light bg-transparent">
@@ -93,7 +93,7 @@ $bulan_tes = array(
                                         <button class="btn btn-sm btn-primary">
                                             <i class="zmdi zmdi-search"></i> Cari
                                         </button>
-                                        <a href="index.php?page=laporan" class="btn btn-sm btn-success">
+                                        <a href="laporan.php" class="btn btn-sm btn-success">
                                             <i class="zmdi zmdi-refresh-alt"></i> Refresh</a>
 
                                     </div>
@@ -118,7 +118,7 @@ $bulan_tes = array(
                                         <button class="btn btn-sm btn-primary">
                                             <i class="zmdi zmdi-search"></i> Cari
                                         </button>
-                                        <a href="index.php?page=laporan" class="btn btn-sm btn-success">
+                                        <a href="laporan.php" class="btn btn-sm btn-success">
                                             <i class="zmdi zmdi-refresh-alt"></i> Refresh</a>
 
                                     </div>
@@ -127,74 +127,78 @@ $bulan_tes = array(
                             </div>
                         </div>
                     </div>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="table-striped">
-                                <table class="table pb-30" id="tableDash1">
-                                    <thead>
-                                        <tr>
-                                            <th> No</th>
-                                            <th> ID Nota</th>
-                                            <th> Nama Barang</th>
-                                            <th style="width:10%;"> Jumlah</th>
-                                            <th style="width:10%;"> Modal</th>
-                                            <th style="width:10%;"> Total</th>
-                                            <th> Tanggal Input</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
+                </div>
+            </div>
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-striped">
+                            <table class="table pb-30" id="tableDash1">
+                                <thead>
+                                    <tr>
+                                        <th> No</th>
+                                        <th> ID Nota</th>
+                                        <th> Nama Barang</th>
+                                        <th style="width:10%;"> Jumlah</th>
+                                        <th style="width:10%;"> Modal</th>
+                                        <th style="width:10%;"> Total</th>
+                                        <th style="width:10%;"> Jenis</th>
+                                        <th> Tanggal Input</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $no = 1;
+                                    if (!empty($_GET['cari'])) {
+                                        $periode = $_POST['bln'] . '-' . $_POST['thn'];
                                         $no = 1;
-                                        if (!empty($_GET['cari'])) {
-                                            $periode = $_POST['bln'] . '-' . $_POST['thn'];
-                                            $no = 1;
-                                            $jumlah = 0;
-                                            $bayar = 0;
-                                            $hasil = $lihat->periode_jual($periode);
-                                        } elseif (!empty($_GET['hari'])) {
-                                            $hari = $_POST['hari'];
-                                            $no = 1;
-                                            $jumlah = 0;
-                                            $bayar = 0;
-                                            $hasil = $lihat->hari_jual($hari);
-                                        } else {
-                                            $hasil = $lihat->jual();
-                                        }
-                                        ?>
-                                        <?php
-                                        $bayar = 0;
                                         $jumlah = 0;
-                                        $modal = 0;
-                                        foreach ($hasil as $isi) {
-                                            $bayar += $isi['total'];
-                                            $modal += $isi['harga_beli'] * $isi['jumlah'];
-                                            $jumlah += $isi['jumlah'];
-                                        ?>
-                                            <tr>
-                                                <td><?php echo $no; ?>.</td>
-                                                <td><?php echo $isi['id_nota']; ?></td>
-                                                <td><?php echo $isi['nama_barang']; ?></td>
-                                                <td><?php echo $isi['jumlah']; ?> </td>
-                                                <td>Rp.<?php echo number_format($isi['harga_beli'] * $isi['jumlah']); ?>,-</td>
-                                                <td>Rp.<?php echo number_format($isi['total']); ?>,-</td>
-                                                <td><?php echo $isi['tanggal_input']; ?></td>
-                                            </tr>
-                                        <?php $no++;
-                                        } ?>
-                                    </tbody>
-                                    <tfoot>
+                                        $bayar = 0;
+                                        $hasil = $lihat->periode_jual($periode);
+                                    } elseif (!empty($_GET['hari'])) {
+                                        $hari = $_POST['hari'];
+                                        $no = 1;
+                                        $jumlah = 0;
+                                        $bayar = 0;
+                                        $hasil = $lihat->hari_jual($hari);
+                                    } else {
+                                        $hasil = $lihat->jual();
+                                    }
+                                    ?>
+                                    <?php
+                                    $bayar = 0;
+                                    $jumlah = 0;
+                                    $modal = 0;
+                                    foreach ($hasil as $isi) {
+                                        $bayar += $isi['total'];
+                                        $modal += $isi['harga_beli'] * $isi['jumlah'];
+                                        $jumlah += $isi['jumlah'];
+                                    ?>
                                         <tr>
-                                            <th colspan="2">&nbsp;</td>
-                                            <th colspan="1">Total Terjual</td>
-                                            <th><?php echo $jumlah; ?></td>
-                                            <th>Rp.<?php echo number_format($modal); ?>,-</th>
-                                            <th>Rp.<?php echo number_format($bayar); ?>,-</th>
-                                            <th style="background:#0bb365;color:#fff;" title="Keuntungan">
-                                                Rp.<?php echo number_format($bayar - $modal); ?>,-</th>
+                                            <td><?php echo $no; ?>.</td>
+                                            <td><?php echo $isi['id_nota']; ?></td>
+                                            <td><?php echo $isi['nama_barang']; ?></td>
+                                            <td><?php echo $isi['jumlah']; ?> </td>
+                                            <td>Rp.<?php echo number_format($isi['harga_beli'] * $isi['jumlah']); ?>,-</td>
+                                            <td>Rp.<?php echo number_format($isi['total']); ?>,-</td>
+                                            <td><?php echo $isi['jenis']; ?></td>
+                                            <td><?php echo $isi['tanggal_input']; ?></td>
                                         </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
+                                    <?php $no++;
+                                    } ?>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>&nbsp;</td>
+                                        <th colspan="2">Total Terjual</td>
+                                        <th><?php echo $jumlah; ?></td>
+                                        <th>Rp.<?php echo number_format($modal); ?>,-</th>
+                                        <th>Rp.<?php echo number_format($bayar); ?>,-</th>
+                                        <th style="background:#0bb365;color:#fff;" title="Keuntungan">Keuntungan</th>
+                                        <th style="background:#0bb365;color:#fff;">Rp.<?php echo number_format($bayar - $modal); ?>,-</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -202,6 +206,7 @@ $bulan_tes = array(
         </div>
     </div>
 </div>
+
 
 <script src="../../assets/vendors/jquery/dist/jquery.min.js"></script>
 <script src="../../assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>

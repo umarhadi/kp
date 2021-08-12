@@ -87,7 +87,7 @@ $lihat = new view($config);
 
             </tbody>
         </table>
-        <i>Dicetak pada <?php echo date('d F Y'); ?></i>
+        <i>Dicetak pada <?php echo date("j F Y, G:i"); ?></i>
     </div>
 </body>
 

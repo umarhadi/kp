@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Umar Hadi Siswanto">
 
-	<title>Login Kasir - CV. Mahardika Komputer</title>
+	<title>Login Kasir - Mahardika Komputer</title>
 
 	<link href="../../assets/dist/css/style.css" rel="stylesheet" type="text/css">
 
@@ -22,7 +22,7 @@
 					<div class="col-xl-12 pa-0">
 						<div class="auth-form-wrap pt-xl-0 pt-70">
 							<div class="auth-form w-xl-30 w-lg-55 w-sm-75 w-100">
-								<h1 class="display-5 text-center mb-40">CV. Mahardika Komputer</h1>
+								<h1 class="display-5 text-center mb-40">Mahardika Komputer</h1>
 								<form action="" method="POST">
 									<h5 class="display-8 text-center mb-20">Selamat datang:)</h5>
 									<?php
