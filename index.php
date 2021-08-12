@@ -43,7 +43,7 @@ $jual = $lihat->jual_row();
             <div class="container px-0">
                 <nav class="navbar navbar-expand-xl navbar-light hk-navbar hk-navbar-alt shadow-none">
                     <a class="navbar-toggle-btn nav-link-hover navbar-toggler" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarCollapseAlt" aria-controls="navbarCollapseAlt" aria-expanded="false" aria-label="Toggle navigation"><span class="feather-icon"><i data-feather="menu"></i></span></a>
-                    <a class="navbar-brand" href="dashboard1.html">
+                    <a class="navbar-brand" href="index.php">
                         <h5 class="brand-img d-inline-block align-top"><?php echo $toko['nama_toko'] ?></h5>
                     </a>
                     <div class="collapse navbar-collapse" id="navbarCollapseAlt">
