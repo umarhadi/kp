@@ -66,7 +66,7 @@ $hasil_profil = $lihat->member_edit($id);
                         <a class="dropdown-item" href="akun.php"><i class="dropdown-icon zmdi zmdi-account"></i><span>Akun</span></a>
                         <a class="dropdown-item" href="toko.php"><i class="dropdown-icon zmdi zmdi-settings"></i><span>Toko</span></a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="../logout.php"><i class="dropdown-icon zmdi zmdi-power"></i><span>Logout</span></a>
+                        <a class="dropdown-item" href="logout.php"><i class="dropdown-icon zmdi zmdi-power"></i><span>Logout</span></a>
                     </div>
                 </li>
             </ul>
