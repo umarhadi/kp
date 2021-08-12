@@ -93,7 +93,7 @@ $bulan_tes = array(
                                         <button class="btn btn-sm btn-primary">
                                             <i class="zmdi zmdi-search"></i> Cari
                                         </button>
-                                        <a href="index.php?page=laporan" class="btn btn-sm btn-success">
+                                        <a href="laporan.php" class="btn btn-sm btn-success">
                                             <i class="zmdi zmdi-refresh-alt"></i> Refresh</a>
 
                                         <?php if (!empty($_GET['cari'])) { ?>
@@ -125,7 +125,7 @@ $bulan_tes = array(
                                         <button class="btn btn-sm btn-primary">
                                             <i class="zmdi zmdi-search"></i> Cari
                                         </button>
-                                        <a href="index.php?page=laporan" class="btn btn-sm btn-success">
+                                        <a href="laporan.php" class="btn btn-sm btn-success">
                                             <i class="zmdi zmdi-refresh-alt"></i> Refresh</a>
 
                                         <?php if (!empty($_GET['hari'])) { ?>
