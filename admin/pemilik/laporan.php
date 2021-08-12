@@ -27,7 +27,7 @@ $bulan_tes = array(
 );
 
 ?>
-<title>Laporan - CV. Mahardika Komputer</title>
+<title>Laporan - Mahardika Komputer</title>
 <div class="hk-pg-wrapper">
     <nav class="hk-breadcrumb" aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-light bg-transparent">
@@ -141,6 +141,8 @@ $bulan_tes = array(
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-xl-12">
                     <div class="card">
                         <div class="card-body">
                             <div class="table-striped">
@@ -153,6 +155,7 @@ $bulan_tes = array(
                                             <th style="width:10%;"> Jumlah</th>
                                             <th style="width:10%;"> Modal</th>
                                             <th style="width:10%;"> Total</th>
+                                            <th style="width:10%;"> Jenis</th>
                                             <th> Tanggal Input</th>
                                         </tr>
                                     </thead>
@@ -191,6 +194,7 @@ $bulan_tes = array(
                                                 <td><?php echo $isi['jumlah']; ?> </td>
                                                 <td>Rp.<?php echo number_format($isi['harga_beli'] * $isi['jumlah']); ?>,-</td>
                                                 <td>Rp.<?php echo number_format($isi['total']); ?>,-</td>
+                                                <td><?php echo $isi['jenis']; ?></td>
                                                 <td><?php echo $isi['tanggal_input']; ?></td>
                                             </tr>
                                         <?php $no++;
@@ -198,13 +202,13 @@ $bulan_tes = array(
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th colspan="2">&nbsp;</td>
-                                            <th colspan="1">Total Terjual</td>
+                                            <th>&nbsp;</td>
+                                            <th colspan="2">Total Terjual</td>
                                             <th><?php echo $jumlah; ?></td>
                                             <th>Rp.<?php echo number_format($modal); ?>,-</th>
                                             <th>Rp.<?php echo number_format($bayar); ?>,-</th>
-                                            <th style="background:#0bb365;color:#fff;" title="Keuntungan">
-                                                Rp.<?php echo number_format($bayar - $modal); ?>,-</th>
+                                            <th style="background:#0bb365;color:#fff;" title="Keuntungan">Keuntungan</th>
+                                            <th style="background:#0bb365;color:#fff;">Rp.<?php echo number_format($bayar - $modal); ?>,-</th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -215,33 +219,32 @@ $bulan_tes = array(
             </div>
         </div>
     </div>
-</div>
 
-<script src="../../assets/vendors/jquery/dist/jquery.min.js"></script>
-<script src="../../assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="../../assets/dist/js/dropdown-bootstrap-extended.js"></script>
-<script src="../../assets/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="../../assets/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../../assets/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../../assets/dist/js/dataTables-data.js"></script>
-<script src="../../assets/dist/js/init.js"></script>
+    <script src="../../assets/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="../../assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/dist/js/dropdown-bootstrap-extended.js"></script>
+    <script src="../../assets/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../../assets/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../../assets/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="../../assets/dist/js/dataTables-data.js"></script>
+    <script src="../../assets/dist/js/init.js"></script>
 
-<script>
-    $(document).ready(function() {
-        $('.detail_barang').click(function() {
-            var detail_barang = $(this).attr("id");
-            $.ajax({
-                url: "../fungsi/view/modal-barang.php",
-                method: "post",
-                data: {
-                    detail_barang: detail_barang
-                },
-                success: function(data) {
-                    $('#detail').html(data);
-                    $('#modalDetail').modal("show");
-                }
+    <script>
+        $(document).ready(function() {
+            $('.detail_barang').click(function() {
+                var detail_barang = $(this).attr("id");
+                $.ajax({
+                    url: "../fungsi/view/modal-barang.php",
+                    method: "post",
+                    data: {
+                        detail_barang: detail_barang
+                    },
+                    success: function(data) {
+                        $('#detail').html(data);
+                        $('#modalDetail').modal("show");
+                    }
+                });
             });
         });
-    });
-</script>
-</body>
+    </script>
+    </body>

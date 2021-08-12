@@ -16,7 +16,7 @@ $hasil = $lihat->barang_edit($id);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $hasil['nama_barang']; ?></title>
+    <title>Beli <?php echo $hasil['nama_barang']; ?></title>
     <meta name="description" content="Beli <?php echo $hasil['nama_barang']; ?>." />
 
     <!-- Favicon -->
@@ -25,6 +25,7 @@ $hasil = $lihat->barang_edit($id);
 
     <!-- Lightgallery CSS -->
     <link href="../assets/dist/css/lightgallery.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <!-- Custom CSS -->
     <link href="../assets/dist/css/style.css" rel="stylesheet" type="text/css">
@@ -115,16 +116,26 @@ $hasil = $lihat->barang_edit($id);
                                 </div>
                                 <div class="col-lg-8 col-md-8 col-sm-12 mb-30">
                                     <section class="hk-sec-wrapper">
+                                        <script type="text/javascript">
+                                            $(document).ready(function() {
+                                                $("#jumlah, #harga").keyup(function() {
+                                                    var harga = $("#harga").val();
+                                                    var jumlah = $("#jumlah").val();
+
+                                                    var total = parseInt(harga) * parseInt(jumlah);
+                                                    $("#total").val(total);
+                                                });
+                                            });
+                                        </script>
                                         <h5 class="hk-sec-title">Beli <?php echo $hasil['nama_barang']; ?></h5>
-                                        <p class="mb-25">Setelah mengirimkan data Nama dan Nomor HP, kami akan menghubungi Anda via WhatsApp untuk Konfirmasi</p>
+                                        <p class="mb-25">Data Nama harus sesuai dengan Nama Rekening (jika pembayaran melalui transfer).</p>
                                         <div class="row">
                                             <div class="col-sm">
                                                 <form action="beli.php" method="post">
                                                     <div class="row">
                                                         <div class="col-md-12 form-group">
                                                             <input type="hidden" name="id_barang" value="<?php echo $hasil['id_barang']; ?>" class="form-control">
-                                                            <input type="hidden" name="jumlah" value="1" class="form-control">
-                                                            <input type="hidden" name="total" value="<?php echo $hasil['harga_jual']; ?>" class="form-control">
+                                                            <input type="hidden" id="harga" name="total" value="<?php echo $hasil['harga_jual']; ?>" class="form-control">
                                                             <label for="nama">Nama lengkap</label>
                                                             <input class="form-control" placeholder="Nama Lengkap" name="nama" type="text">
                                                         </div>
@@ -138,9 +149,60 @@ $hasil = $lihat->barang_edit($id);
                                                             <input class="form-control" name="no_hp" placeholder="8xxxxxxxx" type="text">
                                                         </div>
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label for="jumlah">Jumlah</label>
+                                                        <div class="input-group">
+                                                            <input type="text" name="jumlah" id="jumlah" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="jumlah">Total Bayar</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">IDR</span>
+                                                            </div>
+                                                            <input type="text" id="total" class="form-control" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="jumlah">Upload bukti transfer</label>
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text">IDR</span>
+                                                            </div>
+                                                            <input type="text" id="total" class="form-control" readonly>
+                                                        </div>
+                                                    </div>
                                                     <hr>
                                                     <button class="btn btn-primary" type="submit">Beli</button>
                                                 </form>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 mb-30">
+                                    <section class="hk-sec-wrapper">
+                                        <h5 class="hk-sec-title">Cara Pembayaran</h5>
+                                        <p class="mb-25">
+                                        <ol class="ml-20">
+                                            <li>Silahkan klik Beli dan Anda bisa membayar di toko.</li>
+                                            <li>Anda bisa membayar dengan cara Transfer ke Rekening di bawah lalu silahkan mengirim bukti transfer pada form di samping.</li>
+                                        </ol>
+                                        </p>
+                                        <p class="mb-30">
+                                        <ul class="ml-30">
+                                            <li>Nama Bank: <strong>DBS Indonesia</strong></li>
+                                            <li>Kode Bank: <strong>046</strong></li>
+                                            <li>Nama: <strong>Mahardika Komputer</strong></li>
+                                            <li>Nomor Rekening: <strong>1720-3661-299</strong></li>
+                                            <li>&nbsp;</li>
+                                            <li>&nbsp;</li>
+                                            <li><strong>Nominal sesuai dengan Total Bayar</strong></li>
+                                        </ul>
+                                        </p>
+                                        <div class="row">
+                                            <div class="col-sm">
+
                                             </div>
                                         </div>
                                     </section>

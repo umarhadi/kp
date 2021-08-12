@@ -162,7 +162,7 @@ $jual = $lihat->jual_row();
                                         <h5 class="mb-15">Bagaimana cara beli?</h5>
                                         <p>Pilih produk yang ingin dibeli pada section <a data-scroll href="#produk"> Produk</a>, lalu klik Detail. Untuk menampilkan semua produk, bisa klik bagian <a href="produk.php">Lihat semua Produk</a>.<br> Anda juga bisa menggunakan fitur Cari pada bagian Bar Navigasi di atas.</p>
                                     </div>
-                                    <div class="col-sm-6 mb-55">
+                                    <!-- <div class="col-sm-6 mb-55">
                                         <h5 class="mb-15">What does support include?</h5>
                                         <p>ssasd</p>
                                     </div>
@@ -181,7 +181,7 @@ $jual = $lihat->jual_row();
                                     <div class="col-sm-6 mb-55">
                                         <h5 class="mb-15">Will you provide RTL Support?</h5>
                                         <p>Yes. We are currently working on RTL and will be provided in the next update.</p>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>

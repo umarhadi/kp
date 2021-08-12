@@ -11,7 +11,7 @@ if (!empty($_SESSION['admin'])) {
     echo '<script>window.location="login.php";</script>';
 }
 ?>
-<title>Transaksi - CV. Mahardika Komputer</title>
+<title>Transaksi - Mahardika Komputer</title>
 <div class="hk-pg-wrapper">
     <nav class="hk-breadcrumb" aria-label="breadcrumb">
         <ol class="breadcrumb breadcrumb-light bg-transparent">
@@ -96,8 +96,8 @@ if (!empty($_SESSION['admin'])) {
                             <?php foreach ($hasil_penjualan as $isi) {; ?>
                                 <tr>
                                     <td><?php echo $no; ?>.</td>
-                                    <td><?php echo $isi['nama'];?></td>
-                                    <td><?php echo $isi['no_hp'];?></td>
+                                    <td><?php echo $isi['nama']; ?></td>
+                                    <td><a href="https://api.whatsapp.com/send?phone=62<?php echo $isi['no_hp']; ?>&text=Halo%20*<?php echo $isi['nama']; ?>*%2C%20%0A%0ASaya%20Umar%20dari%20Mahardika%20Komputer.%20Ingin%20konfirmasi%20pemesanan%20*<?php echo $isi['jumlah']; ?>%20unit%20<?php echo $isi['nama_barang']; ?>*%20dengan%20total%20harga%20*Rp. <?php echo number_format($isi['total']); ?>*%2C%20Saat%20ini%20barang%20sudah%20siap%20diambil%20di%20toko.%20%0A%0AAlamat%3A%20Jln.%20Provinsi%20KM%2018%20Kel.%20Petung%2C%20Kab.%20Penajam%20Paser%20Utara.%20%0AGoogle%20Maps%3A%20https://goo.gl/maps/cjTEy3sheMBkWVM99 %20%0A%0ATerima%20kasih.%20%0ASalam%2C%20Mahardika%20Komputer" target="_blank"><?php echo $isi['no_hp'];?></a></td>
                                     <td><a class="text-info detail_barang" href="#" data-toggle="modal" data-target="#modalDetail" id="<?php echo $isi['id_barang']; ?>"><?php echo $isi['nama_barang']; ?></a></td>
                                     <td>Rp. <?php echo number_format($isi['harga_jual']); ?></td>
                                     <td style="width: 15%" class="justify">
@@ -108,7 +108,7 @@ if (!empty($_SESSION['admin'])) {
                                     </td>
                                     <td>Rp. <?php echo number_format($isi['total']); ?></td>
                                     <td style="width: 15%"><button type="submit" class="btn btn-success"><i class="material-icons">check</i></button>
-                                        <a href="fungsi/hapus/hapus.php?jual=jual&id=<?php echo $isi['id_penjualan']; ?>&brg=<?php echo $isi['id_barang']; ?>&jml=<?php echo $isi['jumlah']; ?>" class="btn btn-danger"><i class="material-icons">cancel</i>
+                                        <a href="fungsi/hapus/hapus.php?jl=jl&id=<?php echo $isi['id_penjualan']; ?>&brg=<?php echo $isi['id_barang']; ?>&jml=<?php echo $isi['jumlah']; ?>" class="btn btn-danger"><i class="material-icons">cancel</i>
                                         </a>
                                     </td>
                                     </form>
@@ -238,8 +238,6 @@ if (!empty($_SESSION['admin'])) {
             </div>
         </div>
     </div>
-
-
 </div>
 
 

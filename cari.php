@@ -61,7 +61,7 @@ if (!empty($_GET['barang'])) {
                                 <a class="nav-link active" data-scroll href="index.php#produk">Produk</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-scroll href="index.php#cara-belanja">Cara Belanja</a>
+                                <a class="nav-link" data-scroll href="index.php#faq">Cara Belanja</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-scroll href="index.php#kontak">Kontak</a>
@@ -107,7 +107,6 @@ if (!empty($_GET['barang'])) {
                                                 <img class="card-img-top" src="assets/img/barang/<?php echo $hasil['img']; ?>" width="200" height="200" style="object-fit:cover;" alt="Foto <?php echo $hasil['nama_barang']; ?>">
                                                 <div class="card-header card-header-action">
                                                     <h6 class="text-truncate"><?php echo $hasil['nama_barang']; ?></h6>
-                                                    <?php echo $hasil['nama_kategori']; ?>
                                                     <div class="d-flex align-items-center card-action-wrap">
                                                         <div class="inline-block dropdown">
                                                             <a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-ios-more"></i></a>

@@ -22,7 +22,7 @@ if (!empty($_SESSION['admin'])) {
 }
 ?>
 
-<title>Dashboard - CV. Mahardika Komputer</title>
+<title>Dashboard - Mahardika Komputer</title>
 <div class="hk-pg-wrapper">
 	<nav class="hk-breadcrumb" aria-label="breadcrumb">
 		<ol class="breadcrumb breadcrumb-light bg-transparent">

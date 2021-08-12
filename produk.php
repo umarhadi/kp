@@ -56,7 +56,7 @@ $jual = $lihat->jual_row();
                                 <a class="nav-link active" data-scroll href="index.php#produk">Produk</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-scroll href="index.php#cara-belanja">Cara Belanja</a>
+                                <a class="nav-link" data-scroll href="index.php#faq">Pertanyaan Umum</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-scroll href="index.php#kontak">Kontak</a>
@@ -91,7 +91,7 @@ $jual = $lihat->jual_row();
                         <div class="hk-row">
                             <?php
                             include 'komponen/koneksi.php';
-                            $batas = 2;
+                            $batas = 6;
                             $halaman = isset($_GET['halaman']) ? (int)$_GET['halaman'] : 1;
                             $halaman_awal = ($halaman > 1) ? ($halaman * $batas) - $batas : 0;
 
@@ -114,7 +114,6 @@ $jual = $lihat->jual_row();
                                         <img class="card-img-top" src="assets/img/barang/<?php echo $d['img']; ?>" width="200" height="200" style="object-fit:cover;" alt="Foto <?php echo $hasil['nama_barang']; ?>">
                                         <div class="card-header card-header-action">
                                             <h6 class="text-truncate"><?php echo $d['merk']; ?> <?php echo $d['nama_barang']; ?></h6>
-                                            <?php echo $d['nama_kategori']; ?>
                                             <div class="d-flex align-items-center card-action-wrap">
                                                 <div class="inline-block dropdown">
                                                     <a class="dropdown-toggle no-caret" data-toggle="dropdown" href="#" aria-expanded="false" role="button"><i class="ion ion-ios-more"></i></a>

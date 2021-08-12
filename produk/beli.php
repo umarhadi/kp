@@ -3,7 +3,8 @@ include 'config.php';
 
 $id_b = $_POST['id_barang'];
 $jml = $_POST['jumlah'];
-$total = $_POST['total'];
+$hrg = $_POST['total'];
+$total = $jml * $hrg;
 $tgl = date("j F Y, G:i");
 $jenis = 'Online';
 $nama = $_POST['nama'];
@@ -21,6 +22,6 @@ VALUES (?,?,?,?,?,?,?) ';
 $row = $config -> prepare($sql);
 $row -> execute($data);
 echo '<script>
-    window.location = "../../barang.php?berhasil"
+    window.location = "../index.php?berhasil=beli"
 </script>';
 ?>
