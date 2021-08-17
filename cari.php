@@ -61,7 +61,7 @@ if (!empty($_GET['barang'])) {
                                 <a class="nav-link active" data-scroll href="index.php#produk">Produk</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-scroll href="index.php#faq">Cara Belanja</a>
+                                <a class="nav-link" data-scroll href="index.php#faq">Pertanyaan Umum</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-scroll href="index.php#kontak">Kontak</a>

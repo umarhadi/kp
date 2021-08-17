@@ -61,14 +61,14 @@ $hasil = $lihat->barang_edit($id);
                                 <a class="nav-link" data-scroll href="../index.php#kontak">Kontak</a>
                             </li>
                         </ul>
-                        <div class="navbar-search-alt">
+                        <form class="navbar-search-alt" method="post" action="../cari.php?barang=yes">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="zmdi zmdi-search"></i></span>
                                 </div>
-                                <input class="form-control" type="text" name="cari" id="cari" placeholder="Cari" aria-label="Cari">
+                                <input class="form-control" type="text" name="keyword" id="keyword" placeholder="Cari" aria-label="Cari">
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </nav>
             </div>
