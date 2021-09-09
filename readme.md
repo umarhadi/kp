@@ -1,1 +1,2 @@
-### hehehe cuma kerja praktik yang belum selesai-selesai
+### aplikasi kasir dan penjualan
+

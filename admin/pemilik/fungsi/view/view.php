@@ -62,6 +62,17 @@ class view
 		return $hasil;
 	}
 
+	function barang_limit()
+	{
+		$sql = "select barang.*, kategori.id_kategori, kategori.nama_kategori
+						from barang inner join kategori on barang.id_kategori = kategori.id_kategori 
+						ORDER BY id DESC LIMIT 6";
+		$row = $this->db->prepare($sql);
+		$row->execute();
+		$hasil = $row->fetchAll();
+		return $hasil;
+	}
+
 	function barang_terjual($id_brg)
 	{
 		$sql = "select sum(jumlah) from nota where id_barang= ?";

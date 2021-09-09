@@ -50,16 +50,16 @@ $jual = $lihat->jual_row();
                     <div class="collapse navbar-collapse" id="navbarCollapseAlt">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" data-scroll href="index.php#beranda">Beranda</a>
+                                <a class="nav-link active" data-scroll href="index.php#beranda"><i class="zmdi zmdi-home"></i> Beranda</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" data-scroll href="index.php#produk">Produk</a>
+                                <a class="nav-link active" data-scroll href="index.php#produk"><i class="zmdi zmdi-mall"></i> Produk</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-scroll href="index.php#faq">Pertanyaan Umum</a>
+                                <a class="nav-link" data-scroll href="index.php#faq"><i class="zmdi zmdi-help"></i> Pertanyaan Umum</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-scroll href="index.php#kontak">Kontak</a>
+                                <a class="nav-link" data-scroll href="index.php#kontak"><i class="zmdi zmdi-phone-in-talk"></i> Kontak</a>
                             </li>
                         </ul>
                         <form class="navbar-search-alt" method="post" action="cari.php?barang=yes">

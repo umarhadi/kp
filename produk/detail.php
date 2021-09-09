@@ -47,18 +47,18 @@ $hasil = $lihat->barang_edit($id);
                         <h5 class="brand-img d-inline-block align-top"><?php echo $toko['nama_toko'] ?></h5>
                     </a>
                     <div class="collapse navbar-collapse" id="navbarCollapseAlt">
-                        <ul class="navbar-nav">
+                    <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" data-scroll href="../">Beranda</a>
+                                <a class="nav-link active" data-scroll href="../"><i class="zmdi zmdi-home"></i> Beranda</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" data-scroll href="../index.php#produk">Produk</a>
+                                <a class="nav-link active" data-scroll href="../index.php#produk"><i class="zmdi zmdi-mall"></i> Produk</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-scroll href="../index.php#faq">Pertanyaan Umum</a>
+                                <a class="nav-link" data-scroll href="../index.php#faq"><i class="zmdi zmdi-help"></i> Pertanyaan Umum</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-scroll href="../index.php#kontak">Kontak</a>
+                                <a class="nav-link" data-scroll href="../index.php#kontak"><i class="zmdi zmdi-phone-in-talk"></i> Kontak</a>
                             </li>
                         </ul>
                         <form class="navbar-search-alt" method="post" action="../cari.php?barang=yes">
@@ -124,7 +124,7 @@ $hasil = $lihat->barang_edit($id);
                                             });
                                         </script>
                                         <h5 class="hk-sec-title">Beli <?php echo $hasil['nama_barang']; ?></h5>
-                                        <p class="mb-25">Data Nama harus sesuai dengan Nama Rekening (jika pembayaran melalui transfer).</p>
+                                        <p class="mb-25">Data Nama dan Nomor harus sesuai dengan Nama Rekening (jika pembayaran melalui transfer).</p>
                                         <div class="row">
                                             <div class="col-sm">
                                                 <form action="beli.php" method="post">
@@ -137,7 +137,7 @@ $hasil = $lihat->barang_edit($id);
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="nohp">Nomor HP</label>
+                                                        <label for="nohp">Nomor HP (WhatsApp)</label>
                                                         <div class="input-group">
                                                             <div class="input-group-prepend">
                                                                 <span class="input-group-text">+62</span>
@@ -172,7 +172,7 @@ $hasil = $lihat->barang_edit($id);
                                         <h5 class="hk-sec-title">Cara Pembayaran</h5>
                                         <p class="mb-25">
                                         <ol class="ml-20">
-                                            <li>Silahkan klik Beli dan Anda bisa membayar di toko.</li>
+                                            <li>Silahkan klik Beli dan kami akan mengirimkan pesan konfirmasi melalui WhatsApp, dan Anda bisa membayar di toko.</li>
                                             <li>Anda bisa membayar dengan cara Transfer ke Rekening di bawah lalu silahkan mengirim bukti transfer ke WhatsApp kami.</li>
                                         </ol>
                                         </p>

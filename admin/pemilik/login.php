@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="author" content="Umar Hadi Siswanto">
 
-	<title>Login Owner - Mahardika Komputer</title>
+	<title>Login Pemilik - Mahardika Komputer</title>
 
 	<link href="../../assets/dist/css/style.css" rel="stylesheet" type="text/css">
 

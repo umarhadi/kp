@@ -26,7 +26,6 @@ $jual = $lihat->jual_row();
 
     <!-- Custom CSS -->
     <link href="assets/dist/css/style.css" rel="stylesheet" type="text/css">
-    <!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
 
 </head>
 
@@ -49,16 +48,16 @@ $jual = $lihat->jual_row();
                     <div class="collapse navbar-collapse" id="navbarCollapseAlt">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" data-scroll href="#beranda">Beranda</a>
+                                <a class="nav-link active" data-scroll href="#beranda"><i class="zmdi zmdi-home"></i> Beranda</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" data-scroll href="#produk">Produk</a>
+                                <a class="nav-link active" data-scroll href="#produk"><i class="zmdi zmdi-mall"></i> Produk</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-scroll href="#faq">Pertanyaan Umum</a>
+                                <a class="nav-link" data-scroll href="#faq"><i class="zmdi zmdi-help"></i> Pertanyaan Umum</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" data-scroll href="#kontak">Kontak</a>
+                                <a class="nav-link" data-scroll href="#kontak"><i class="zmdi zmdi-phone-in-talk"></i> Kontak</a>
                             </li>
                         </ul>
                         <form class="navbar-search-alt" method="post" action="cari.php?barang=yes">
@@ -95,7 +94,7 @@ $jual = $lihat->jual_row();
                                 ?>
                                     <div class="col-lg-6 col-sm-6">
                                         <!-- <a href="produk.php?kategori=<?php echo $isi['id_kategori']; ?>"> -->
-                                            <div class="card text-white bg-gradient-royston">
+                                            <div class="card text-white bg-gradient-pony">
                                                 <div class="card-body">
                                                     <h5 class="card-title text-white display-6"><?php echo $isi['nama_kategori']; ?></h5>
                                                 </div>
@@ -115,7 +114,7 @@ $jual = $lihat->jual_row();
                             <h2 class="text-center">Produk <span class="text-primary">baru</span></h2>
                             <div class="hk-row mt-50 text-center">
                                 <?php
-                                $hasil = $lihat->barang();
+                                $hasil = $lihat->barang_limit();
                                 $no = 1;
                                 foreach ($hasil as $isi) {
                                 ?>
@@ -162,11 +161,11 @@ $jual = $lihat->jual_row();
                                         <h5 class="mb-15">Bagaimana cara beli?</h5>
                                         <p>Pilih produk yang ingin dibeli pada section <a data-scroll href="#produk"> Produk</a>, lalu klik Detail. Untuk menampilkan semua produk, bisa klik bagian <a href="produk.php">Lihat semua Produk</a>.<br> Anda juga bisa menggunakan fitur Cari pada bagian Bar Navigasi di atas.</p>
                                     </div>
-                                    <!-- <div class="col-sm-6 mb-55">
-                                        <h5 class="mb-15">What does support include?</h5>
-                                        <p>ssasd</p>
-                                    </div>
                                     <div class="col-sm-6 mb-55">
+                                        <h5 class="mb-15">Mengapa saya hanya bisa membeli 1 barang?</h5>
+                                        <p>Fitur "Keranjang" masih dalam proses pengembangan dan memang belum ada. Untuk saat ini jika Anda ingin membeli lebih dari 1 barang, silahkan order lagi.</p>
+                                    </div>
+                                    <!-- <div class="col-sm-6 mb-55">
                                         <h5 class="mb-15">What's not covered by support?</h5>
                                         <p>Individual customization requests are not supported, but we tend to advise and show direction on such requests. Also server side implementation and backend integration issues are not covered since Mintos is an HTML template with front-end support.</p>
                                     </div>

@@ -22,6 +22,6 @@ VALUES (?,?,?,?,?,?,?) ';
 $row = $config -> prepare($sql);
 $row -> execute($data);
 echo '<script>
-    window.location = "../index.php?berhasil=beli"
+    window.location = "berhasil.php?tunggu-konfirmasi=whatsapp"
 </script>';
 ?>

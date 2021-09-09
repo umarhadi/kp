@@ -1,0 +1,1 @@
+### langsung import database, bukan tabel

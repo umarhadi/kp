@@ -67,7 +67,7 @@
 									</div>
 									<button class="btn btn-primary btn-block" type="submit" name="proses">Login <i class="zmdi zmdi-sign-in"></i></button>
 								</form><br>
-								<a href="../pemilik/login.php"><button class="btn btn-warning btn-block">Login Owner <i class="zmdi zmdi-arrow-right"></i></button></a>
+								<a href="../pemilik/login.php"><button class="btn btn-warning btn-block">Login Pemilik <i class="zmdi zmdi-arrow-right"></i></button></a>
 							</div>
 						</div>
 					</div>
