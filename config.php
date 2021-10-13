@@ -3,7 +3,7 @@ date_default_timezone_set("Asia/Jakarta");
 
 	$host 	= 'localhost';
 	$user 	= 'root';
-	$pass 	= '';
+	$pass 	= '1';
 	$dbname = 'db_toko';
 	
 	try{
